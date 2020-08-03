@@ -1,7 +1,4 @@
-
-
 body{
-  font-family: $body-font-family;
   font-style: normal;
   font-weight: normal;
   font-size: 14px !important;
@@ -20,4 +17,7 @@ body{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.v-toolbar__content, .v-toolbar__extension {
+height: 150px !important;
 }

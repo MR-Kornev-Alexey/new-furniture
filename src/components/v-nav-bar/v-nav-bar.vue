@@ -8,29 +8,50 @@
       light
 
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = true" v-if="$vuetify.breakpoint.smOnly"></v-app-bar-nav-icon>
+      <v-row class="d-flex justify-center">
+        <v-col md="1">
+          <img alt="logo" src="../../assets/img/svg/logo.svg">
+        </v-col>
+        <v-col md="10">
+          <div class="d-flex">
+            <div :key="i"
+                             v-for="(item, i) in mainMenu">
+              {{item.name}}
+            </div>
+            <img alt="Search" src="../../assets/img/svg/search.svg" style="height: 17px">
+            <img alt="Search" src="../../assets/img/svg/shopping-bag.svg" style="height: 17px">
+          </div>
+          <div class="d-flex">
+            <div :key="i"
+                             v-for="(item, i) in subMenu">
+              {{item.name}}
+            </div>
+          </div>
 
-      <v-toolbar-title v-for="(item, i) in mainMenu"
-                       :key="i">
-        {{item.name}}
-      </v-toolbar-title>
-      <div >
-        123
+        </v-col>
+      </v-row>
+      <div>
+
+      </div>
+
+      <div>
+
       </div>
     </v-app-bar>
 
     <v-navigation-drawer
-      v-model="drawer"
       absolute
       temporary
+      v-model="drawer"
     >
       <v-list
-        nav
         dense
+        nav
       >
         <v-list-item-group
-          v-model="group"
           active-class="deep-purple--text text--accent-4"
+          v-model="group"
         >
           <v-list-item>
             <v-list-item-icon>
