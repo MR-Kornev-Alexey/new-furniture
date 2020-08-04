@@ -1,6 +1,6 @@
 <template>
   <v-row class="v-cabinet-furniture">
-    <v-col cols="md-5">
+    <v-col md="5">
       <div class="furniture-left d-block justify-center ">
         <div class="furniture-left__header ">
           Корпусная мебель
@@ -48,7 +48,7 @@
         </div>
       </div>
     </v-col>
-    <v-col cols="md-7">
+    <v-col md="7">
       <div class="v-furniture-right">
         <div class="v-furniture-right__tittle">
           <div class="v-furniture-right__tittle_h2">

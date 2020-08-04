@@ -3,6 +3,8 @@
     <v-nav-bar/>
     <v-main-screen/>
     <v-cabinet-furniture/>
+    <v-proposal/>
+    <v-upload />
   </v-container>
 </template>
 
@@ -10,12 +12,16 @@
 import vNavBar from '../components/v-nav-bar/v-nav-bar'
 import vMainScreen from '../components/v-main-screen/v-main-screen'
 import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
+import vUpload from '../components/v-upload/v-upload'
+import vProposal from '../components/v-proposal/v-proposal'
 export default {
   name: 'v-main-page',
   components: {
     vNavBar,
     vMainScreen,
-    vCabinetFurniture
+    vCabinetFurniture,
+    vProposal,
+    vUpload
   },
   data: () => ({
     ecosystem: [
