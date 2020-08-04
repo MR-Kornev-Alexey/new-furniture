@@ -70,8 +70,8 @@ export default {
       }
       span a{
         margin-top: 10px;
-        width: 119.74px;
-        height: 18.69px;
+        width: 119px;
+        height: 19px;
         font-size: 16px;
         line-height: 16px;
         color: #FFFFFF;

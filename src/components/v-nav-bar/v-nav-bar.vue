@@ -168,7 +168,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
   .img-logo{
     padding-right: 30px;
     padding-bottom: 6px;
