@@ -26,9 +26,7 @@ export default {
     .v-main-screen__tittle{
       margin-left: 384px;
       h1{
-        font-family: "MullerW00-Regular", sans-serif;
-        font-style: normal;
-        font-weight: normal;
+        font-family: "MullerW00-Regular", sans-serif ;
         font-size: 30px;
         line-height: 148.5%;
         text-transform: uppercase;
