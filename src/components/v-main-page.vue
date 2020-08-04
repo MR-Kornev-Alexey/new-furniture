@@ -5,6 +5,7 @@
     <v-cabinet-furniture/>
     <v-proposal/>
     <v-upload />
+    <v-design />
   </v-container>
 </template>
 
@@ -14,6 +15,7 @@ import vMainScreen from '../components/v-main-screen/v-main-screen'
 import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
 import vUpload from '../components/v-upload/v-upload'
 import vProposal from '../components/v-proposal/v-proposal'
+import vDesign from '../components/v-design/v-design'
 export default {
   name: 'v-main-page',
   components: {
@@ -21,7 +23,8 @@ export default {
     vMainScreen,
     vCabinetFurniture,
     vProposal,
-    vUpload
+    vUpload,
+    vDesign
   },
   data: () => ({
     ecosystem: [
