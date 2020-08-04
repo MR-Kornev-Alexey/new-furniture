@@ -1,18 +1,21 @@
 <template>
   <v-container class="v-main-page">
     <v-nav-bar/>
-    <v-row class="text-center">
-111
-    </v-row>
+    <v-main-screen/>
+    <v-cabinet-furniture/>
   </v-container>
 </template>
 
 <script>
 import vNavBar from '../components/v-nav-bar/v-nav-bar'
+import vMainScreen from '../components/v-main-screen/v-main-screen'
+import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
 export default {
   name: 'v-main-page',
   components: {
-    vNavBar
+    vNavBar,
+    vMainScreen,
+    vCabinetFurniture
   },
   data: () => ({
     ecosystem: [

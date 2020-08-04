@@ -1,8 +1,7 @@
 <template>
   <v-card
     class="mx-auto overflow-hidden"
-    height="100vh"
-  >
+      >
     <v-app-bar
       color="white"
       light
@@ -10,26 +9,29 @@
     >
       <v-app-bar-nav-icon @click="drawer = true" v-if="$vuetify.breakpoint.smOnly"></v-app-bar-nav-icon>
       <v-row class="d-flex justify-center">
-        <v-col class="d-flex justify-end pr-2" md="3">
+        <v-col class="d-flex justify-end img-logo" md="3">
           <img alt="logo" src="../../assets/img/svg/logo.svg">
         </v-col>
         <v-col class="main-nav" md="9">
-          <div class="d-flex">
+          <div class="d-flex main-nav__top">
             <div :class="[
               { 'margin-left-0': item.left0 },
+              { 'margin-left-62': item.left62 },
               { 'margin-left-50': item.left50 },
-              { 'margin-left-42': item.left42}
+              { 'margin-left-48': item.left48},
+              { 'margin-left-42': item.left42},
+              { 'margin-left-40': item.left40}
             ]"
                  :key="i"
                  v-for="(item, i) in mainMenu">
               {{item.name}}
             </div>
             <div class="nav-icons d-flex">
-              <div>
-                <img alt="Search" src="../../assets/img/svg/search.svg" style="height: 17px">
+              <div class="nav-icons__search">
+                <img alt="Search" src="../../assets/img/svg/search.svg" >
               </div>
               <div class="shopping-bag">
-                <img  alt="bag" src="../../assets/img/svg/shopping-bag.svg" style="height: 17px">
+                <img  alt="bag" src="../../assets/img/svg/shopping-bag.svg" >
                 <div class="shopping-bag__round d-flex justify-center align-content-center">
                   <div class="align-self-center">1</div>
                 </div>
@@ -52,8 +54,8 @@
                 {{item.name}}
               </div>
              </div>
-           <div class="d-block nav-phone justify-end">
-            <div class=" text-right">+7 (495) 792-0668</div>
+           <div class="nav-phone text-center">
+            <div class="nav-phone__num ">+7 (495) 792-0668</div>
              <div class="nav-phone__sub">Современная мебельная фабрика</div>
            </div>
           </div>
@@ -115,27 +117,27 @@ export default {
         dropdown: false
       },
       {
-        left50: true,
+        left48: true,
         name: 'Доставка и оплата',
         dropdown: false
       },
       {
-        left42: true,
+        left40: true,
         name: 'О производстве',
         dropdown: true
       },
       {
-        left42: true,
+        left62: true,
         name: 'Блог',
         dropdown: true
       },
       {
-        left42: true,
+        left40: true,
         name: 'Портфолио',
         dropdown: true
       },
       {
-        left50: true,
+        left48: true,
         name: 'Контакты',
         dropdown: true
       }
@@ -167,14 +169,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+  .img-logo{
+    padding-right: 30px;
+    padding-bottom: 6px;
+  }
   .main-nav {
     padding-left: 36px;
+    .main-nav__top{
+      padding-top: 6px;
+    }
   }
   .sub-nav {
     margin-top: 34px;
-
     .sub-nav__menu{
+      font-family: "MullerW00-Regular", sans-serif;
       margin-top: 10px;
       text-transform: uppercase;
     }
@@ -185,16 +193,27 @@ export default {
   .margin-left-50{
     margin-left: 50px;
   }
+  .margin-left-48{
+    margin-left: 48px;
+  }
   .margin-left-42{
     margin-left: 50px;
+  }
+  .margin-left-40{
+    margin-left: 40px;
   }
   .margin-left-62{
     margin-left: 62px;
   }
   .nav-icons{
-    margin-left: 196px;
+    .nav-icons__search{
+           img{
+        height: 19px;
+      }
+    }
+    margin-left: 193px;
     .shopping-bag{
-      margin-left: 40px;
+      margin-left: 36px;
       position: relative;
       .shopping-bag__round{
          position: absolute;
@@ -212,10 +231,19 @@ export default {
 
   }
   .nav-phone{
-    margin-left: 290px;
+    margin-left: 240px;
+
     .nav-phone__sub{
       font-size: 12px;
       line-height: 14px;
     }
   }
+  .nav-phone__num{
+    font-family: "Akzidenz-Grotesk Pro", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    padding-left: 45px;
+    }
 </style>
