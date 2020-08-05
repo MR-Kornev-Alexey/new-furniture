@@ -16,11 +16,11 @@
       <div class="slide text-center">
         <img alt="furniture" src="../../assets/img/carousel/carousel-0.png">
         <div class="d-flex slide-item__name">
-          <div>Aprilia</div>
-          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+          <div class="slide-item__name__tittle">Aprilia</div>
+          <img alt="heart" src="../../assets/img/svg/heart.svg">
         </div>
         <div class="d-flex slide-item__price">
-          <div><span>90 000 Р</span><br>
+          <div class="slide-item__price__tittle"><span>90 000 Р</span><br>
             от 60 000 Р
           </div>
           <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
@@ -28,35 +28,120 @@
       </div>
       <div class="slide text-center">
         <img alt="furniture" src="../../assets/img/carousel/carousel-1.png">
-        <div class="d-flex">
-          <div>Aprilia</div>
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Andrria miss </div>
           <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
         </div>
-        <div class="d-flex">
-          <div><span>90 000 Р</span><br>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
             от 60 000 Р
           </div>
           <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
         </div>
       </div>
-      <div class="slide">
-        <h3>slide 2</h3>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-2.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Florence ruggine</div>
+          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
+            от 50 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
       </div>
-      <div class="slide">
-        <h3>slide 3</h3>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-3.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Parma idol</div>
+          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
+            от 120 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
       </div>
-      <div class="slide">
-        <h3>slide 4</h3>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-4.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Aprilia</div>
+          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
+            от 60 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
       </div>
-      <div class="slide">
-        <h3>slide 5</h3>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-0.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Aprilia</div>
+          <img alt="heart" src="../../assets/img/svg/heart.svg">
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><span>90 000 Р</span><br>
+            от 60 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
       </div>
-      <div class="slide">
-        <h3>slide 6</h3>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-1.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Andrria miss </div>
+          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
+            от 60 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
       </div>
-
-      <div class="slide">
-        <h3>slide 7</h3>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-2.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Florence ruggine</div>
+          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
+            от 50 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
+      </div>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-3.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Parma idol</div>
+          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
+            от 120 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
+      </div>
+      <div class="slide text-center">
+        <img alt="furniture" src="../../assets/img/carousel/carousel-4.png">
+        <div class="d-flex slide-item__name">
+          <div class="slide-item__name__tittle">Aprilia</div>
+          <div><img alt="heart" src="../../assets/img/svg/heart.svg"></div>
+        </div>
+        <div class="d-flex slide-item__price">
+          <div class="slide-item__price__tittle"><br>
+            от 60 000 Р
+          </div>
+          <div><img alt="material" src="../../assets/img/svg/basket.svg"></div>
+        </div>
       </div>
     </agile>
   </div>
@@ -125,7 +210,7 @@ export default {
             settings: {
               navButtons: true,
               dots: true,
-              infinite: false
+              infinite: true
             }
           }
         ]
@@ -136,18 +221,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
   .v-choice-bayer {
-    margin: 57px auto 0 auto;
+    margin: 57px auto 60px auto;
     width: 1288px;
     height: 510px;
     background-color: aliceblue;
 
     .slide {
       padding-top: 0;
-      background-color: bisque;
-      border: 1px solid red;
       width: 200px;
-      height: 394px;
+      height: 297px;
     }
     .slide-select{
       font-size: 14px;
@@ -179,7 +263,34 @@ export default {
       padding: 0 0 0 84px;
     }
     .slide-item__name, .slide-item__price{
-      padding: 14px 0 0 35px;
+     padding: 14px 0 0 40px;
+    }
+    .slide-item__name{
+      position: relative;
+
+        img{
+          position: absolute;
+          bottom:0;
+          right: 22px;
+        }
+
+    }
+
+    .slide-item__price{
+      position: relative;
+      img{
+        position: absolute;
+        right: 27px;
+        bottom: 0;
+      }
+      .slide-item__price__tittle{
+        span{
+          text-decoration: line-through;
+          color: #CDCDCD;
+        }
+        margin-right: 68px;
+      }
+
     }
   }
 
