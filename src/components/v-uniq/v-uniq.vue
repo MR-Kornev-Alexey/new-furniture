@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       textOut: 'Подробнее',
-      colorBlack: '#454343',
+      colorBlack: true,
       addressOut: '#'
     }
   }

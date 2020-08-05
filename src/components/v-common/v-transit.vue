@@ -1,9 +1,17 @@
 <template>
   <div class="v-transit">
-    <a :href="address">
-      {{text}}
-    </a>
-    <img src="../../assets/img/svg/angle-black.svg" alt="angle">
+    <div v-if="color" class="transit-black">
+      <a :href="address">
+        {{text}}
+      </a>
+      <img src="../../assets/img/svg/angle-black.svg" alt="angle">
+    </div>
+    <div v-if="!color" class="transit-white">
+      <a :href="address">
+        {{text}}
+      </a>
+      <img src="../../assets/img/svg/angle-black.svg" alt="angle">
+    </div>
   </div>
 </template>
 
@@ -16,16 +24,23 @@ export default {
 
 <style lang="scss" scoped>
   .v-transit {
-    a {
+    text-transform: uppercase;
+    .transit-black  a {
+        position: relative;
+        font-size: 14px;
+        line-height: 149%;
+        /* or 21px */
+        color: #000000;
+       }
+    .transit-white a {
       position: relative;
       font-size: 14px;
       line-height: 149%;
       /* or 21px */
-      text-transform: uppercase;
-      color: #000000;
+      color: #ffffff;
     }
-img{
-  margin-left: 2px;
-}
+    img{
+      margin-left: 2px;
+    }
   }
 </style>

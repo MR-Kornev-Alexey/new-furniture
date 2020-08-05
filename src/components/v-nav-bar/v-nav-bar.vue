@@ -168,15 +168,17 @@ export default {
 }
 </script>
 
-<style  lang="scss">
+<style scoped lang="scss">
   .img-logo{
     padding-right: 30px;
     padding-bottom: 6px;
+
   }
   .main-nav {
     padding-left: 36px;
     .main-nav__top{
       padding-top: 6px;
+      font-family: "Exo 2", sans-serif;
     }
   }
   .sub-nav {

@@ -58,7 +58,7 @@ export default {
     return {
       textOut1: 'Подробнее о ткани',
       textOut2: 'Подробнее',
-      colorBlack: '#454343',
+      colorBlack: true,
       addressOut: '#'
     }
   }
