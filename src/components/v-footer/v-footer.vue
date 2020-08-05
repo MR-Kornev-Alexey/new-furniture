@@ -1,6 +1,6 @@
 <template>
   <footer class="v-footer">
-    <v-row>
+    <v-row class="row-footer">
       <v-col class="d-flex justify-end img-logo" md="3">
         <img alt="logo" src="../../assets/img/svg/logo.svg">
       </v-col>
@@ -36,6 +36,13 @@ export default {
 
 <style lang="scss" scoped>
   .v-footer {
+    margin: 122px auto 0 auto;
+    max-width: 2040px;
+    height: 188px;
+    background: #F3F2F2;
+    .row-footer{
+      max-width: 2040px;
+    }
     .footer-phone__num {
       font-family: "Akzidenz-Grotesk Pro", sans-serif;
       font-size: 20px;
@@ -84,13 +91,6 @@ export default {
         height: 106px;
       }
     }
-
-    margin: 122px auto 0 auto;
-    width: 2040px;
-    height: 188px;
-    background: #F3F2F2;
-    font-family: "MullerW00-Regular", sans-serif;
-    font-weight: 400;
 
     a {
       font-size: 13px;

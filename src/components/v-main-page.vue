@@ -7,8 +7,10 @@
     <v-upload />
     <v-design />
     <v-choice-bayer/>
+    <v-uniq/>
+    <v-material/>
     <v-footer/>
-  </v-container>
+    </v-container>
 </template>
 
 <script>
@@ -19,6 +21,8 @@ import vUpload from '../components/v-upload/v-upload'
 import vProposal from '../components/v-proposal/v-proposal'
 import vDesign from '../components/v-design/v-design'
 import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
+import vUniq from '../components/v-uniq/v-uniq'
+import vMaterial from '../components/v-material/v-material'
 import vFooter from '../components/v-footer/v-footer'
 export default {
   name: 'v-main-page',
@@ -30,6 +34,8 @@ export default {
     vUpload,
     vDesign,
     vChoiceBayer,
+    vUniq,
+    vMaterial,
     vFooter
   },
   data: () => ({

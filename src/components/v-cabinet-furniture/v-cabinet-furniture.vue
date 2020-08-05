@@ -55,8 +55,12 @@
             <h2>Диваны</h2>
           </div>
 
-          <span><a href="#">Подробнее</a></span>
-          <img src="../../assets/img/svg/angle-black.svg" alt="angle">
+      <v-transit  :text = 'textOut2'
+                            :address = 'addressOut'
+                            :color= 'colorBlack'
+                            class="corp-transit"
+               />
+
         </div>
         <div class="v-furniture-right__bottom">
           <img src="../../assets/img/svg/around-arrow.svg" alt="around-arrow">
@@ -69,8 +73,21 @@
 </template>
 
 <script>
+import vTransit from '../v-common/v-transit'
+
 export default {
-  name: 'v-cabinet-furniture'
+  name: 'v-cabinet-furniture',
+  components: {
+    vTransit
+  },
+  data () {
+    return {
+      textOut1: 'Отправить каталог',
+      textOut2: 'Подробнее',
+      colorBlack: '#454343',
+      addressOut: '#'
+    }
+  }
 }
 </script>
 
@@ -94,14 +111,8 @@ export default {
         img{
           margin-left: 10px;
         }
-        span a{
-          font-family: "MullerW00-Regular", sans-serif ;
-          font-size: 14px;
-          line-height: 14px;
-          text-transform: uppercase;
-          color: #0D0C0C;
+        .corp-transit {
           margin-left: 48px;
-
         }
         .v-furniture-right__tittle_h2{
           padding-left: 49px;

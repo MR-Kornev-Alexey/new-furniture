@@ -20,8 +20,6 @@ export default {
   .v-choice-bayer{
     margin: 122px auto 0 auto;
     width: 1288px;
-    font-family: "MullerW00-Regular", sans-serif;
-    font-weight: 400;
     h2{
       font-size: 30px;
       line-height: 30px;

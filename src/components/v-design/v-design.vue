@@ -21,8 +21,10 @@
           притягивает различный коммунизм, при этом его стоимость значительно ниже,
           чем в бутылках. Население, несмотря на внешние воздействия, стабильно.
         </h4>
-        <div><a href="#">Отправьте каталог</a>
-          <img src="../../assets/img/svg/angle-black.svg" alt="angle"></div>
+        <v-transit  :text = 'textOut1'
+                    :address = 'addressOut'
+                    :color= 'colorBlack'
+        />
       </div>
 
     </v-col>
@@ -31,8 +33,21 @@
 </template>
 
 <script>
+import vTransit from '../v-common/v-transit'
+
 export default {
-  name: 'v-design'
+  name: 'v-design',
+  components: {
+    vTransit
+  },
+  data () {
+    return {
+      textOut1: 'Отправить каталог',
+      textOut2: 'Подробнее',
+      colorBlack: '#454343',
+      addressOut: '#'
+    }
+  }
 }
 </script>
 
