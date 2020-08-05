@@ -11,6 +11,7 @@
     <v-material/>
     <v-video/>
     <v-uniq-second/>
+    <v-slider-feedback/>
     <v-footer/>
     </v-container>
 </template>
@@ -28,6 +29,7 @@ import vMaterial from '../components/v-material/v-material'
 import vFooter from '../components/v-footer/v-footer'
 import vVideo from '../components/v-video/v-video'
 import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
+import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
 export default {
   name: 'v-main-page',
   components: {
@@ -42,6 +44,7 @@ export default {
     vMaterial,
     vVideo,
     vUniqSecond,
+    vSliderFeedback,
     vFooter
   },
   data: () => ({
