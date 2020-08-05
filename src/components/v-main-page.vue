@@ -9,6 +9,8 @@
     <v-choice-bayer/>
     <v-uniq/>
     <v-material/>
+    <v-video/>
+    <v-uniq-second/>
     <v-footer/>
     </v-container>
 </template>
@@ -24,6 +26,8 @@ import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 import vUniq from '../components/v-uniq/v-uniq'
 import vMaterial from '../components/v-material/v-material'
 import vFooter from '../components/v-footer/v-footer'
+import vVideo from '../components/v-video/v-video'
+import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
 export default {
   name: 'v-main-page',
   components: {
@@ -36,6 +40,8 @@ export default {
     vChoiceBayer,
     vUniq,
     vMaterial,
+    vVideo,
+    vUniqSecond,
     vFooter
   },
   data: () => ({

@@ -226,9 +226,7 @@ export default {
     margin: 57px auto 60px auto;
     width: 1288px;
     height: 510px;
-    background-color: aliceblue;
-
-    .slide {
+      .slide {
       padding-top: 0;
       width: 200px;
       height: 297px;
