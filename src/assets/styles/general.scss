@@ -41,3 +41,19 @@ header{
   left: -49px;
   font-size: 49px;
 }
+.btn-send{
+  position: relative;
+  bottom: 0;
+  left: -34px;
+  width: 177px;
+  height: 45px;
+  background: #D7B256;
+  border-radius: 2px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+input, textarea{
+  background: #FFFFFF;
+  border: 1px solid #797979;
+  box-sizing: border-box;
+}

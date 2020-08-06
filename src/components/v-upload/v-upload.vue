@@ -41,10 +41,6 @@ export default {
     height: 42px;
     left: 868px;
     top: 1518.16px;
-
-    background: #FFFFFF;
-    border: 1px solid #797979;
-    box-sizing: border-box;
   }
   }
   .v-upload {
@@ -56,8 +52,6 @@ export default {
       padding-left: 168px;
 
       h2 {
-        font-family: "MullerW00-Regular", sans-serif;
-        font-weight: normal;
         font-size: 20px;
         line-height: 23px;
         color: #201F25;
@@ -77,7 +71,6 @@ export default {
         box-sizing: border-box;
 
         h3 {
-          font-family: "MullerW00-Regular", sans-serif;
           font-size: 15px;
           line-height: 15px;
           text-transform: uppercase;
@@ -92,16 +85,5 @@ export default {
   }
   .v-upload__btn{
     position: relative;
-  }
-  .btn-send{
-    position: relative;
-    bottom: 0;
-    left: -34px;
-    width: 177px;
-    height: 45px;
-    background: #D7B256;
-    border-radius: 2px;
-    color: #FFFFFF;
-    text-transform: uppercase;
   }
 </style>
