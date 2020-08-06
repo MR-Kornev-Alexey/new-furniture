@@ -44,7 +44,7 @@ export default {
   .v-uniq-third{
     margin: 81px auto 0 auto;
     width: 1144px;
-    padding: 0 0 0 0;
+
     h2{
       margin: 0 0 11px 0 ;
       font-size: 20px;

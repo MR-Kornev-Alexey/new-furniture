@@ -15,12 +15,12 @@
         <div><a href="#">Блог</a></div>
         <div><a href="#">Акция</a></div>
       </v-col>
-      <v-col class="d-block footer__item3" md="1">
+      <v-col class="d-block footer__item3" md="2">
         <div><a href="#">Загрузка проекта</a></div>
         <div><a href="#">Доставка и оплата</a></div>
         <div><a href="#">Контакты</a></div>
       </v-col>
-      <v-col class="d-block" md="3">
+      <v-col class="d-block footer__item4" md="3">
         <div class="footer-phone__num">+7 (495) 792-0668</div>
         <div class="footer-phone__sub">Современная мебельная фабрика</div>
       </v-col>
@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
   .v-footer {
-    margin: 122px auto 0 auto;
+    margin: 102px auto 0 auto;
     max-width: 2040px;
     height: 188px;
     background: #F3F2F2;
@@ -49,19 +49,18 @@ export default {
       line-height: 24px;
       color: #000000;
       letter-spacing: 1px;
-      padding-top: 8px;
-      padding-left: 142px;
+     padding: 0 0 0 0;
     }
     .footer-phone__sub {
       font-size: 14px;
       line-height: 14px;
       text-align: right;
-      width: 331px;
-      margin-top: 8px;
-      padding-left: 154px;
-    }
+      width: 208px;
+      margin: 7px 12px 0 -20px;
+          }
+
     .footer__item1 {
-      padding-left: 160px;
+      padding-left: 196px;
 
       div {
         padding: 6px 0;
@@ -69,7 +68,7 @@ export default {
     }
 
     .footer__item2 {
-      padding-left: 14px;
+      padding-left: 72px;
 
       div {
         padding: 6px 0;
@@ -77,15 +76,17 @@ export default {
     }
 
     .footer__item3 {
-      padding-left: 14px;
+      padding-left: 88px;
 
       div {
         padding: 6px 0;
       }
     }
-
+    .footer__item4{
+      padding: 6px 25px 0 72px;
+    }
     .img-logo {
-      padding-right: 73px;
+      padding: 0 43px 0 0;
 
       img {
         height: 106px;

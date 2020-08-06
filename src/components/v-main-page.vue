@@ -18,6 +18,8 @@
     <v-social/>
     <v-furniture-gallery/>
     <v-uniq-third/>
+    <v-map/>
+    <v-seo/>
     <v-footer/>
     </v-container>
 </template>
@@ -42,6 +44,8 @@ import vTeam from '../components/v-team/v-team'
 import vSocial from '../components/v-social/v-social'
 import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
 import vUniqThird from '../components/v-uniq-third/v-uniq-third'
+import vMap from '../components/v-map/v-map'
+import vSeo from '../components/v-seo/v-seo'
 export default {
   name: 'v-main-page',
   components: {
@@ -63,6 +67,8 @@ export default {
     vSocial,
     vFurnitureGallery,
     vUniqThird,
+    vMap,
+    vSeo,
     vFooter
   },
   data: () => ({

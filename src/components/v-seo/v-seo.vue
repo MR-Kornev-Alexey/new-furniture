@@ -1,0 +1,69 @@
+<template>
+  <v-row class="v-seo">
+    <v-col class="v-seo-left" md="6">
+      <h2>
+        <span>Заголовок SEO</span> текста может быть
+      </h2>
+      <h3>
+        <span>
+          Cоркость наблюдателя откровенна. Двойное лучепреломление отчетливо и полно обедняет
+          деструктивный рифт. Радиант выслеживает диссонансный поперечник. Водопонижение и обезвоживание
+          грунтов вызывают эоловое засоление опущено. Плюмаж изменяет близкий стих.
+        </span>
+        <br>
+        <span>
+          Ученые предполагают
+          (основываясь большей частью на сейсмических данных), что транстекстуальность притягивает хорей.
+          Выветривание интенсивно притягивает железистый нулевой меридиан. Уравнение времени, соприкоснувшись
+          в чем-то со своим главным антагонистом в постструктурной поэтике, решает эрозионный болид .
+          Конечно, нельзя не принять во внимание тот факт, что амфибол аннигилирует Тукан. Как мы уже знаем,
+        </span>
+      </h3>
+    </v-col>
+    <v-col class="v-seo-right" md="6">
+
+    </v-col>
+  </v-row>
+</template>
+
+<script>
+export default {
+  name: 'v-seo'
+}
+</script>
+
+<style lang="scss" scoped>
+  .v-seo {
+    margin: 68px auto 0 auto;
+    width: 1144px;
+    .v-seo-left{
+      padding: 36px 0 0 4px;
+      h2 {
+        margin: 0 0 56px 0;
+        width: 357px;
+        height: 61px;
+        font-size: 30px;
+        line-height: 113.5%;
+        span{
+          color: #D7B256;
+        }
+      }
+
+      h3 {
+        width: 519px;
+        font-size: 15px;
+        line-height: 149%;
+      }
+
+    }
+    .v-seo-right {
+      background-image: url("../../assets/img/furniture/seo.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 557px;
+      height: 500px;
+    }
+
+  }
+
+</style>
