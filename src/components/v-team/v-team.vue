@@ -2,7 +2,7 @@
   <div class="v-team wrapper">
     <div class="v-team__first">
       <h2>Мы создаем <span>уникальную </span>мебель</h2>
-      <div>
+      <div class="v-team__first_description">
         Мы изготавливаем диваны по индивидуальным размерам и в индивидуальных комплектациях,
         для расчета стоимости напишите, пожалуйста, в директ или оставьте заявку в комментариях.
       </div>
@@ -10,6 +10,12 @@
                  :color='colorBlack'
                  :text='textOut'
       />
+      <div class="down-row">
+        Северное полушарие восстанавливает неопровержимый широколиственный лес,
+        при этом к шесту прикрепляют ярко раскрашенных бумажных или матерчатых карпов,
+        по одному на каждого мальчика в семье.
+        <img src="../../assets/img/svg/arrow-down.svg" alt="arrow">
+      </div>
     </div>
     <div class="v-team__second">
       <div>
@@ -87,9 +93,22 @@ export default {
       span {
         color: #D7B256;
       }
-    }
 
-    div {
+    }
+    .down-row{
+      margin: 65px 0 0 42px;
+      position: relative;
+      width: 246.99px;
+      height: 92.01px;
+      font-size: 13px;
+      line-height: 149%;
+      img{
+        position: absolute;
+        right: -56px;
+        top: 62px;
+      }
+    }
+    .v-team__first_description {
       margin: 0 0 62px 0;
       font-size: 15px;
       line-height: 149%;

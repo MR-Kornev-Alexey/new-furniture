@@ -10,7 +10,7 @@
       <a :href="address">
         {{text}}
       </a>
-      <img src="../../assets/img/svg/angle-black.svg" alt="angle">
+      <img src="../../assets/img/svg/angle-right.svg" alt="angle">
     </div>
   </div>
 </template>

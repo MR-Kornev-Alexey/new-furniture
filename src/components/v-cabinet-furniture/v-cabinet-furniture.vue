@@ -100,7 +100,6 @@ export default {
         position: absolute;
         width: 215.17px;
         height: 92.01px;
-        font-family: "MullerW00-Regular", sans-serif ;
         font-size: 12px;
         line-height: 149%;
         color: #090909;
