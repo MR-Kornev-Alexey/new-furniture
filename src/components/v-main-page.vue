@@ -14,6 +14,7 @@
     <v-slider-feedback/>
     <v-feedback-form/>
     <v-recommendation/>
+    <v-team/>
     <v-footer/>
     </v-container>
 </template>
@@ -34,6 +35,7 @@ import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
 import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
 import vFeedbackForm from '../components/v-feedback-form/v-feedback-form'
 import vRecommendation from '../components/v-recommendation/v-recommendation'
+import vTeam from '../components/v-team/v-team'
 export default {
   name: 'v-main-page',
   components: {
@@ -51,59 +53,11 @@ export default {
     vSliderFeedback,
     vFeedbackForm,
     vRecommendation,
+    vTeam,
     vFooter
   },
   data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader'
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify'
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify'
-      }
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com'
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com'
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify'
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs'
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify'
-      }
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer'
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/getting-started/pre-made-layouts'
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
-      }
-    ]
+
   })
 }
 </script>

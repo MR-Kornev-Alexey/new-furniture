@@ -133,8 +133,9 @@ export default {
 
   .right-side {
     padding: 41px 0 0 61px;
+    margin: 0 11px -6px 16px;
     grid-area: rs;
-
+    background: #F3F2F2;
     .v-recommendation__transit {
       margin-top: 38px;
     }

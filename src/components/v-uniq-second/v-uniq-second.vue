@@ -124,7 +124,7 @@ export default {
       }
     }
     grid-area: hd;
-    background-image: url("../../assets/img/uniq-second/uniq-second-header.png"),linear-gradient(89.5deg, rgba(27, 27, 27, 0.4) 0.19%, rgba(27, 27, 27, 0.4) 137.91%) ;
+    background-image: linear-gradient(89.5deg, rgba(27, 27, 27, 0.4) 0.19%, rgba(27, 27, 27, 0.4) 137.91%),url("../../assets/img/uniq-second/uniq-second-header.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 1140px;
