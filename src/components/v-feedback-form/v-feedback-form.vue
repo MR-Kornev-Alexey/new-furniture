@@ -10,14 +10,14 @@
       </v-col >
       <v-col  md="8" class="right-column">
         <label>
-          <textarea rows="10" cols="45" name="text-area"></textarea>
+          <textarea rows="10" cols="45" name="text-area" placeholder="Текст отзывы"></textarea>
         </label>
         <div class="d-flex justify-space-between right-column__item" >
           <label>
-            <input type="text">
+            <input type="text" placeholder="Ваше имя">
           </label>
           <label>
-            <input type="text">
+            <input type="text" placeholder="+ 7 (XXX) XXX-XX-XX">
           </label>
         </div>
         <div class="d-flex align-content-center right-column__item_second">
@@ -83,10 +83,12 @@ export default {
       line-height: 149%;
     }
     textarea{
+      padding: 10px 0 0 10px;
       width: 648px;
       height: 117px;
     }
     input{
+      padding-left: 10px;
       width: 318px;
       height: 42px;
     }

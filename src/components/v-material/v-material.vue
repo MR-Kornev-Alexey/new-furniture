@@ -124,10 +124,6 @@ export default {
       "sd sd sd sd sd sd sd sd sd  lt lt lt lt lt lt  rt rt rt rt rt rt";
   }
 
-  * {
-    box-sizing: border-box;
-  }
-
   .wrapper {
     max-width: 1172px;
     max-height: 718px;

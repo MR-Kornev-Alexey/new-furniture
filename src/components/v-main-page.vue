@@ -13,6 +13,7 @@
     <v-uniq-second/>
     <v-slider-feedback/>
     <v-feedback-form/>
+    <v-recommendation/>
     <v-footer/>
     </v-container>
 </template>
@@ -32,6 +33,7 @@ import vVideo from '../components/v-video/v-video'
 import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
 import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
 import vFeedbackForm from '../components/v-feedback-form/v-feedback-form'
+import vRecommendation from '../components/v-recommendation/v-recommendation'
 export default {
   name: 'v-main-page',
   components: {
@@ -48,6 +50,7 @@ export default {
     vUniqSecond,
     vSliderFeedback,
     vFeedbackForm,
+    vRecommendation,
     vFooter
   },
   data: () => ({
