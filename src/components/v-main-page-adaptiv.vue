@@ -15,7 +15,7 @@ import vMainScreen from '../components/v-main-screen/v-main-screen'
 import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture-new'
 import vProposal from './v-proposal/v-proposal'
 import vUpload from './v-upload/v-upload-new'
-import vFooter from '../components/v-footer/v-footer'
+import vFooter from '../components/v-footer/v-footer-new'
 export default {
   name: 'v-main-page',
   components: {
