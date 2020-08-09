@@ -10,22 +10,22 @@
         семье.
       </div>
     </div>
-    <div class="first-side-one"><img alt="furniture" src="../../assets/img/furniture/furniture-0.png">
+    <div class="first-side-one"><img class="container--fluid" alt="furniture" src="../../assets/img/furniture/furniture-0.png">
       <div class="arrow">
         <a href="#">кресла <img src="../../assets/img/svg/arrow.svg" alt="Arrow"></a>
       </div>
     </div>
-    <div class="first-side-two"><img alt="furniture" src="../../assets/img/furniture/furniture-1.png">
+    <div class="first-side-two"><img class="container--fluid" alt="furniture" src="../../assets/img/furniture/furniture-1.png">
       <div class="arrow">
-        <a href="#">кровати <img src="../../assets/img/svg/arrow.svg" alt="Arrow"></a>
+        <a href="#">кровати <img  src="../../assets/img/svg/arrow.svg" alt="Arrow"></a>
       </div>
     </div>
-    <div class="second-side-one"><img alt="furniture" src="../../assets/img/furniture/furniture-2.png">
+    <div class="second-side-one"><img class="container--fluid" alt="furniture" src="../../assets/img/furniture/furniture-2.png">
       <div class="arrow">
         <a href="#">тумбы <img src="../../assets/img/svg/arrow.svg" alt="Arrow"></a>
       </div>
     </div>
-    <div class="second-side-two"><img alt="furniture" src="../../assets/img/furniture/furniture-3.png">
+    <div class="second-side-two"><img class="container--fluid" alt="furniture" src="../../assets/img/furniture/furniture-3.png">
       <div class="arrow">
         <a href="#">пуфы <img src="../../assets/img/svg/arrow.svg" alt="Arrow"></a>
       </div>
@@ -120,8 +120,6 @@ export default {
     .left-header__description{
       width: 330.75px;
       height: 42.41px;
-      font-style: normal;
-      font-weight: normal;
       font-size: 14px;
       line-height: 141%;
       /* or 20px */
@@ -201,42 +199,61 @@ export default {
       }
     }
 
-    .furniture-left {
-      margin-left: 388px;
-
-      .furniture-left__tittle {
-        h2 {
-          font-size: 30px;
-          line-height: 113.5%;
-          color: #090909;
-          padding-top: 6px;
-          padding-bottom: 8px;
-        }
-
-        div {
-          font-size: 14px;
-          line-height: 22px;
-          color: #0D0C0C;
-          width: 330px;
-        }
-
-      }
-
-    }
-
   }
 
-  .furniture-block {
-    width: 600px;
-    margin-left: 374px;
-
-    .left-10 {
-      margin-left: 10px;
+  @media only screen and (max-width: 1024px) {
+    .first-side-two, .first-side-one {
+      padding: 30px 0 0 6px;
+     }
+    .second-side-two,.second-side-one  {
+      padding: 22px 0 0 6px;
+     }
     }
-
-    .furniture-block__item {
-      display: inline-block;
-      padding: 13px;
+  @media only screen and (max-width: 768px) {
+    .v-cabinet-furniture {
+      padding-top: 20px;
+    }
+    .right {
+       margin: 24px 0 0 0;
+    }
+    .furniture-wrapper{
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas:
+      "lfh lfh lfh lfh lfh lfh"
+      "fso fso fso fst fst fst"
+      "sso sso sso sst sst sst"
+      "rgt rgt rgt rgt rgt rgt"
+    }
+   .first-side-one ,.second-side-one,.first-side-two,  .second-side-two,.left-header {
+     padding-left: 60px;
+   }
+    .v-cabinet-furniture .v-furniture-right .v-furniture-right__bottom {
+      bottom: 39px;
+      right: 130px;
+    }
+    }
+  @media only screen and (max-width: 600px) {
+       .first-side-one ,.second-side-one,.first-side-two,  .second-side-two,.left-header {
+      padding-left: 38px;
+    }
+  }
+  @media only screen and (max-width: 540px) {
+        .first-side-one ,.second-side-one,.first-side-two,  .second-side-two,.left-header {
+      padding-left: 24px;
+    }
+   }
+  @media only screen and (max-width: 414px) {
+    .left-header .left-header__description[data-v-b537c6a0] {
+      width: 315.75px;
+      height: 42.41px;
+      margin: 0 0 16px 0 ;
+    };
+    .v-cabinet-furniture .v-furniture-right .v-furniture-right__bottom{
+      bottom: 40px;
+      right: 42px;
+    }
+    .first-side-one ,.second-side-one,.first-side-two,  .second-side-two,.left-header {
+      padding-left: 3px;
     }
   }
 

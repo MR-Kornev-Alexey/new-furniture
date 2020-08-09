@@ -132,7 +132,10 @@ export default {
       }
 
     }
-    @media only screen and (max-width: 411px) {
+    @media only screen and (max-width: 414px) {
+           .v-main-screen .v-main-screen__transit {
+        padding: 18px 0 0 0;
+      }
       .v-main-screen__tittle{
         margin-left: 40px!important;
         h1{
@@ -141,6 +144,7 @@ export default {
           max-width: 462px !important;
         }
       }
+
       .screen-pontoon{
         right: 10px;
       }
