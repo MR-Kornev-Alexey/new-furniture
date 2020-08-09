@@ -48,20 +48,20 @@ export default {
     }
     .transit-white a::after {
       content: "";
-      width: 100%;
+      width: 90%;
       height: 11px;
       bottom: -4px;
-      right: 0;
+      left: 0;
       border-bottom: 2px solid #FFFFFF;
       position: absolute;
 
     }
     .transit-black a::after {
       content: "";
-      width: 100%;
+      width: 97%;
       height: 11px;
       bottom: -4px;
-      right: 0;
+      left: 0;
       border-bottom: 2px solid #000000;
       position: absolute;
 
