@@ -1,26 +1,26 @@
 <template>
   <footer class="v-footer">
     <v-row class="row-footer">
-      <v-col class="d-flex justify-end img-logo" md="3">
+      <v-col class="d-flex justify-end img-logo" md="3" sm="3">
         <img alt="logo" src="../../assets/img/svg/logo.svg">
       </v-col>
-      <v-col class="d-block footer__item1" md="2">
+      <v-col class="d-block footer__item1" md="2" sm="3">
         <div class="selected"><a href="#">О производстве</a></div>
         <div><a href="#">Материалы</a></div>
         <div><a href="#">О нас</a></div>
         <div><a href="#">Портфолио</a></div>
       </v-col>
-      <v-col class="d-block footer__item2" md="1">
+      <v-col class="d-block footer__item2" md="1" sm="3" >
         <div><a href="#">Стиль</a></div>
         <div><a href="#">Блог</a></div>
         <div><a href="#">Акция</a></div>
       </v-col>
-      <v-col class="d-block footer__item3" md="2">
+      <v-col class="d-block footer__item3" md="2" sm="6">
         <div><a href="#">Загрузка проекта</a></div>
         <div><a href="#">Доставка и оплата</a></div>
         <div><a href="#">Контакты</a></div>
       </v-col>
-      <v-col class="d-block footer__item4" md="3">
+      <v-col class="d-block footer__item4" md="3" sm="6">
         <div class="footer-phone__num">+7 (495) 792-0668</div>
         <div class="footer-phone__sub">Современная мебельная фабрика</div>
       </v-col>
@@ -107,5 +107,53 @@ export default {
       text-decoration: none;
     }
   }
+  @media only screen and (max-width: 1440px) {
+    .v-footer .footer__item1 {
+      padding-left: 120px;
+    }
+  }
+  @media only screen and (max-width: 1280px) {
+    .v-footer .footer__item1 {
+      padding-left: 57px;
+    }
+    .v-footer .img-logo{
+      padding: 0 74px 0 0;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .v-footer .footer__item3{
+      padding-left: 44px;
+    }
+  .v-footer .footer__item2 {
+     padding-left: 0;
+   }
+    .v-footer .footer__item4 {
+      padding: 6px 0 0 35px;
+    }
+    .v-footer .footer__item1 {
+      padding-left: 0;
+    }
+    .v-footer .img-logo {
+      padding: 0 74px 0 0;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    .v-footer .footer__item3{
+      padding-left: 0;
+    }
+    .v-footer .footer__item2 {
+      padding-left: 0;
+    }
+    .v-footer .footer__item4 {
+      padding: 6px 0 0 0;
+    }
+    .v-footer .footer__item1 {
+      padding-left: 0;
+    }
 
+    .v-footer .img-logo {
+      padding: 0 90px 0 0;
+
+    }
+  }
 </style>
