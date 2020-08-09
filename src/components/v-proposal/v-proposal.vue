@@ -105,6 +105,9 @@ export default {
     }
   @media only screen and (max-width: 411px) {
     .v-proposal {
+      height: 217px;
+    }
+    .v-proposal {
       .span-0,.span-1 ,.span-2,.span-3   {
         padding-left: 90px;
         padding-bottom: 10px;

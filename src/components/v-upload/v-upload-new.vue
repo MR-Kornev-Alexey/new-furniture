@@ -183,4 +183,47 @@ export default {
       margin: 0;
     }
   }
+  @media only screen and (max-width: 540px) {
+    .v-upload .upload-first {
+      padding-left: 0;
+    }
+    .third {
+      padding: 0;
+    }
+    .v-upload__inputs,.upload-first{
+      display: block;
+    }
+    .v-upload-wrapper{
+      height: 380px;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+         "fb "
+         "sb "
+         "tb "
+    }
+    .first{
+      justify-self: center;
+      align-content: center;
+      .first_tittle{
+        align-self: center;
+        width: 220px;
+        margin: 0;
+      }
+    }
+    .second {
+      padding: 11px 0 0 0;
+      justify-self: center;
+      input{
+        margin: 4px ;
+      }
+    }
+    .third {
+      display: grid;
+      justify-self: center;
+    }
+
+    .third .btn-send {
+      margin: 0;
+    }
+  }
 </style>
