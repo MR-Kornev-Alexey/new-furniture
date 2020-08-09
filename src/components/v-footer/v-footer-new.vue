@@ -68,7 +68,7 @@ export default {
 
   .v-footer {
 
-    height: 188px;
+    min-height: 188px;
     background: #F3F2F2;
 
     .row-footer {

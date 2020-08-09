@@ -1,15 +1,15 @@
 <template>
-  <v-row class="v-design d-flex">
-    <v-col md="7">
-      <div class="v-design__left">
+  <v-row class="v-design ">
+    <v-col md="7" sm="12"  class="justify-sm-center">
+      <div class="v-design__left ">
         <h2>Уникальный дизайн мебели </h2>
         <h3>Апартаменты 63 кв. м. на Мичуринском проспекте</h3>
         <span><a href="#">Подробнее</a></span>
         <img alt="angle" src="../../assets/img/svg/angle-right.svg">
       </div>
     </v-col>
-    <v-col md="5">
-      <div class="v-design__right">
+    <v-col md="5" sm="12">
+      <div class="v-design__right justify-sm-center">
         <h2>Детская мебель</h2>
         <h3>
           Теоретический коллапс Советского Союза в XXI веке в три строки
@@ -53,18 +53,17 @@ export default {
 
 <style lang="scss" scoped>
   .v-design {
-    margin: 122px auto 0 auto;
-    width: 1142px;
+    margin: 52px auto 0 auto;
+    max-width: 1142px;
 
     .v-design__left {
       background-image: url("../../assets/img/bg-design.png");
       background-repeat: no-repeat;
       background-size: cover;
-      width: 652px;
-      height: 500px;
+      max-width: 652px;
+      min-height: 500px;
       color: #fff;
-      margin-left: 14px;
-      padding: 26px 53px 40px 54px;
+      padding: 26px 53px 40px 57px;
 
       h2 {
         font-size: 20px;
@@ -97,9 +96,9 @@ export default {
     }
 
     .v-design__right {
-      padding: 65px 86px 40px 69px;
-      width: 488px;
-      height: 500px;
+      padding: 65px 86px 40px 57px;
+      max-width: 488px;
+      min-height: 500px;
       background: #F3F2F2;
 
       h2 {
@@ -137,5 +136,13 @@ export default {
       }
     }
   }
-
+  @media only screen and (max-width: 860px) {
+    .v-design {
+      margin: 7px auto 0 auto;
+      max-width: 1142px;
+    }
+    .v-design .v-design__left, .v-design .v-design__right {
+    margin: auto;
+    }
+  }
 </style>
