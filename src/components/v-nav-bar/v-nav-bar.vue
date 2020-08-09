@@ -1,6 +1,6 @@
 <template>
-  <v-card
-    class="mx-auto overflow-hidden"
+  <div
+    class="overflow-hidden nav-main"
       >
     <v-app-bar
       color="white"
@@ -101,7 +101,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -169,6 +169,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .nav-main{
+    margin: 0 auto 0 auto;
+  }
   .img-logo{
     padding-right: 30px;
     padding-bottom: 6px;

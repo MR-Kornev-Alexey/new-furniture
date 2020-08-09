@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import vMainPage from './components/v-main-page'
+import vMainPage from './components/v-main-page-adaptiv'
 
 export default {
   name: 'App',

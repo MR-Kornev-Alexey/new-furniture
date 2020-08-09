@@ -34,7 +34,6 @@ import vDesign from '../components/v-design/v-design'
 import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 import vUniq from '../components/v-uniq/v-uniq'
 import vMaterial from '../components/v-material/v-material'
-import vFooter from '../components/v-footer/v-footer'
 import vVideo from '../components/v-video/v-video'
 import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
 import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
@@ -46,6 +45,7 @@ import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gal
 import vUniqThird from '../components/v-uniq-third/v-uniq-third'
 import vMap from '../components/v-map/v-map'
 import vSeo from '../components/v-seo/v-seo'
+import vFooter from '../components/v-footer/v-footer'
 export default {
   name: 'v-main-page',
   components: {
