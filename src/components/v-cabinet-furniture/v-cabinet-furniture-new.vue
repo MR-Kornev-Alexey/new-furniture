@@ -133,7 +133,7 @@ export default {
   }
 
   .first-side-two {
-    padding: 30px 0 0 23px;
+    padding: 30px 0 0 16px;
     grid-area: fst;
   }
 
@@ -143,7 +143,7 @@ export default {
   }
 
   .second-side-two {
-    padding: 22px 0 0 23px ;
+    padding: 22px 0 0 16px ;
     grid-area: sst;
   }
 

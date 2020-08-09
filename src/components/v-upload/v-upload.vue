@@ -1,6 +1,6 @@
 <template>
   <v-row class="v-upload d-flex justify-center">
-    <v-col class="align-content-center justify-center upload-first " md="5">
+    <v-col class="align-content-center justify-center upload-first" md="5" sm="11">
       <div>
         <h2>Загрузить проект <span>на просчет</span></h2>
       </div>
@@ -11,18 +11,21 @@
         <img alt="plus" src="../../assets/img/svg/plus.svg">
       </div>
     </v-col>
-    <v-col class=" align-content-center v-upload__inputs" md="4">
-      <label>
-        <input class="pl-5" type="text" placeholder="Ваше имя">
-      </label>
-      <label>
-        <input class="pl-5" type="text" placeholder="+7(ХХХ)ХХХ-ХХ-ХХ">
-      </label>
+    <v-col class="d-flex align-content-center v-upload__inputs" md="7" sm="11">
+      <div class=" v-upload__inputs__place">
+        <label>
+          <input class="pl-5" type="text" placeholder="Ваше имя">
+        </label>
+        <label>
+          <input class="pl-5" type="text" placeholder="+7(ХХХ)ХХХ-ХХ-ХХ">
+        </label>
+      </div>
+      <div class="">
+        <button class="btn-send">Отправить</button>
+      </div>
+
     </v-col>
-    <v-col class=" d-flex v-upload__btn" md="3">
-       <button class="btn-send align-self-end ">Отправить</button>
-    </v-col>
-  </v-row>
+   </v-row>
 </template>
 
 <script>
@@ -32,11 +35,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .v-upload__inputs__place{
+    padding: 11px 0 0 3px;
+   }
+  .btn-send{
+    margin: 0 0 -11px -10px;
+  }
   .v-upload__inputs {
-    padding-left: 15px;
-    margin-top: 17px;
+
   input{
-    margin: 4px 0;
+    margin: 6px 0;
     width: 294px;
     height: 42px;
     left: 868px;
@@ -49,7 +57,7 @@ export default {
     height: 96px;
 
     .upload-first {
-      padding-left: 168px;
+      padding-left: 156px;
 
       h2 {
         font-size: 20px;
