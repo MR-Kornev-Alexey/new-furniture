@@ -27,8 +27,8 @@
 <script>
 import vNavBar from '../components/v-nav-bar/v-nav-bar'
 import vMainScreen from '../components/v-main-screen/v-main-screen'
-import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
-import vUpload from '../components/v-upload/v-upload'
+import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture-new'
+import vUpload from '../components/v-upload/v-upload-new'
 import vProposal from '../components/v-proposal/v-proposal'
 import vDesign from '../components/v-design/v-design'
 import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
@@ -45,7 +45,7 @@ import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gal
 import vUniqThird from '../components/v-uniq-third/v-uniq-third'
 import vMap from '../components/v-map/v-map'
 import vSeo from '../components/v-seo/v-seo'
-import vFooter from '../components/v-footer/v-footer'
+import vFooter from '../components/v-footer/v-footer-new'
 export default {
   name: 'v-main-page',
   components: {
