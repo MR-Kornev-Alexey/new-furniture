@@ -6,12 +6,12 @@
       color="white"
       light
     >
-      <v-app-bar-nav-icon @click="drawer = true" v-if="$vuetify.breakpoint.smOnly"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = true" v-if="$vuetify.breakpoint.smAndDown"></v-app-bar-nav-icon>
       <v-row class="d-flex justify-center">
         <v-col class="d-flex justify-end img-logo" md="2">
           <img alt="logo" src="../../assets/img/svg/logo.svg">
         </v-col>
-        <v-col class="main-nav" md="10">
+        <v-col v-if="!$vuetify.breakpoint.smAndDown" class="main-nav" md="10">
           <div class="d-flex main-nav__top">
             <div :class="[
               { 'main-nav__top_item_long margin-left-0': item.long &&item.left0},
@@ -81,20 +81,21 @@
           active-class="deep-purple--text text--accent-4"
           v-model="group"
         >
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+          <v-list-item :key="i"
+                       v-for="(item, i) in mainMenu">
+            <v-list-item-title>{{item.name}}</v-list-item-title>
           </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
+        </v-list-item-group>
+        <v-list-item-group
+          active-class="deep-purple--text text--accent-4"
+          v-model="group"
+          class="side-sub-menu"
+        >
+          <v-list-item :key="i"
+                       v-for="(item, i) in subMenu"
+                       >
+            <v-list-item-title >{{item.name}}</v-list-item-title>
           </v-list-item>
-
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -172,8 +173,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .side-sub-menu{
+    text-transform: uppercase;
+    background-color: #DADADA;
+  }
   .nav-main {
     margin: 0 auto 0 auto;
+    height: 127px;
   }
 
   .img-logo {
@@ -231,19 +237,13 @@ export default {
     margin-left: 62px;
   }
 
-  .margin-left-24 {
-    margin-left: 24px;
-  }
-
   .nav-icons {
     .nav-icons__search {
       img {
         height: 19px;
       }
     }
-
-    margin-left: 193px;
-
+    margin-left: 127px;
     .shopping-bag {
       margin-left: 36px;
       position: relative;
@@ -371,5 +371,20 @@ export default {
       align-self: end;
     }
   }
-
+  @media only screen and (max-width: 900px) {
+    .img-logo{
+      margin: 0 0 0 -16px;
+    }
+    .v-btn--icon.v-size--default .v-icon {
+      font-size: 32px;
+    }
+     }
+  @media only screen and (max-width: 768px) {
+    .img-logo{
+      margin: 0 0 0 -16px;
+    }
+    .v-btn--icon.v-size--default .v-icon {
+            font-size: 32px;
+         }
+    }
 </style>

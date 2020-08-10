@@ -8,7 +8,7 @@
     <v-design />
     <v-choice-bayer/>
     <v-uniq/>
-<!--    <v-material/>-->
+    <v-material/>
 <!--    <v-video/>-->
 <!--    <v-uniq-second/>-->
 <!--    <v-slider-feedback/>-->
@@ -33,7 +33,7 @@ import vProposal from '../components/v-proposal/v-proposal'
 import vDesign from '../components/v-design/v-design'
 import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 import vUniq from '../components/v-uniq/v-uniq'
-// import vMaterial from '../components/v-material/v-material'
+import vMaterial from '../components/v-material/v-material'
 // import vVideo from '../components/v-video/v-video'
 // import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
 // import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
@@ -57,7 +57,7 @@ export default {
     vDesign,
     vChoiceBayer,
     vUniq,
-    // vMaterial,
+    vMaterial,
     // vVideo,
     // vUniqSecond,
     // vSliderFeedback,
