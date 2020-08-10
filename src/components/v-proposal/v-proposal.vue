@@ -29,7 +29,7 @@ export default {
   .v-proposal{
     margin: 64px auto 0 auto;
     max-width: 1142px;
-    height: 96px;
+    min-height: 96px;
     background: #f8f8f8;
     .span-0{
       padding-left: 100px;

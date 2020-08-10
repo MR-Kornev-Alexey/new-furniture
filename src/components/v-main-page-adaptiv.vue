@@ -6,6 +6,7 @@
     <v-proposal/>
     <v-upload/>
     <v-design/>
+    <v-choice-bayer />
     <v-footer/>
     </v-container>
 </template>
@@ -17,6 +18,7 @@ import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furni
 import vProposal from './v-proposal/v-proposal'
 import vUpload from './v-upload/v-upload-new'
 import vDesign from './v-design/v-design'
+import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 import vFooter from '../components/v-footer/v-footer-new'
 export default {
   name: 'v-main-page',
@@ -27,6 +29,7 @@ export default {
     vProposal,
     vUpload,
     vDesign,
+    vChoiceBayer,
     vFooter
   },
   data: () => ({

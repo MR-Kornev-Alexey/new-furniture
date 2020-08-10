@@ -1,6 +1,6 @@
 <template>
-  <v-row class="v-design ">
-    <v-col md="7" sm="12"  class="justify-sm-center">
+  <v-row class="v-design">
+    <v-col md="7" sm="12" >
       <div class="v-design__left ">
         <h2>Уникальный дизайн мебели </h2>
         <h3>Апартаменты 63 кв. м. на Мичуринском проспекте</h3>
@@ -136,13 +136,15 @@ export default {
       }
     }
   }
-  @media only screen and (max-width: 860px) {
+
+  @media only screen and (max-width: 960px) {
     .v-design {
       margin: 7px auto 0 auto;
       max-width: 1142px;
     }
     .v-design .v-design__left, .v-design .v-design__right {
-    margin: auto;
+    justify-content: center;
+      margin: auto;
     }
   }
 </style>

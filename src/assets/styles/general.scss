@@ -1,16 +1,15 @@
 body{
   font-size: 14px !important;
-  line-height: 17px !important;
   font-style: normal;
   font-weight: normal;
+  line-height: 149%;
 }
 .v-main-page {
   max-width: 1920px;
 }
 .v-application {
   font-family: $body-font-family;
-  line-height: 17px;
-
+  line-height: 149%;
 }
 .v-toolbar__title {
   font-size: 14px !important;
