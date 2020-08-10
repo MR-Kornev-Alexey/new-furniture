@@ -69,4 +69,21 @@ export default {
       }
     }
   }
+
+  @media only screen and (max-width: 1366px) {
+    .main-uniq .v-uniq__text {
+      position: absolute;
+      top: 73px;
+      left: 1054px;
+    }
+
+  }
+  @media only screen and (max-width: 1280px) {
+    .main-uniq .v-uniq__text {
+      position: absolute;
+      top: 73px;
+      left: 58px;
+    }
+
+  }
 </style>

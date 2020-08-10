@@ -1,37 +1,34 @@
 <template>
   <div
     class="overflow-hidden nav-main"
-      >
+  >
     <v-app-bar
       color="white"
       light
-
     >
       <v-app-bar-nav-icon @click="drawer = true" v-if="$vuetify.breakpoint.smOnly"></v-app-bar-nav-icon>
       <v-row class="d-flex justify-center">
-        <v-col class="d-flex justify-end img-logo" md="3">
+        <v-col class="d-flex justify-end img-logo" md="2">
           <img alt="logo" src="../../assets/img/svg/logo.svg">
         </v-col>
-        <v-col class="main-nav" md="9">
+        <v-col class="main-nav" md="10">
           <div class="d-flex main-nav__top">
             <div :class="[
-              { 'margin-left-0': item.left0 },
-              { 'margin-left-62': item.left62 },
-              { 'margin-left-50': item.left50 },
-              { 'margin-left-48': item.left48},
-              { 'margin-left-42': item.left42},
-              { 'margin-left-40': item.left40}
-            ]"
+              { 'main-nav__top_item_long margin-left-0': item.long &&item.left0},
+              { 'main-nav__top_item_long margin-left-48': item.long &&item.left48},
+              { 'main-nav__top_item_long margin-left-40': item.long &&item.left40},
+              { 'main-nav__top_item_short margin-left-40': !item.long &&item.left40},
+                             ]"
                  :key="i"
                  v-for="(item, i) in mainMenu">
               {{item.name}}
             </div>
             <div class="nav-icons d-flex">
               <div class="nav-icons__search">
-                <img alt="Search" src="../../assets/img/svg/search.svg" >
+                <img alt="Search" src="../../assets/img/svg/search.svg">
               </div>
               <div class="shopping-bag">
-                <img  alt="bag" src="../../assets/img/svg/shopping-bag.svg" >
+                <img alt="bag" src="../../assets/img/svg/shopping-bag.svg">
                 <div class="shopping-bag__round d-flex justify-center align-content-center">
                   <div class="align-self-center">1</div>
                 </div>
@@ -43,21 +40,21 @@
 
           <div class="d-flex sub-nav ">
             <div class="d-flex sub-nav__menu">
-              <div :key="i"
-                   v-for="(item, i) in subMenu"
-                   :class="[
+              <div :class="[
               { 'margin-left-0': item.left0 },
               { 'margin-left-50': item.left50 },
               { 'margin-left-62': item.left62}
             ]"
+                   :key="i"
+                   v-for="(item, i) in subMenu"
               >
                 {{item.name}}
               </div>
-             </div>
-           <div class="nav-phone text-center">
-            <div class="nav-phone__num ">+7 (495) 792-0668</div>
-             <div class="nav-phone__sub">Современная мебельная фабрика</div>
-           </div>
+            </div>
+            <div class="nav-phone text-center">
+              <div class="nav-phone__num ">+7 (495) 792-0668</div>
+              <div class="nav-phone__sub">Современная мебельная фабрика</div>
+            </div>
           </div>
 
         </v-col>
@@ -114,32 +111,38 @@ export default {
       {
         left0: true,
         name: 'Загрузка проекта',
-        dropdown: false
+        dropdown: false,
+        long: true
       },
       {
         left48: true,
         name: 'Доставка и оплата',
-        dropdown: false
+        dropdown: false,
+        long: true
       },
       {
         left40: true,
         name: 'О производстве',
-        dropdown: true
+        dropdown: true,
+        long: true
       },
       {
-        left62: true,
+        left40: true,
         name: 'Блог',
-        dropdown: true
+        dropdown: false,
+        long: false
       },
       {
         left40: true,
         name: 'Портфолио',
-        dropdown: true
+        dropdown: false,
+        long: true
       },
       {
-        left48: true,
+        left0: true,
         name: 'Контакты',
-        dropdown: true
+        dropdown: false,
+        long: true
       }
     ],
     subMenu: [
@@ -168,87 +171,205 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-  .nav-main{
+<style lang="scss" scoped>
+  .nav-main {
     margin: 0 auto 0 auto;
   }
-  .img-logo{
-    padding-right: 30px;
-    padding-bottom: 6px;
 
+  .img-logo {
+    padding-bottom: 6px;
+    margin: 0 -254px 0 0;
   }
+
   .main-nav {
-    padding-left: 36px;
-    .main-nav__top{
+    padding-left: 318px;
+
+    .main-nav__top {
       padding-top: 6px;
       font-family: "Exo 2", sans-serif;
+
+      .main-nav__top_item_long {
+        width: 124px;
+      }
+
+      .main-nav__top_item_short {
+        width: 30px;
+      }
     }
   }
+
   .sub-nav {
     margin-top: 34px;
-    .sub-nav__menu{
-      font-family: "MullerW00-Regular", sans-serif;
+
+    .sub-nav__menu {
       margin-top: 10px;
       text-transform: uppercase;
     }
   }
-  .margin-left-0{
+
+  .margin-left-0 {
     margin-left: 0;
   }
-  .margin-left-50{
+
+  .margin-left-50 {
     margin-left: 50px;
   }
-  .margin-left-48{
+
+  .margin-left-48 {
     margin-left: 48px;
   }
-  .margin-left-42{
+
+  .margin-left-42 {
     margin-left: 50px;
   }
-  .margin-left-40{
+
+  .margin-left-40 {
     margin-left: 40px;
   }
-  .margin-left-62{
+
+  .margin-left-62 {
     margin-left: 62px;
   }
-  .nav-icons{
-    .nav-icons__search{
-           img{
+
+  .margin-left-24 {
+    margin-left: 24px;
+  }
+
+  .nav-icons {
+    .nav-icons__search {
+      img {
         height: 19px;
       }
     }
+
     margin-left: 193px;
-    .shopping-bag{
+
+    .shopping-bag {
       margin-left: 36px;
       position: relative;
-      .shopping-bag__round{
-         position: absolute;
+
+      .shopping-bag__round {
+        position: absolute;
         bottom: -4px;
         right: -4px;
-        background-color:  #FDC94C;
+        background-color: #FDC94C;
         width: 13px;
         height: 13px;
         border-radius: 50%;
-        div{
+
+        div {
           font-size: 11px;
-          }
+        }
       }
     }
 
   }
-  .nav-phone{
+
+  .nav-phone {
     margin-left: 240px;
 
-    .nav-phone__sub{
+    .nav-phone__sub {
       font-size: 12px;
       line-height: 14px;
     }
   }
-  .nav-phone__num{
+
+  .nav-phone__num {
     font-family: "Akzidenz-Grotesk Pro", sans-serif;
     font-weight: 500;
     font-size: 15px;
     line-height: 20px;
     letter-spacing: 1px;
     padding-left: 45px;
+  }
+
+  @media only screen and (max-width: 1680px) {
+    .img-logo {
+      margin: 0 -82px 0 0;
     }
+    .main-nav {
+      padding-left: 146px;
+    }
+  }
+
+  @media only screen and (max-width: 1600px) {
+    .img-logo {
+      margin: 0 -38px 0 0;
+    }
+    .main-nav {
+      padding-left: 109px;
+    }
+  }
+
+  @media only screen and (max-width: 1440px) {
+    .img-logo {
+      margin: 0 0 0 -76px;
+    }
+    .main-nav {
+      padding-left: 67px;
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .main-nav {
+      padding-left: 84px;
+    }
+  }
+
+  @media only screen and (max-width: 1366px) {
+    .margin-left-40 {
+      margin-left: 33px;
+    }
+    .nav-icons {
+      margin-left: 154px;
+    }
+    .nav-phone {
+      margin-left: 209px;
+    }
+  }
+
+  @media only screen and (max-width: 1280px) {
+    .nav-phone {
+      margin-left: 160px;
+    }
+    .main-nav {
+      padding-left: 51px;
+    }
+    .margin-left-48 {
+      margin-left: 24px;
+    }
+    .nav-icons .shopping-bag .shopping-bag__round {
+      bottom: -2px;
+      right: -7px;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .main-nav .main-nav__top .main-nav__top_item_short {
+      width: 74px;
+    }
+  .nav-icons {
+      margin: 0 -60px 0 0;
+     }
+    .main-nav .main-nav__top .main-nav__top_item_long {
+      width: 159px;
+    }
+    .margin-left-40,.margin-left-48 {
+      margin: 0 0 0 23px ;
+      padding: 0 0 0 0 ;
+    }
+    .img-logo {
+      margin: 0 0 0 -166px;
+    }
+    .main-nav {
+      padding-left: 26px;
+    }
+    .nav-phone {
+      margin: 0 0 0 29px;
+    }
+    .sub-nav{
+      align-self: end;
+    }
+  }
+
 </style>
