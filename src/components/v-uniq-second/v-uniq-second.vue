@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="second-one second-item-footer">
-        <img src="../../assets/img/uniq-second/uniq-second-0.png" alt="material">
+        <img class="container--fluid"  src="../../assets/img/uniq-second/uniq-second-0.png" alt="material">
         <h2>
           Andrria miss
         </h2>
@@ -27,7 +27,7 @@
         />
       </div>
       <div class="second-two second-item-footer">
-        <img src="../../assets/img/uniq-second/uniq-second-1.png" alt="material">
+        <img class="container--fluid" src="../../assets/img/uniq-second/uniq-second-1.png" alt="material">
         <h2>
           Andrria miss
         </h2>
@@ -40,7 +40,7 @@
         />
       </div>
       <div class="second-three second-item-footer">
-        <img src="../../assets/img/uniq-second/uniq-second-2.png" alt="material">
+        <img class="container--fluid"  src="../../assets/img/uniq-second/uniq-second-2.png" alt="material">
         <h2>
           Andrria miss
         </h2>
@@ -127,7 +127,7 @@ export default {
     background-image: linear-gradient(89.5deg, rgba(27, 27, 27, 0.4) 0.19%, rgba(27, 27, 27, 0.4) 137.91%),url("../../assets/img/uniq-second/uniq-second-header.png");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 1140px;
+    max-width: 1140px;
     height: 476px;
     margin-bottom: 38px;
     position: relative;
@@ -145,20 +145,21 @@ export default {
   }
   .second-one{
     grid-area: so;
+    align-self: center;
+    justify-self: center;
 
   }
   .second-two{
-    img{
-      margin: 0 0 14px 7px;
-    }
+    align-self: center;
+    justify-self: center;
     grid-area: st;
 
   }
   .second-three{
     grid-area: sh;
-      img{
-      margin: 0 0 0 20px;
-    }
+    align-self: center;
+    justify-self: center;
+
   }
   .second-wrapper {
     display: grid;
@@ -168,6 +169,20 @@ export default {
       "hd hd hd hd hd hd hd  hd hd hd hd hd hd hd  hd hd hd hd hd hd hd"
       "so so so so so so so  st st st st st st st  sh sh sh sh sh sh sh"
       "so so so so so so so  st st st st st st st  sh sh sh sh sh sh sh";
+  }
+
+  @media only screen and (max-width: 660px) {
+    .second-item-footer div {
+       width: 201px;
+    }
+    .second-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+      "hd hd"
+      "so so "
+      "st st "
+      "sh sh";
+    }
   }
 
 </style>

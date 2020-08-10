@@ -9,8 +9,8 @@
     <v-choice-bayer/>
     <v-uniq/>
     <v-material/>
-<!--    <v-video/>-->
-<!--    <v-uniq-second/>-->
+    <v-video/>
+    <v-uniq-second/>
 <!--    <v-slider-feedback/>-->
 <!--    <v-feedback-form/>-->
 <!--    <v-recommendation/>-->
@@ -34,8 +34,8 @@ import vDesign from '../components/v-design/v-design'
 import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 import vUniq from '../components/v-uniq/v-uniq'
 import vMaterial from '../components/v-material/v-material'
-// import vVideo from '../components/v-video/v-video'
-// import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
+import vVideo from '../components/v-video/v-video'
+import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
 // import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
 // import vFeedbackForm from '../components/v-feedback-form/v-feedback-form'
 // import vRecommendation from '../components/v-recommendation/v-recommendation'
@@ -58,8 +58,8 @@ export default {
     vChoiceBayer,
     vUniq,
     vMaterial,
-    // vVideo,
-    // vUniqSecond,
+    vVideo,
+    vUniqSecond,
     // vSliderFeedback,
     // vFeedbackForm,
     // vRecommendation,
