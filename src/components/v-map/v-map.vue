@@ -1,12 +1,12 @@
 <template>
   <v-row class="v-map justify-center">
-    <v-col class="v-map__first" md="4" sm="11">
+    <v-col class="v-map__first" md="4" cols="12">
 
     </v-col>
-    <v-col class="v-map__second" md="4" sm="11">
+    <v-col class="v-map__second" md="4"  cols="12">
 
     </v-col>
-    <v-col class="v-map__address" md="4" sm="11">
+    <v-col class="v-map__address" md="4" cols="12">
       <h2>
         Мы рады видеть вас в <span>нашем офисе</span>
       </h2>

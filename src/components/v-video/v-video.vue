@@ -1,6 +1,6 @@
 <template>
     <v-row class="v-video justify-center">
-      <v-col class="v-video___tittle" md="3" sm="5" cols="10">
+      <v-col class="v-video___tittle " md="3" sm="5" cols="11">
         <h2>
           Видео на <span>YouTube</span>
         </h2>
@@ -13,7 +13,7 @@
                     :color= 'colorBlack'
         />
       </v-col>
-      <v-col class="v-video__item" md="3" sm="5" cols="10">
+      <v-col class="v-video__item" md="3" sm="5" cols="11">
         <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
         <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
         <div>
@@ -24,7 +24,7 @@
                     :color= 'colorBlack'
         />
       </v-col>
-      <v-col class="v-video__item justify-sm-center" md="3" sm="5" cols="10">
+      <v-col class="v-video__item justify-sm-center" md="3" sm="5" cols="11">
         <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
         <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
         <div>
@@ -35,7 +35,7 @@
                     :color= 'colorBlack'
         />
       </v-col>
-      <v-col class="v-video__item justify-sm-center" md="3" sm="5" cols="10">
+      <v-col class="v-video__item justify-sm-center" md="3" sm="5" cols="11">
         <img  class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
         <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
         <div>

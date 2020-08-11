@@ -238,4 +238,11 @@ export default {
       display: none;
     }
   }
+
+  @media only screen and (max-width: 540px){
+    .v-team__second[data-v-bdd421e2], .v-team__third[data-v-bdd421e2], .v-team__fourth[data-v-bdd421e2] {
+      width: 331px;
+    }
+  }
+
 </style>

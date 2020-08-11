@@ -206,6 +206,10 @@ export default {
   }
 
   @media only screen and (max-width: 600px) {
+    .v-feedback-form .form-description{
+      width: 500px;
+      height: 85px;
+    }
     .v-feedback-form .right-column .right-column__item {
       width: 500px;
     }
@@ -225,16 +229,16 @@ export default {
   }
 
   @media only screen and (max-width: 540px) {
+    .v-feedback-form .right-column .right-column__item_second .btn-send{
+      left: 69%;
+    }
     .v-feedback-form .right-column .right-column__item {
       width: 480px;
     }
     .v-feedback-form textarea {
       width: 480px;
     }
-    .v-feedback-form .right-column .right-column__item_second .btn-send {
-      left: 46%;
-    }
-  }
+      }
 
   @media only screen and (max-width: 414px) {
     .v-feedback-form .form-description[data-v-1403707b] {
@@ -248,14 +252,12 @@ export default {
       width: 380px;
     }
     .v-feedback-form .right-column .right-column__item_second .btn-send {
-      left: 30%;
+      left: 45%;
     }
   }
-  @media only screen and (max-width: 600px){
-     .v-feedback-form .form-description{
-     width: 500px;
-     height: 85px;
-   }
+  @media only screen and (max-width: 360px){
+    .v-feedback-form textarea {
+      width: 344px;
+    }
   }
-
 </style>

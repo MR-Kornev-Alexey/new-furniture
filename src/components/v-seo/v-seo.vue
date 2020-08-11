@@ -104,5 +104,15 @@ export default {
       font-size: 13px;
     }
   }
+  @media only screen and (max-width: 414px){
+    .v-seo .v-seo-left h3[data-v-18e49546] {
+      width: 402px;
+    }
+  }
+  @media only screen and (max-width: 360px){
+    .v-seo .v-seo-left h3[data-v-18e49546] {
+      width: 310px;
+    }
+  }
 
 </style>

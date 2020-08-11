@@ -148,4 +148,15 @@ export default {
       width: 340px;
     }
   }
+  @media only screen and (max-width: 540px){
+    .agile-social {
+       margin-left: 98px;
+    }
+  }
+  @media only screen and (max-width: 414px){
+    .agile-social {
+      margin-left: 44px;
+    }
+  }
+
 </style>
