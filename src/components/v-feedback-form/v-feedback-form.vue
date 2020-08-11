@@ -1,6 +1,6 @@
 <template>
-    <v-row class="v-feedback-form">
-      <v-col md="4" class="left-column">
+    <v-row class="v-feedback-form justify-sm-center">
+      <v-col md="4" sm="11" class="left-column">
         <h2>Оставьте свой отзыв о нашей мебели</h2>
         <div class="form-description">
           Мы изготавливаем диваны по индивидуальным размерам и
@@ -8,7 +8,7 @@
         пожалуйста, в директ или оставьте заявку в комментариях
         </div>
       </v-col >
-      <v-col  md="8" class="right-column">
+      <v-col  md="8" sm="11"  class="right-column">
         <label>
           <textarea rows="10" cols="45" name="text-area" placeholder="Текст отзывы"></textarea>
         </label>
@@ -40,8 +40,8 @@ export default {
 <style lang="scss" scoped>
   .v-feedback-form{
     margin: 32px auto 0 auto;
-    width: 1146px;
-    height: 324px;
+    max-width: 1146px;
+    min-height: 324px;
     .left-column{
       padding: 22px 0 0 62px;
     }
@@ -93,5 +93,85 @@ export default {
       height: 42px;
     }
   }
+  @media only screen and (max-width: 1024px) {
+    .v-feedback-form .left-column{
+      padding: 22px 0 0 17px;
+    }
+    .v-feedback-form .right-column {
+      padding: 0 ;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .v-feedback-form .left-column{
+      padding: 22px 0 0 17px;
+    }
+    .v-feedback-form .right-column {
+      padding: 0 ;
+    }
+  }
+  @media only screen and (max-width: 960px) {
+    .v-feedback-form .right-column .right-column__item {
+      width: 622px;
+    }
+    .v-feedback-form input {
+      padding-left: 10px;
+      width: 300px;
+      height: 42px;
+    }
+    .v-feedback-form textarea {
+    width: 622px;
+    }
+    .v-feedback-form .right-column .right-column__item_second .btn-send{
+      left: 67%;
+      bottom: -10px;
+  }}
+  @media only screen and (max-width: 960px) {
+    .v-feedback-form .right-column {
+      padding: 0 0 0 78px;
+      margin: 0 0 46px 0;
+    }
+    .v-feedback-form .left-column {
+      padding: 22px 0 0 78px;
+    }
+    .v-feedback-form .form-description {
+      width: 507px;
+      height: 82px;
+     }
+  }
+  @media only screen and (max-width: 768px) {
+    .v-feedback-form .right-column {
+      padding: 0 0 0 28px;
+        }
+    .v-feedback-form .left-column {
+      padding: 22px 0 0 28px;
+    }
+
+  }
+  @media only screen and (max-width: 660px) {
+    .v-feedback-form .right-column {
+      padding: 0 0 0 0;
+    }
+    .v-feedback-form .left-column {
+      padding: 22px 0 0 0;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .v-feedback-form .right-column .right-column__item {
+      width: 540px;
+    }
+    .v-feedback-form textarea {
+      width: 540px;
+    }
+
+    .right-column__item{
+      flex-direction: column;
+    }
+    .v-feedback-form input {
+      margin: 3px 0;
+    }
+    .v-feedback-form .right-column .right-column__item_second .btn-send {
+      left: 56%;
+      }
+   }
 
 </style>
