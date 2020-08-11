@@ -6,7 +6,7 @@
     <v-proposal/>
     <v-upload />
     <v-design />
-<!--    <v-choice-bayer/>-->
+    <v-choice-bayer/>
 <!--    <v-uniq/>-->
 <!--    <v-material/>-->
 <!--    <v-video/>-->
@@ -30,7 +30,7 @@ import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furni
 import vUpload from '../components/v-upload/v-upload'
 import vProposal from '../components/v-proposal/v-proposal'
 import vDesign from '../components/v-design/v-design'
-// import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
+import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 // import vUniq from '../components/v-uniq/v-uniq'
 // import vMaterial from '../components/v-material/v-material'
 // import vVideo from '../components/v-video/v-video-new'
@@ -54,7 +54,7 @@ export default {
     vProposal,
     vUpload,
     vDesign,
-    // vChoiceBayer,
+    vChoiceBayer,
     // vUniq,
     // vMaterial,
     // vVideo,
