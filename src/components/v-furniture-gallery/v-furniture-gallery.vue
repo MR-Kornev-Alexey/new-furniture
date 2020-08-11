@@ -1,7 +1,7 @@
 <template>
   <v-row class="v-furniture-gallery">
-    <v-col md="3">
-      <img src="../../assets/img/furniture/gallery-1.png" alt="gallery pic">
+    <v-col md="3" sm="6" cols="11">
+      <img class="container--fluid" src="../../assets/img/furniture/gallery-1.png" alt="gallery pic">
       <h3>
         Andrria miss
       </h3>
@@ -13,8 +13,8 @@
                  :text='textOut'
       />
     </v-col>
-    <v-col md="3">
-      <img src="../../assets/img/furniture/gallery-2.png" alt="gallery pic">
+    <v-col md="3" sm="6" cols="11">
+      <img class="container--fluid"  src="../../assets/img/furniture/gallery-2.png" alt="gallery pic">
       <h3>
         Andrria miss
       </h3>
@@ -26,8 +26,8 @@
                  :text='textOut'
       />
     </v-col>
-    <v-col md="3">
-      <img src="../../assets/img/furniture/gallery-3.png" alt="gallery pic">
+    <v-col md="3" sm="6" cols="11">
+      <img class="container--fluid"  src="../../assets/img/furniture/gallery-3.png" alt="gallery pic">
       <h3>
         Andrria miss
       </h3>
@@ -39,8 +39,8 @@
                  :text='textOut'
       />
     </v-col>
-    <v-col md="3">
-      <img src="../../assets/img/furniture/gallery-4.png" alt="gallery pic">
+    <v-col md="3" sm="6" cols="11">
+      <img class="container--fluid"  src="../../assets/img/furniture/gallery-4.png" alt="gallery pic">
       <h3>
         Andrria miss
       </h3>
@@ -77,7 +77,7 @@ export default {
 <style lang="scss" scoped>
   .v-furniture-gallery{
     margin: 100px auto 0 auto;
-    width: 1144px;
+    max-width: 1144px;
     img{
       margin: 0 0 10px 0 ;
     }

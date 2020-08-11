@@ -31,22 +31,24 @@
       <h2>
         Также рекомендуем
       </h2>
+      <div class="right-side-div__item">
+        <div class="right-side__item">
+          <a href="#">Как выбрать кровать в спальню</a>
+        </div>
+        <div class="right-side__item">
+          <a href="#">У нас животные или дети. Какую обивку посоветуете?</a>
+        </div>
+        <div class="right-side__item">
+          <a href="#"> Как найти диван своей мечты</a>
+        </div>
+        <div class="right-side__item">
+          <a href="#"> Уход за мебелью</a>
+        </div>
+        <div class="right-side__item">
+          <a href="#"> Разница между средней жесткости, мягкой и ультрасофт</a>
+        </div>
+      </div>
 
-      <div>
-        <a href="#">Как выбрать кровать в спальню</a>
-      </div>
-      <div>
-        <a href="#">У нас животные или дети. Какую обивку посоветуете?</a>
-      </div>
-      <div>
-        <a href="#"> Как найти диван своей мечты</a>
-      </div>
-      <div>
-        <a href="#"> Уход за мебелью</a>
-      </div>
-      <div>
-        <a href="#"> Разница между средней жесткости, мягкой и ультрасофт</a>
-      </div>
       <v-transit :address='addressOut'
                  :color='colorBlack'
                  :text='textOut'
@@ -97,6 +99,7 @@ export default {
     width: 229.61px;
     height: 37.38px
   }
+
   .left-side {
     margin: 0 10px -7px 19px;
     padding: 0 0 17px 24px;
@@ -112,19 +115,22 @@ export default {
     }
   }
 
-  .central-top,.central-down{
-    padding:  28px 0 0 32px;
+  .central-top, .central-down {
+    padding: 28px 0 0 32px;
     background-repeat: no-repeat;
     background-size: cover;
-    .data{
-      margin-top: 80px ;
+
+    .data {
+      margin-top: 80px;
     }
   }
+
   .central-top {
     margin: 0 11px 14px 19px;
     grid-area: ct;
     background-image: url("../../assets/img/top-rec.png");
-    }
+  }
+
   .central-down {
     margin: 19px 11px -6px 19px;
     grid-area: cd;
@@ -136,6 +142,7 @@ export default {
     margin: 0 11px -6px 16px;
     grid-area: rs;
     background: #F3F2F2;
+
     .v-recommendation__transit {
       margin-top: 38px;
     }
@@ -166,7 +173,65 @@ export default {
   .v-recommendation {
     max-width: 1172px;
     margin: 28px auto 0 auto;
-
   }
 
+  @media only screen and (max-width: 1024px) {
+    .right-side {
+      padding: 41px 0 0 15px;
+      margin: 0 11px -6px 1px;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .right-side .v-recommendation__transit {
+      margin-top: 7px;
+      margin-bottom: 34px;
+    }
+    .left-side {
+      margin: 0 10px -7px 0px;
+      padding: 0 0 0 24px;
+      .left-description{
+        margin: 0 0 23px 0;
+      }
+    }
+    .right-side div {
+      margin: 0;
+      max-width: 100%;
+    }
+    .right-side-div__item{
+      display: inline-flex;
+      .right-side__item{
+          width: 300px;
+        text-align: left;
+      }
+
+    }
+    .wrapper {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+      "rs rs rs rs "
+      "ls ls ct ct "
+      "ls ls cd cd "
+      "ls ls cd cd ";
+    }
+  }
+
+  @media only screen and (max-width: 660px) {
+    .wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(200px, auto);
+      grid-template-areas:
+      "rs rs"
+      "ls ls"
+      "ct cd "
+      "ct cd ";
+    }
+    .left-side {
+      padding: 17px 0 0 15px !important;
+      background-position-y: -371px!important;
+    }
+    .central-top, .central-down{
+      margin: 21px 12px 0 2px;
+    }
+  }
 </style>

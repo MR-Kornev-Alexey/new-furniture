@@ -118,7 +118,6 @@ export default {
   }
 
   .v-team__second {
-    padding: 0 0 0 0;
     margin: 44px 0 0 -14px;
     display: grid;
     align-items: end;
@@ -129,7 +128,6 @@ export default {
   }
 
   .v-team__third {
-    padding: 0 0 0 0;
     margin: 82px 0 0 -35px;
     display: grid;
     align-items: end;
@@ -140,7 +138,6 @@ export default {
   }
 
   .v-team__fourth {
-    padding: 0 0 0 0;
     margin: 82px 0 0 -26px;
     display: grid;
     align-items: end;
@@ -159,5 +156,80 @@ export default {
       margin: 0 0 30px 17px;
     }
   }
-
+  @media only screen and (max-width: 1024px) {
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(100px, auto);
+      grid-template-areas:
+     "b1    b2 "
+     "b3  b4  ";
+    }
+    .v-team__second{
+      margin: 0 0 0 12px;
+      width: 473px;
+      height: 547px;
+    }
+    .v-team__third,.v-team__fourth {
+      margin: 25px 0 0 12px;
+      width: 473px;
+      height: 547px;
+    }
+    .v-team__first .down-row {
+          width: 380.99px;
+       }
+  }
+  @media only screen and (max-width: 960px) {
+    .v-team__second{
+      margin: 0 0 0 12px;
+      width: 412px;
+      height: 547px;
+    }
+    .v-team__third,.v-team__fourth {
+      margin: 25px 0 0 12px;
+      width: 412px;
+      height: 547px;
+    }
+    .v-team__first .down-row {
+        width: 355px;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+   .v-team__first .down-row{
+      margin: 97px 0 0 18px;
+    }
+  }
+  @media only screen and (max-width: 860px) {
+    .v-team__first .down-row {
+      margin: 97px 0 0 2px;
+    }
+  }
+  @media only screen and (max-width: 660px) {
+    .wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(100px, auto);
+      grid-template-areas:
+     "b1    b1 "
+     "b2    b2 "
+     "b3    b3 "
+     "b4    b4 ";
+    }
+    .v-team__second{
+      margin: 28px 0 0 12px;
+      align-self: center;
+      justify-self: center;
+        }
+    .v-team__second,.v-team__third,.v-team__fourth{
+      width: 412px;
+      height: 547px;
+      align-self: center;
+      justify-self: center;
+    }
+    .v-team__third,.v-team__fourth {
+      margin: 28px 0 0 12px;
+     }
+    .v-team__first .down-row {
+      display: none;
+    }
+  }
 </style>

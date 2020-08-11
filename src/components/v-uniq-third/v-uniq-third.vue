@@ -1,6 +1,6 @@
 <template>
     <v-row class="v-uniq-third">
-      <v-col  class="v-uniq-third__left" md="8">
+      <v-col  class="v-uniq-third__left" md="8" cols="11">
           <h2>Уникальный дизайн мебели </h2>
           <h3>Апартаменты 63 кв. м. на Мичуринском проспекте</h3>
           <v-transit :address='addressOut'
@@ -8,7 +8,7 @@
                    :text='textOut'
         />
       </v-col>
-      <v-col class="v-uniq-third__right" md="4">
+      <v-col class="v-uniq-third__right" md="4" cols="11">
         <h2>Уникальный дизайн мебели </h2>
         <h3>Апартаменты 63 кв. м. на Мичуринском проспекте</h3>
         <v-transit :address='addressOut'

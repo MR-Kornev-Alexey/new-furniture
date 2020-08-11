@@ -110,16 +110,20 @@ export default {
     }
   }
   @media only screen and (max-width: 960px) {
+    .v-feedback-form .right-column .right-column__item_second .btn-send[data-v-1403707b] {
+      left: 57%;
+      bottom: -10px;
+    }
     .v-feedback-form .right-column .right-column__item {
-      width: 622px;
+      width: 545px;
     }
     .v-feedback-form input {
       padding-left: 10px;
-      width: 300px;
+      width: 250px;
       height: 42px;
     }
     .v-feedback-form textarea {
-    width: 622px;
+      width: 545px;
     }
     .v-feedback-form .right-column .right-column__item_second .btn-send{
       left: 67%;
@@ -134,10 +138,18 @@ export default {
       padding: 22px 0 0 78px;
     }
     .v-feedback-form .form-description {
-      width: 507px;
-      height: 82px;
-     }
+      width: 295px;
+      height: 167px;
+    }
   }
+  @media only screen and (max-width: 960px) {
+    .v-feedback-form .form-description{
+      width: 514px;
+      height: 87px;
+    }
+
+  }
+
   @media only screen and (max-width: 768px) {
     .v-feedback-form .right-column {
       padding: 0 0 0 28px;

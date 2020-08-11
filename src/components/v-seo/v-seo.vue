@@ -1,6 +1,6 @@
 <template>
   <v-row class="v-seo">
-    <v-col class="v-seo-left" md="6">
+    <v-col class="v-seo-left" md="6" sm="11">
       <h2>
         <span>Заголовок SEO</span> текста может быть
       </h2>
@@ -20,7 +20,7 @@
         </span>
       </h3>
     </v-col>
-    <v-col class="v-seo-right" md="6">
+    <v-col class="v-seo-right" md="6" sm="11">
 
     </v-col>
   </v-row>
@@ -35,7 +35,7 @@ export default {
 <style lang="scss" scoped>
   .v-seo {
     margin: 68px auto 0 auto;
-    width: 1144px;
+    max-width: 1144px;
     .v-seo-left{
       padding: 36px 0 0 4px;
       h2 {

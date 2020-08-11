@@ -46,15 +46,34 @@ export default {
         autoplay: true,
         responsive: [
           {
-            breakpoint: 600,
+            breakpoint: 599,
             settings: {
+              slidesToShow: 1,
               dots: false
             }
           },
-
           {
-            breakpoint: 900,
+            breakpoint: 899,
             settings: {
+              slidesToShow: 3,
+              navButtons: false,
+              dots: true,
+              infinite: true
+            }
+          },
+          {
+            breakpoint: 959,
+            settings: {
+              slidesToShow: 4,
+              navButtons: false,
+              dots: true,
+              infinite: true
+            }
+          },
+          {
+            breakpoint: 1285,
+            settings: {
+              slidesToShow: 6,
               navButtons: false,
               dots: true,
               infinite: true
