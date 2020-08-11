@@ -18,7 +18,7 @@
 <!--    <v-social/>-->
 <!--    <v-furniture-gallery/>-->
 <!--    <v-uniq-third/>-->
-<!--    <v-map/>-->
+    <v-map/>
     <v-seo/>
     <v-footer/>
     </v-container>
@@ -42,7 +42,7 @@ import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furni
 // import vSocial from '../components/v-social/v-social'
 // import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
 // import vUniqThird from '../components/v-uniq-third/v-uniq-third'
-// import vMap from '../components/v-map/v-map'
+import vMap from '../components/v-map/v-map'
 import vSeo from '../components/v-seo/v-seo'
 import vFooter from '../components/v-footer/v-footer'
 export default {
@@ -66,7 +66,7 @@ export default {
     // vSocial,
     // vFurnitureGallery,
     // vUniqThird,
-    // vMap,
+    vMap,
     vSeo,
     vFooter
   },

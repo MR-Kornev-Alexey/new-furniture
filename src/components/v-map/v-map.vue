@@ -6,25 +6,30 @@
     <v-col class="v-map__second" md="4"  cols="12">
 
     </v-col>
-    <v-col class="v-map__address" md="4" cols="12">
-      <h2>
-        Мы рады видеть вас в <span>нашем офисе</span>
-      </h2>
-      <div class="v-map__address_num">
-        Адрес: Москва Тульская 123
+    <v-col class="v-map__address" md="4"   cols="12">
       <div>
-        +7 (495) 792-0668
+        <h2>
+          Мы рады видеть вас в <span>нашем офисе</span>
+        </h2>
+        <div class="v-map__address_num">
+          Адрес: Москва Тульская 123
+          <div>
+            +7 (495) 792-0668
+          </div>
+        </div>
       </div>
-      </div>
-      <h4> Расписание работы</h4>
-      <h5 class="d-flex text-justify">Понедельник - Пятница..........10:00 - 20:00</h5>
-      <h5>Суббота........................10:00 - 18:00</h5>
-      <h5>Воскресенье....................10:00 - 18:00</h5>
-      <v-transit :address='addressOut'
-                 :color='colorBlack'
-                 :text='textOut'
-                 class="v-map-transit"
-      />
+     <div>
+       <h4> Расписание работы</h4>
+       <h5 class="d-flex text-justify">Понедельник - Пятница..........10:00 - 20:00</h5>
+       <h5>Суббота........................10:00 - 18:00</h5>
+       <h5>Воскресенье....................10:00 - 18:00</h5>
+       <v-transit :address='addressOut'
+                  :color='colorBlack'
+                  :text='textOut'
+                  class="v-map-transit"
+       />
+     </div>
+
     </v-col>
   </v-row>
 </template>
@@ -72,8 +77,8 @@ export default {
       padding: 15px 0 0 67px;
 
       h2 {
-        width: 313px;
-        height: 61px;
+        max-width: 313px;
+        min-height: 61px;
         margin: 0 0 47px 0;
         font-size: 30px;
         line-height: 113.5%;
@@ -123,4 +128,17 @@ export default {
       padding: 15px 0 0 25px;
     }
   }
+  @media only screen and (max-width: 900px) {
+    .v-map__address{
+         display: flex;
+      justify-content: space-around;
+    }
+  }
+  @media only screen and (max-width: 540px) {
+    .v-map__address{
+      display: block;
+      justify-content: center;
+    }
+  }
+
   </style>
