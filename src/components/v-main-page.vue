@@ -16,7 +16,7 @@
 <!--    <v-recommendation/>-->
 <!--    <v-team/>-->
 <!--    <v-social/>-->
-<!--    <v-furniture-gallery/>-->
+    <v-furniture-gallery/>
     <v-uniq-third/>
     <v-map/>
     <v-seo/>
@@ -40,7 +40,7 @@ import vProposal from '../components/v-proposal/v-proposal'
 // import vRecommendation from '../components/v-recommendation/v-recommendation'
 // import vTeam from '../components/v-team/v-team'
 // import vSocial from '../components/v-social/v-social'
-// import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
+import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
 import vUniqThird from '../components/v-uniq-third/v-uniq-third'
 import vMap from '../components/v-map/v-map'
 import vSeo from '../components/v-seo/v-seo'
@@ -64,7 +64,7 @@ export default {
     // vRecommendation,
     // vTeam,
     // vSocial,
-    // vFurnitureGallery,
+    vFurnitureGallery,
     vUniqThird,
     vMap,
     vSeo,

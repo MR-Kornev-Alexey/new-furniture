@@ -101,11 +101,13 @@ export default {
     }
 
   }
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1024px) {
     .v-furniture-gallery {
       margin: 34px auto 0 auto;
-      }
-    .v-furniture-gallery h4 {
+    }
+  }
+  @media only screen and (max-width: 900px) {
+     .v-furniture-gallery h4 {
       margin: 0 0 28px 0;
       line-height: 138.5%;
       width: 224px;
