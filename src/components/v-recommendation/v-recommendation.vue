@@ -234,4 +234,21 @@ export default {
       margin: 21px 12px 0 2px;
     }
   }
+  @media only screen and (max-width: 540px) {
+      .wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(200px, auto);
+        grid-template-areas:
+      "rs "
+      "ls "
+      "ct "
+      "cd ";
+      }
+
+    .right-side-div__item{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
 </style>
