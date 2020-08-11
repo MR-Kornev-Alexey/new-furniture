@@ -23,7 +23,6 @@
     <v-footer/>
     </v-container>
 </template>
-
 <script>
 import vNavBar from '../components/v-nav-bar/v-nav-bar'
 import vMainScreen from '../components/v-main-screen/v-main-screen'
