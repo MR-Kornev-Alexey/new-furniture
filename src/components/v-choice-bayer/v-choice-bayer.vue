@@ -471,6 +471,9 @@ export default {
    }
  }
  @media only screen and (max-width: 540px) {
+   .v-choice-bayer {
+     margin: 12px auto 60px auto;
+     }
    .agile{
      width: 400px;
    }

@@ -153,7 +153,8 @@ export default {
   }
 
   @media only screen and (max-width: 540px) {
-    .wrapper {
+     .wrapper {
+      margin: 11px auto 0 auto;
       justify-content: center;
       grid-template-columns: repeat(2, 1fr) !important;
       grid-template-areas:

@@ -42,8 +42,8 @@ export default {
 
       h2 {
         margin: 0 0 56px 0;
-        width: 357px;
-        height: 61px;
+        max-width: 357px;
+        min-height: 61px;
         font-size: 30px;
         line-height: 113.5%;
 
@@ -53,7 +53,7 @@ export default {
       }
 
       h3 {
-        width: 519px;
+        max-width: 519px;
         font-size: 15px;
         line-height: 149%;
       }
@@ -69,10 +69,15 @@ export default {
     }
 
   }
-
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 1024px) {
     .v-seo {
-      margin: 25px auto 0 auto;
+      margin: 14px auto 0 auto;
+    }
+  }
+  @media only screen and (max-width: 960px) {
+
+    .v-seo {
+      margin: 14px auto 0 auto;
     }
 
     .v-seo .v-seo-left {
@@ -82,9 +87,20 @@ export default {
     .v-seo .v-seo-left h2 {
       height: 24px;
     }
+
+  }
+  @media only screen and (max-width: 900px) {
     .v-seo .v-seo-left h3 {
-      width: 800px;
-    }
+      max-width: 866px;
+     }
+    .v-seo .v-seo-left h2 {
+      margin: 0 0 18px 0;
+      max-width: 502px;
+      min-height: 32px;
+     }
+    .v-seo .v-seo-right {
+      background-position-y: -122px;
+     }
   }
 
   @media only screen and (max-width: 768px) {

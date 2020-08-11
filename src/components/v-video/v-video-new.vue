@@ -1,6 +1,6 @@
 <template>
-    <v-row class="v-video">
-      <v-col class="v-video___tittle  " md="3" sm="5" cols="12">
+    <v-row class="v-video v-v-wrapper">
+      <div class="v-video___tittle">
         <div class="v-video___tittle_div">
           <h2>
             Видео на <span>YouTube</span>
@@ -15,8 +15,8 @@
           />
         </div>
 
-      </v-col>
-      <v-col class="v-video__item" md="3" sm="5" cols="12">
+      </div>
+      <div class="v-video__item__1" >
         <div class="v-video__item__inn">
           <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
           <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
@@ -28,32 +28,33 @@
                       :color= 'colorBlack'
           />
         </div>
-
-      </v-col>
-      <v-col class="v-video__item justify-sm-center" md="3" sm="5" cols="12">
-        <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
-        <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
-        <div>
-          Детская кровать для маленькой принцессы
+      </div>
+      <div class="v-video__item__2" >
+        <div class="v-video__item__inn">
+          <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
+          <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
+          <div>
+            Детская кровать для маленькой принцессы
+          </div>
+          <v-transit  :text = 'textOut2'
+                      :address = 'addressOut'
+                      :color= 'colorBlack'
+          />
         </div>
-        <v-transit  :text = 'textOut2'
-                    :address = 'addressOut'
-                    :color= 'colorBlack'
-        />
-      </v-col>
-      <v-col class="v-video__item justify-sm-center" md="3" sm="5" cols="12">
-        <img  class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
-        <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
-        <div>
-          Детская кровать для маленькой принцессы
+      </div>
+      <div class="v-video__item__3" >
+        <div class="v-video__item__inn">
+          <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
+          <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
+          <div>
+            Детская кровать для маленькой принцессы
+          </div>
+          <v-transit  :text = 'textOut2'
+                      :address = 'addressOut'
+                      :color= 'colorBlack'
+          />
         </div>
-        <v-transit  :text = 'textOut2'
-                    :address = 'addressOut'
-                    :color= 'colorBlack'
-                    class="v-video__transit"
-        />
-      </v-col>
-
+      </div>
     </v-row>
 </template>
 
@@ -77,6 +78,35 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .v-v-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas:
+     "tl b1 b2 b3 "
+    ;
+  }
+  .v-video___tittle{
+    grid-area: tl;
+  }
+  .v-video__item__1{
+    grid-area: b1;
+    position: relative;
+  }
+  .v-video__item__2{
+    grid-area: b2;
+    position: relative;
+  }
+  .v-video__item__3{
+    grid-area: b3;
+    position: relative;
+  }
+ .v-video__item__button{
+    z-index: 101;
+    position: absolute;
+    top: 46px;
+    left: 85px;
+  }
   .v-video{
     .v-video__transit{
       margin-left: 15px;
@@ -111,15 +141,31 @@ export default {
         line-height: 138.5%;
         margin: 0 0 17px 0;
       }
-      .v-video__item__button{
-        z-index: 101;
-        position: absolute;
-        top: 46px;
-        left: 85px;
-      }
 
     }
    }
+  @media only screen and (max-width: 1024px){
+    .v-video__item__button{
+      top: 42px;
+      left: 74px;
+    }
+  }
+  @media only screen and (max-width: 960px){
+    .v-video{
+      margin: 41px auto 0 auto;
+     }
+    .v-v-wrapper {
+     grid-template-columns: repeat(2, 1fr);
+     grid-template-areas:
+     "tl b1"
+     "b2 b3 "
+    ;
+    }
+    .v-video__item__button{
+        top: 45px;
+        left: 94px;
+      }
+  }
   @media only screen and (max-width: 600px){
     .v-video {
       margin: 16px auto 0 auto;

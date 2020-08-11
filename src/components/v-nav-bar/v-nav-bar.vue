@@ -358,7 +358,7 @@ export default {
       width: 74px;
     }
   .nav-icons {
-      margin: 0 -60px 0 0;
+      margin: 0 -60px 0 -16px;
      }
     .main-nav .main-nav__top .main-nav__top_item_long {
       width: 159px;
@@ -374,7 +374,7 @@ export default {
       padding-left: 26px;
     }
     .nav-phone {
-      margin: 0 0 0 29px;
+      margin: 0 0 0 16px;
     }
     .sub-nav{
       align-self: end;

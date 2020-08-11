@@ -155,13 +155,13 @@ export default {
       margin: 0 0 0 0;
     }
     .v-footer .footer__item4 {
-      margin: 7px 0 0 49px;
+      margin: 7px 0 0 26px;
     }
     .v-footer .footer__item1 {
       margin: -3px 0 0 13px;
     }
     .v-footer .img-logo {
-      margin: -3px 0 0 9px;
+      margin: -3px 0 0 2px;
     }
   }
 
@@ -209,6 +209,7 @@ export default {
     }
   }
   @media only screen and (max-width: 360px) {
+
     .v-footer-wrapper {
 
       grid-template-columns: repeat(2, 1fr);
@@ -229,4 +230,17 @@ export default {
       margin: 10px 0 0 15px;
     }
   }
+  @media only screen and (max-width: 320px) {
+    .v-footer .footer-phone__num {
+      font-family: "Akzidenz-Grotesk Pro", sans-serif;
+      font-size: 17px;
+    }
+    .v-footer .footer__item4 {
+      margin: 7px 0 0 22px;
+    }
+    .v-footer .footer-phone__sub {
+      margin: 7px 12px 0 -44px;
+    }
+  }
+
 </style>
