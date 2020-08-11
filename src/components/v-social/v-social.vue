@@ -73,6 +73,15 @@ export default {
           {
             breakpoint: 1285,
             settings: {
+              slidesToShow: 5,
+              navButtons: false,
+              dots: true,
+              infinite: true
+            }
+          },
+          {
+            breakpoint: 1599,
+            settings: {
               slidesToShow: 6,
               navButtons: false,
               dots: true,

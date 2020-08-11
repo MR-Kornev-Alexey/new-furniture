@@ -354,6 +354,18 @@ export default {
 
     }
   }
+ @media only screen and (max-width: 1400px) {
+   .agile{
+     width: 1200px;
+     margin: auto;
+   }
+   .my-next {
+     right: -59px !important;
+   }
+   .my-prev {
+     left: -59px !important;
+   }
+ }
   @media only screen and (max-width: 1366px) {
     .agile{
       width: 1200px;
@@ -381,6 +393,12 @@ export default {
       left: -26px !important;
     }
   }
+ @media only screen and (max-width: 1140px) {
+   .agile{
+     width: 960px;
+     margin: auto;
+   }
+ }
  @media only screen and (max-width: 1024px) {
    .agile{
      width: 960px;

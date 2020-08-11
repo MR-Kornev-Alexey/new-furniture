@@ -141,6 +141,11 @@ export default {
       text-decoration: none;
     }
   }
+  @media only screen and (max-width: 1140px) {
+    .v-footer .footer__item4 {
+      margin: 7px 0 0 74px;
+    }
+  }
 
   @media only screen and (max-width: 1024px) {
     .v-footer .footer__item3 {

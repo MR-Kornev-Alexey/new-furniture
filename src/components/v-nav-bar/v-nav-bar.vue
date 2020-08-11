@@ -322,6 +322,7 @@ export default {
     }
     .nav-icons {
       margin-left: 154px;
+      margin-top: 4px;
     }
     .nav-phone {
       margin-left: 209px;
@@ -344,6 +345,14 @@ export default {
     }
   }
 
+  @media only screen and (max-width: 1140px){
+     .margin-left-40 {
+     margin-left: 24px;
+   }
+    .nav-phone {
+      margin-left: 94px;
+    }
+  }
   @media only screen and (max-width: 1024px) {
     .main-nav .main-nav__top .main-nav__top_item_short {
       width: 74px;

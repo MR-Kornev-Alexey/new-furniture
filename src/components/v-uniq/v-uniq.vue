@@ -75,6 +75,14 @@ export default {
     }
   }
 
+  @media only screen and (max-width: 1400px) {
+    .main-uniq .v-uniq__text {
+      position: absolute;
+      top: 73px;
+      left: 1105px;
+    }
+
+  }
   @media only screen and (max-width: 1366px) {
     .main-uniq .v-uniq__text {
       position: absolute;

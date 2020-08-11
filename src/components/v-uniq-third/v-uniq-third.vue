@@ -43,7 +43,7 @@ export default {
 
   .v-uniq-third{
     margin: 81px auto 0 auto;
-    width: 1144px;
+    max-width: 1144px;
 
     h2{
       margin: 0 0 11px 0 ;
@@ -77,4 +77,11 @@ export default {
       height: 402px;
     }
   }
+
+  @media only screen and (max-width: 1140px){
+    .v-uniq-third .v-uniq-third__right {
+      padding: 0;
+      }
+  }
+
 </style>

@@ -156,11 +156,13 @@ export default {
   }
 
   @media only screen and (max-width: 1280px) {
-    /*.my-slide-item {*/
-    /*  padding: 56px 0 0 131px;*/
-    /*}*/
     .agile {
       width: 800px;
+    }
+  }
+  @media only screen and (max-width: 1140px) {
+    .my-slide-item {
+      padding: 56px 0 0 69px;
     }
   }
 

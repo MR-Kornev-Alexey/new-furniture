@@ -112,4 +112,9 @@ export default {
     }
   }
 
-</style>
+  @media only screen and (max-width: 1204px) {
+    .v-map .v-map__address {
+      padding: 15px 0 0 25px;
+    }
+  }
+  </style>
