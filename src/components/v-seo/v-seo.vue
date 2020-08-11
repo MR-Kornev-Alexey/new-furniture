@@ -1,6 +1,6 @@
 <template>
-  <v-row class="v-seo">
-    <v-col class="v-seo-left" md="6" sm="11">
+  <v-row class="v-seo justify-sm-center">
+    <v-col class="v-seo-left" md="6" sm="11" cols="12">
       <h2>
         <span>Заголовок SEO</span> текста может быть
       </h2>
@@ -20,7 +20,7 @@
         </span>
       </h3>
     </v-col>
-    <v-col class="v-seo-right" md="6" sm="11">
+    <v-col class="v-seo-right" md="6" sm="11" cols="12">
 
     </v-col>
   </v-row>
@@ -36,15 +36,18 @@ export default {
   .v-seo {
     margin: 68px auto 0 auto;
     max-width: 1144px;
-    .v-seo-left{
+
+    .v-seo-left {
       padding: 36px 0 0 4px;
+
       h2 {
         margin: 0 0 56px 0;
         width: 357px;
         height: 61px;
         font-size: 30px;
         line-height: 113.5%;
-        span{
+
+        span {
           color: #D7B256;
         }
       }
@@ -56,6 +59,7 @@ export default {
       }
 
     }
+
     .v-seo-right {
       background-image: url("../../assets/img/furniture/seo.png");
       background-repeat: no-repeat;
@@ -64,6 +68,41 @@ export default {
       height: 500px;
     }
 
+  }
+
+  @media only screen and (max-width: 960px) {
+    .v-seo {
+      margin: 25px auto 0 auto;
+    }
+
+    .v-seo .v-seo-left {
+      padding: 36px 0 22px 2px;
+    }
+
+    .v-seo .v-seo-left h2 {
+      height: 24px;
+    }
+    .v-seo .v-seo-left h3 {
+      width: 800px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .v-seo .v-seo-left h3 {
+      width: 667px;
+    }
+  }
+
+  @media only screen and (max-width: 660px) {
+    .v-seo .v-seo-left h3 {
+      width: 550px;
+    }
+  }
+  @media only screen and (max-width: 540px) {
+    .v-seo .v-seo-left h3 {
+      width: 500px;
+      font-size: 13px;
+    }
   }
 
 </style>

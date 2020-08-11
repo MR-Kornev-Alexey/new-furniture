@@ -6,7 +6,7 @@
         Следите за нами в instagram
       </h2>
     </div>
-    <agile :options="myOptions">
+    <agile  class="agile-social" :options="myOptions">
       <div class="slide ">
         <img alt="furniture" src="../../assets/img/social/social-1.png">
       </div>
@@ -46,10 +46,19 @@ export default {
         autoplay: true,
         responsive: [
           {
-            breakpoint: 599,
+            breakpoint: 300,
             settings: {
               slidesToShow: 1,
               dots: false
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 2,
+              navButtons: false,
+              dots: true,
+              infinite: true
             }
           },
           {
@@ -116,5 +125,27 @@ export default {
       display: none !important;
     }
   }
-
+  @media only screen and (max-width: 960px){
+    .v-social {
+      margin: 34px 0 0 0;
+    }
+    .agile-social{
+      width: 860px;
+    }
+  }
+  @media only screen and (max-width: 860px){
+    .agile-social{
+      width: 740px;
+    }
+  }
+  @media only screen and (max-width: 768px){
+   .agile-social {
+     width: 696px;
+   }
+  }
+  @media only screen and (max-width: 660px){
+    .agile-social {
+      width: 340px;
+    }
+  }
 </style>

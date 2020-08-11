@@ -1,6 +1,6 @@
 <template>
     <v-row class="v-uniq-third">
-      <v-col  class="v-uniq-third__left" md="8" cols="11">
+      <v-col  class="v-uniq-third__left" md="8" cols="12">
           <h2>Уникальный дизайн мебели </h2>
           <h3>Апартаменты 63 кв. м. на Мичуринском проспекте</h3>
           <v-transit :address='addressOut'
@@ -8,7 +8,7 @@
                    :text='textOut'
         />
       </v-col>
-      <v-col class="v-uniq-third__right" md="4" cols="11">
+      <v-col class="v-uniq-third__right" md="4" cols="12">
         <h2>Уникальный дизайн мебели </h2>
         <h3>Апартаменты 63 кв. м. на Мичуринском проспекте</h3>
         <v-transit :address='addressOut'
@@ -77,11 +77,22 @@ export default {
       height: 402px;
     }
   }
-
-  @media only screen and (max-width: 1140px){
+  @media only screen and (max-width: 900px){
     .v-uniq-third .v-uniq-third__right {
-      padding: 0;
-      }
+      margin: 0;
+      background-position-y: -382px;
+      height: 380px;
+    }
+    .v-uniq-third {
+      margin: 24px auto 0 auto;
+      max-width: 1144px;
+    }
   }
 
-</style>
+  @media only screen and (max-width: 660px){
+    .v-uniq-third .v-uniq-third__right {
+           background-position-y: -164px;
+          }
+  }
+
+ </style>

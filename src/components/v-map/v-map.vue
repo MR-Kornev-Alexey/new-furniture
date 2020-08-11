@@ -1,5 +1,5 @@
 <template>
-  <v-row class="v-map">
+  <v-row class="v-map justify-center">
     <v-col class="v-map__first" md="4" sm="11">
 
     </v-col>
@@ -113,6 +113,12 @@ export default {
   }
 
   @media only screen and (max-width: 1204px) {
+    .v-map {
+      margin: 30px auto 0 auto;
+         }
+    .v-map__first {
+      display: none;
+    }
     .v-map .v-map__address {
       padding: 15px 0 0 25px;
     }

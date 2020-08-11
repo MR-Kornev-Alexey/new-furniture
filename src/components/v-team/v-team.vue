@@ -158,6 +158,8 @@ export default {
   }
   @media only screen and (max-width: 1024px) {
     .wrapper {
+      margin: auto;
+      padding: 39px 0 0 19px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: minmax(100px, auto);
@@ -200,10 +202,14 @@ export default {
     }
   }
   @media only screen and (max-width: 860px) {
-    .v-team__first .down-row {
-      margin: 97px 0 0 2px;
+    .v-team__second,.v-team__third,.v-team__fourth {
+      width: 340px;
     }
-  }
+    .v-team__first .down-row {
+      margin: 97px 0 0 -11px;
+      width: 300px;
+    }
+    }
   @media only screen and (max-width: 660px) {
     .wrapper {
       grid-template-columns: repeat(2, 1fr);

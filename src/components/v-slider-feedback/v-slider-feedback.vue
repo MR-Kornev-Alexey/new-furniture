@@ -167,10 +167,14 @@ export default {
   }
 
   @media only screen and (max-width: 1024px) {
+    .v-slider-feedback {
+      margin: 16px auto 0 auto;
+       }
     .my-slide-item {
       padding: 56px 0 0 73px;
     }
   }
+
   @media only screen and (max-width: 768px) {
     .agile {
       width: 730px;
