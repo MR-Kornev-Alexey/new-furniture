@@ -1,11 +1,11 @@
 <template>
   <div class="v-slider-feedback text-center">
     <h2>Отзывы </h2>
-    <agile :options="myOptions">
+    <agile class="v-slider-feedback-slider" :options="myOptions">
       <div class="slide">
         <div class="my-slide-item d-flex text-left">
-          <div>
-            <img src="../../assets/img/avatar.png" alt="avatar">
+          <div class="div-avatar justify-sm-center" >
+            <img  src="../../assets/img/avatar.png" alt="avatar">
           </div>
           <div class="description">
             Правило альтернанса непосредственно оправдывает потребительский цикл,
@@ -74,14 +74,39 @@ export default {
         infinite: true,
         responsive: [
           {
-            breakpoint: 600,
+            breakpoint: 319,
             settings: {
+              navButtons: false,
               dots: false
             }
           },
 
           {
             breakpoint: 900,
+            settings: {
+              navButtons: false,
+              dots: true,
+              infinite: true
+            }
+          },
+          {
+            breakpoint: 1279,
+            settings: {
+              navButtons: false,
+              dots: true,
+              infinite: true
+            }
+          },
+          {
+            breakpoint: 1365,
+            settings: {
+              navButtons: false,
+              dots: true,
+              infinite: true
+            }
+          },
+          {
+            breakpoint: 1399,
             settings: {
               navButtons: true,
               dots: true,
@@ -114,8 +139,8 @@ export default {
   }
   .v-slider-feedback {
     margin: 70px auto 0 auto;
-    width: 1146px;
-    height: 332px;
+    max-width: 1146px;
+    min-height: 332px;
     background: #F3F2F2;
     padding: 39px 0 0 0;
 
@@ -124,5 +149,95 @@ export default {
       line-height: 113.5%;
     }
   }
+  @media only screen and (max-width: 1366px) {
+    .v-slider-feedback-slider .agile__actions .my-next {
+               right: -69px!important;
+       }
+  }
 
-</style>
+  @media only screen and (max-width: 1280px) {
+    /*.my-slide-item {*/
+    /*  padding: 56px 0 0 131px;*/
+    /*}*/
+    .agile {
+      width: 800px;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .my-slide-item {
+      padding: 56px 0 0 73px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .agile {
+      width: 730px;
+    }
+    .description {
+      width: 474px;
+      height: 190px;}
+  }
+  @media only screen and (max-width: 660px) {
+    .my-slide-item {
+      padding: 56px 0 0 43px;
+    }
+    .agile {
+      width: 580px;
+    }
+    .description {
+      width: 382px;
+      height: 205px;
+    }
+  }
+  @media only screen and (max-width: 540px) {
+    .my-slide-item {
+      padding: 56px 0 0 0;
+    }
+    .agile {
+      width: 520px;
+    }
+    .description {
+      width: 382px;
+      height: 205px;
+    }
+  }
+  @media only screen and (max-width: 414px) {
+    .my-slide-item{
+      flex-direction: column;
+      text-align: center;
+      .div-avatar {
+        display: flex;
+      }
+     img{
+          margin: auto;
+      }
+       }
+    .agile {
+      width: 400px;
+       }
+    .description {
+      width: 325px;
+      height: 215px;
+    }
+  }
+  @media only screen and (max-width: 360px) {
+    .my-slide-item{
+      flex-direction: column;
+      text-align: center;
+      .div-avatar {
+        display: flex;
+      }
+      img{
+        margin: auto;
+      }
+    }
+    .agile {
+      width: 300px;
+    }
+    .description {
+      width: 280px;
+      height: 220px;
+      margin-left: 18px;
+    }
+  }
+ </style>
