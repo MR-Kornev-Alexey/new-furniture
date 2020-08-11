@@ -77,6 +77,11 @@ export default {
       height: 402px;
     }
   }
+  @media only screen and (max-width: 1140px){
+    .v-uniq-third {
+      margin: 24px auto 0 auto;
+    }
+  }
   @media only screen and (max-width: 900px){
     .v-uniq-third .v-uniq-third__right {
       margin: 0;
@@ -88,11 +93,31 @@ export default {
       max-width: 1144px;
     }
   }
-
+  @media only screen and (max-width: 860px){
+    .v-uniq-third .v-uniq-third__right {
+      background-position-y: -315px;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .v-uniq-third .v-uniq-third__right {
+      background-position-y: -164px;
+    }
+  }
   @media only screen and (max-width: 660px){
     .v-uniq-third .v-uniq-third__right {
            background-position-y: -164px;
           }
   }
+  @media only screen and (max-width: 540px){
+    .v-uniq-third .v-uniq-third__right {
+      background-position-y: -93px;
+    }
+  }
 
- </style>
+  @media only screen and (max-width: 411px){
+    .v-uniq-third .v-uniq-third__right {
+      background-position-y: 0;
+    }
+  }
+
+</style>

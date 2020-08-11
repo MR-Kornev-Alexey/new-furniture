@@ -67,6 +67,7 @@ export default {
   }
   @media only screen and (max-width: 1024px) {
     .v-proposal {
+      margin: 16px auto 0 auto;
       .span-0 {
         padding-left: 55px;
       }
@@ -94,7 +95,8 @@ export default {
     }
     }
     @media only screen and (max-width: 860px) {
-      .v-proposal {
+        .v-proposal {
+
         .span-0,.span-1 ,.span-2,.span-3   {
           padding-left: 0;
         }

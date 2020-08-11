@@ -3,7 +3,7 @@
     <v-nav-bar/>
     <v-main-screen/>
     <v-cabinet-furniture/>
-<!--    <v-proposal/>-->
+    <v-proposal/>
 <!--    <v-upload />-->
 <!--    <v-design />-->
 <!--    <v-choice-bayer/>-->
@@ -17,7 +17,7 @@
 <!--    <v-team/>-->
 <!--    <v-social/>-->
 <!--    <v-furniture-gallery/>-->
-<!--    <v-uniq-third/>-->
+    <v-uniq-third/>
     <v-map/>
     <v-seo/>
     <v-footer/>
@@ -28,7 +28,7 @@ import vNavBar from '../components/v-nav-bar/v-nav-bar'
 import vMainScreen from '../components/v-main-screen/v-main-screen'
 import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
 // import vUpload from '../components/v-upload/v-upload'
-// import vProposal from '../components/v-proposal/v-proposal'
+import vProposal from '../components/v-proposal/v-proposal'
 // import vDesign from '../components/v-design/v-design'
 // import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 // import vUniq from '../components/v-uniq/v-uniq'
@@ -41,7 +41,7 @@ import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furni
 // import vTeam from '../components/v-team/v-team'
 // import vSocial from '../components/v-social/v-social'
 // import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
-// import vUniqThird from '../components/v-uniq-third/v-uniq-third'
+import vUniqThird from '../components/v-uniq-third/v-uniq-third'
 import vMap from '../components/v-map/v-map'
 import vSeo from '../components/v-seo/v-seo'
 import vFooter from '../components/v-footer/v-footer'
@@ -51,7 +51,7 @@ export default {
     vNavBar,
     vMainScreen,
     vCabinetFurniture,
-    // vProposal,
+    vProposal,
     // vUpload,
     // vDesign,
     // vChoiceBayer,
@@ -65,7 +65,7 @@ export default {
     // vTeam,
     // vSocial,
     // vFurnitureGallery,
-    // vUniqThird,
+    vUniqThird,
     vMap,
     vSeo,
     vFooter
