@@ -182,14 +182,17 @@ export default {
        }
   }
   @media only screen and (max-width: 960px) {
+    .wrapper {
+      padding: 39px 0 0 0;
+    }
     .v-team__second{
       margin: 0 0 0 12px;
-      width: 412px;
+      width: 430px;
       height: 547px;
     }
     .v-team__third,.v-team__fourth {
       margin: 25px 0 0 12px;
-      width: 412px;
+      width: 430px;
       height: 547px;
     }
     .v-team__first .down-row {
@@ -202,16 +205,18 @@ export default {
     }
   }
   @media only screen and (max-width: 860px) {
+
     .v-team__second,.v-team__third,.v-team__fourth {
       width: 340px;
     }
     .v-team__first .down-row {
-      margin: 97px 0 0 -11px;
+      margin: 97px 0 0 39px;
       width: 300px;
     }
     }
   @media only screen and (max-width: 660px) {
     .wrapper {
+      padding: 0 ;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: minmax(100px, auto);
       grid-template-areas:
@@ -219,6 +224,9 @@ export default {
      "b2    b2 "
      "b3    b3 "
      "b4    b4 ";
+    }
+    .v-team__first h2 {
+      height: 6px;
     }
     .v-team__second{
       margin: 28px 0 0 12px;
@@ -240,9 +248,12 @@ export default {
   }
 
   @media only screen and (max-width: 540px){
+    .v-team__second,.v-team__third,.v-team__fourth{
+      margin: 28px 0 0 0;
+     }
     .v-team__second[data-v-bdd421e2], .v-team__third[data-v-bdd421e2], .v-team__fourth[data-v-bdd421e2] {
       width: 331px;
     }
   }
 
-</style>
+ </style>

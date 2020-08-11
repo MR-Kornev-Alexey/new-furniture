@@ -14,7 +14,7 @@
 <!--    <v-slider-feedback/>-->
 <!--    <v-feedback-form/>-->
 <!--    <v-recommendation/>-->
-<!--    <v-team/>-->
+    <v-team/>
     <v-social/>
     <v-furniture-gallery/>
     <v-uniq-third/>
@@ -38,7 +38,7 @@ import vDesign from '../components/v-design/v-design'
 // import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
 // import vFeedbackForm from '../components/v-feedback-form/v-feedback-form'
 // import vRecommendation from '../components/v-recommendation/v-recommendation'
-// import vTeam from '../components/v-team/v-team'
+import vTeam from '../components/v-team/v-team'
 import vSocial from '../components/v-social/v-social'
 import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
 import vUniqThird from '../components/v-uniq-third/v-uniq-third'
@@ -62,7 +62,7 @@ export default {
     // vSliderFeedback,
     // vFeedbackForm,
     // vRecommendation,
-    // vTeam,
+    vTeam,
     vSocial,
     vFurnitureGallery,
     vUniqThird,
