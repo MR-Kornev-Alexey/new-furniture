@@ -2,7 +2,7 @@
   <v-container class="v-main-page">
     <v-nav-bar/>
     <v-main-screen/>
-<!--    <v-cabinet-furniture/>-->
+    <v-cabinet-furniture/>
 <!--    <v-proposal/>-->
 <!--    <v-upload />-->
 <!--    <v-design />-->
@@ -26,7 +26,7 @@
 <script>
 import vNavBar from '../components/v-nav-bar/v-nav-bar'
 import vMainScreen from '../components/v-main-screen/v-main-screen'
-// import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
+import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
 // import vUpload from '../components/v-upload/v-upload'
 // import vProposal from '../components/v-proposal/v-proposal'
 // import vDesign from '../components/v-design/v-design'
@@ -50,7 +50,7 @@ export default {
   components: {
     vNavBar,
     vMainScreen,
-    // vCabinetFurniture,
+    vCabinetFurniture,
     // vProposal,
     // vUpload,
     // vDesign,

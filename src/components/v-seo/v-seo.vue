@@ -103,26 +103,9 @@ export default {
      }
   }
 
-  @media only screen and (max-width: 768px) {
-    .v-seo .v-seo-left h3 {
-      width: 667px;
-    }
-  }
-
-  @media only screen and (max-width: 660px) {
-    .v-seo .v-seo-left h3 {
-      width: 550px;
-    }
-  }
-  @media only screen and (max-width: 540px) {
-    .v-seo .v-seo-left h3 {
-      width: 500px;
-      font-size: 13px;
-    }
-  }
   @media only screen and (max-width: 414px){
-    .v-seo .v-seo-left h3[data-v-18e49546] {
-      width: 402px;
+       .v-seo .v-seo-left h2{
+      height: 63px;
     }
   }
   @media only screen and (max-width: 360px){

@@ -118,8 +118,8 @@ export default {
     }
 
     .left-header__description{
-      width: 330.75px;
-      height: 42.41px;
+      max-width: 330.75px;
+      min-height: 42.41px;
       font-size: 14px;
       line-height: 141%;
       /* or 20px */
@@ -202,6 +202,9 @@ export default {
   }
 
   @media only screen and (max-width: 1024px) {
+    .v-cabinet-furniture {
+      padding-top: 16px;
+    }
     .first-side-two, .first-side-one {
       padding: 30px 0 0 6px;
     }
