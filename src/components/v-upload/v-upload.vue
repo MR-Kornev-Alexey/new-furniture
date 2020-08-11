@@ -194,7 +194,7 @@ export default {
       display: block;
     }
     .v-upload-wrapper{
-      height: 380px;
+      min-height: 380px;
       grid-template-columns: repeat(1, 1fr);
       grid-template-areas:
          "fb "
