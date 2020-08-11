@@ -157,10 +157,10 @@ export default {
   }
   @media only screen and (max-width: 600px) {
     .v-feedback-form .right-column .right-column__item {
-      width: 540px;
+      width: 500px;
     }
     .v-feedback-form textarea {
-      width: 540px;
+      width: 500px;
     }
 
     .right-column__item{
@@ -173,5 +173,31 @@ export default {
       left: 56%;
       }
    }
+  @media only screen and (max-width: 540px) {
+    .v-feedback-form .right-column .right-column__item {
+      width: 480px;
+    }
+    .v-feedback-form textarea {
+      width: 480px;
+    }
+    .v-feedback-form .right-column .right-column__item_second .btn-send {
+      left: 46%;
+    }
+  }
+  @media only screen and (max-width: 414px) {
+    .v-feedback-form .form-description[data-v-1403707b] {
+      width: 366px;
+      height: 92px;
+    }
+    .v-feedback-form .right-column .right-column__item {
+      width: 380px;
+    }
+    .v-feedback-form textarea {
+      width: 380px;
+    }
+    .v-feedback-form .right-column .right-column__item_second .btn-send {
+      left: 30%;
+    }
+  }
 
 </style>
