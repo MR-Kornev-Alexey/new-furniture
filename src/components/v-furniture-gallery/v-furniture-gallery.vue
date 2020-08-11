@@ -1,6 +1,6 @@
 <template>
   <v-row class="v-furniture-gallery">
-    <v-col md="3" sm="6" cols="11" class="d-flex justify-center">
+    <v-col md="3" sm="6" cols="12" class="d-flex justify-center">
       <div>
         <img class="container--fluid" src="../../assets/img/furniture/gallery-1.png" alt="gallery pic">
         <h3>
@@ -15,7 +15,7 @@
         />
       </div>
      </v-col>
-    <v-col md="3" sm="6" cols="11" class="d-flex justify-center">
+    <v-col md="3" sm="6" cols="12" class="d-flex justify-center">
       <div>
         <img class="container--fluid"  src="../../assets/img/furniture/gallery-2.png" alt="gallery pic">
         <h3>
@@ -31,7 +31,7 @@
       </div>
 
     </v-col>
-    <v-col md="3" sm="6" cols="11" class="d-flex justify-center">
+    <v-col md="3" sm="6" cols="12" class="d-flex justify-center">
       <div>
         <img class="container--fluid"  src="../../assets/img/furniture/gallery-3.png" alt="gallery pic">
         <h3>
@@ -46,7 +46,7 @@
         />
       </div>
     </v-col>
-    <v-col md="3" sm="6" cols="11" class="d-flex  justify-center">
+    <v-col md="3" sm="6" cols="12" class="d-flex  justify-center">
       <div>
         <img class="container--fluid"  src="../../assets/img/furniture/gallery-4.png" alt="gallery pic">
         <h3>

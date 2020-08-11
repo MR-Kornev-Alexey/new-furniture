@@ -5,7 +5,7 @@
     <v-cabinet-furniture/>
     <v-proposal/>
     <v-upload />
-<!--    <v-design />-->
+    <v-design />
 <!--    <v-choice-bayer/>-->
 <!--    <v-uniq/>-->
 <!--    <v-material/>-->
@@ -15,7 +15,7 @@
 <!--    <v-feedback-form/>-->
 <!--    <v-recommendation/>-->
 <!--    <v-team/>-->
-<!--    <v-social/>-->
+    <v-social/>
     <v-furniture-gallery/>
     <v-uniq-third/>
     <v-map/>
@@ -29,7 +29,7 @@ import vMainScreen from '../components/v-main-screen/v-main-screen'
 import vCabinetFurniture from '../components/v-cabinet-furniture/v-cabinet-furniture'
 import vUpload from '../components/v-upload/v-upload'
 import vProposal from '../components/v-proposal/v-proposal'
-// import vDesign from '../components/v-design/v-design'
+import vDesign from '../components/v-design/v-design'
 // import vChoiceBayer from '../components/v-choice-bayer/v-choice-bayer'
 // import vUniq from '../components/v-uniq/v-uniq'
 // import vMaterial from '../components/v-material/v-material'
@@ -39,7 +39,7 @@ import vProposal from '../components/v-proposal/v-proposal'
 // import vFeedbackForm from '../components/v-feedback-form/v-feedback-form'
 // import vRecommendation from '../components/v-recommendation/v-recommendation'
 // import vTeam from '../components/v-team/v-team'
-// import vSocial from '../components/v-social/v-social'
+import vSocial from '../components/v-social/v-social'
 import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
 import vUniqThird from '../components/v-uniq-third/v-uniq-third'
 import vMap from '../components/v-map/v-map'
@@ -53,7 +53,7 @@ export default {
     vCabinetFurniture,
     vProposal,
     vUpload,
-    // vDesign,
+    vDesign,
     // vChoiceBayer,
     // vUniq,
     // vMaterial,
@@ -63,7 +63,7 @@ export default {
     // vFeedbackForm,
     // vRecommendation,
     // vTeam,
-    // vSocial,
+    vSocial,
     vFurnitureGallery,
     vUniqThird,
     vMap,

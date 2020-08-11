@@ -23,7 +23,7 @@
         <img alt="furniture" src="../../assets/img/social/social-5.png">
       </div>
       <div class="slide ">
-        <img alt="furniture" src="../../assets/img/social/social-6.png">
+        <img alt="furniture" src="../../assets/img/social/social-3.png">
       </div>
     </agile>
   </div>
@@ -156,6 +156,22 @@ export default {
   @media only screen and (max-width: 414px){
     .agile-social {
       margin-left: 44px;
+    }
+  }
+  @media only screen and (max-width: 360px){
+    .agile-social {
+      margin-left: 15px;
+    }
+    .agile-social {
+      width: 300px;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    .agile-social {
+      margin-left: 0;
+    }
+    .agile-social {
+      width: 300px;
     }
   }
 
