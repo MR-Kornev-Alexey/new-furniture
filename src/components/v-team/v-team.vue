@@ -9,6 +9,7 @@
       <v-transit :address='addressOut'
                  :color='colorBlack'
                  :text='textOut'
+                 class="v-team__transit"
       />
       <div class="down-row">
         Северное полушарие восстанавливает неопровержимый широколиственный лес,
@@ -85,8 +86,8 @@ export default {
 
     h2 {
       margin: 0 0 81px 0;
-      width: 313.63px;
-      height: 60.38px;
+      max-width: 313.63px;
+      min-height: 60.38px;
       font-size: 30px;
       line-height: 113.5%;
 
@@ -112,8 +113,8 @@ export default {
       margin: 0 0 62px 0;
       font-size: 15px;
       line-height: 149%;
-      width: 304.94px;
-      height: 84.1px;
+      max-width: 304.94px;
+      min-height: 84.1px;
     }
   }
 
@@ -230,9 +231,7 @@ export default {
     }
     .v-team__second{
       margin: 28px 0 0 12px;
-      align-self: center;
-      justify-self: center;
-        }
+         }
     .v-team__second,.v-team__third,.v-team__fourth{
       width: 412px;
       height: 547px;
@@ -249,11 +248,34 @@ export default {
 
   @media only screen and (max-width: 540px){
     .v-team__second,.v-team__third,.v-team__fourth{
-      margin: 28px 0 0 0;
-     }
-    .v-team__second[data-v-bdd421e2], .v-team__third[data-v-bdd421e2], .v-team__fourth[data-v-bdd421e2] {
+      margin:  0;
       width: 331px;
+     }
+    .v-team__transit{
+      margin-bottom: 32px;
     }
+
   }
+
+  @media only screen and (max-width: 320px){
+    .v-team__first{
+      padding: 44px 0 0 8px;
+      grid-area: b1;
+    }
+    .v-team__first h2{
+      min-height: 12.38px;
+    }
+    .v-team__first .v-team__first_description {
+      margin: 0 0 21px 0;
+    }
+
+  .v-team__second, .v-team__third, .v-team__fourth {
+    width: 289px;
+    margin:  0;
+  }
+    .v-team__transit{
+      margin-bottom: 32px;
+    }
+   }
 
  </style>

@@ -184,5 +184,15 @@ export default {
       "sh sh";
     }
   }
+  @media only screen and (max-width: 360px) {
+    .second-header .second-header__bottom {
+      right: 46px;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .second-header .second-header__bottom {
+        right: 4px;
+    }
+  }
 
 </style>

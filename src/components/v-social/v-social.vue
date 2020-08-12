@@ -158,12 +158,13 @@ export default {
       margin-left: 44px;
     }
   }
+
   @media only screen and (max-width: 360px){
     .agile-social {
       margin-left: 15px;
     }
     .agile-social {
-      width: 300px;
+      width: 270px;
     }
   }
   @media only screen and (max-width: 320px){

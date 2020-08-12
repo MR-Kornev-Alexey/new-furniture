@@ -109,8 +109,13 @@ export default {
     }
   }
   @media only screen and (max-width: 360px){
-    .v-seo .v-seo-left h3[data-v-18e49546] {
+    .v-seo .v-seo-left h3 {
       width: 310px;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    .v-seo .v-seo-left h3 {
+      width: 294px;
     }
   }
 

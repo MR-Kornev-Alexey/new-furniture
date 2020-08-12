@@ -12,7 +12,7 @@
       <v-transit :address='addressOut'
                  :color='colorBlack'
                  :text='textOut1'
-                 class="transit-header "
+                 class="transit-header v-360-width "
       />
     </div>
     <div class="sidebar">
@@ -20,34 +20,37 @@
         <img alt="material" class="container--fluid" src="../../assets/img/material/material-1.png">
         <h3 class="h3-sidebar">Мебельная фабрика Wood Fans</h3>
         <div class="sidebar-description">Это место, где Вам всегда помогут подобрать ткань для дивана или кровати,
-          определиться с размерами
-          и оживить интерьер декором из текстиля.
+          определиться с размерами и оживить интерьер декором из текстиля.
         </div>
+        <v-transit :address='addressOut'
+                   :color='colorBlack'
+                   :text='textOut2'
+                   class="transit-footer v-360-width-padding"
+        />
+      </div>
+    </div>
+    <div class="left"><img alt="material" class="container--fluid" src="../../assets/img/material/material-2.png">
+      <div>
+        <h3>Мебельная фабрика Wood Fans</h3>
+        <div class="block-description">Это место, где Вам всегда помогут подобрать ткань для дивана или кровати</div>
         <v-transit :address='addressOut'
                    :color='colorBlack'
                    :text='textOut2'
                    class="transit-footer v-360-width"
         />
       </div>
-    </div>
-    <div class="left"><img alt="material" class="container--fluid" src="../../assets/img/material/material-2.png">
-      <h3>Мебельная фабрика Wood Fans</h3>
-      <div class="block-description">Это место, где Вам всегда помогут подобрать ткань для дивана или кровати</div>
-      <v-transit :address='addressOut'
-                 :color='colorBlack'
-                 :text='textOut2'
-                 class="transit-footer"
-      />
-    </div>
+      </div>
     <div class="right"><img alt="material" class="container--fluid" src="../../assets/img/material/material-3.png">
-      <h3>Мебельная фабрика Wood Fans</h3>
-      <div class="block-description">Это место, где Вам всегда помогут подобрать ткань для дивана или кровати</div>
-      <v-transit :address='addressOut'
-                 :color='colorBlack'
-                 :text='textOut2'
-                 class="transit-footer"
-      />
-    </div>
+      <div>
+        <h3>Мебельная фабрика Wood Fans</h3>
+        <div class="block-description">Это место, где Вам всегда помогут подобрать ткань для дивана или кровати</div>
+        <v-transit :address='addressOut'
+                   :color='colorBlack'
+                   :text='textOut2'
+                   class="transit-footer"
+        />
+      </div>
+      </div>
   </div>
 </template>
 
@@ -73,7 +76,9 @@ export default {
 <style lang="scss" scoped>
   .v-material {
     margin: auto;
-
+    .block-description{
+      max-width: 310px;
+    }
     h2 {
       font-weight: normal;
       font-size: 30px;
@@ -102,8 +107,8 @@ export default {
 
     h4 {
       margin-top: 25px;
-      width: 380px;
-      height: 64px;
+      max-width: 380px;
+      min-height: 64px;
       font-size: 15px;
       line-height: 149%;
     }
@@ -124,7 +129,7 @@ export default {
     padding-left: 23px;
 
     .sidebar-description {
-      width: 100%;
+      max-width: 279px;
     }
   }
 
@@ -159,38 +164,39 @@ export default {
     }
   }
 
-  @media only screen and (max-width: 411px) {
-    .header {
-      padding: 19px 0 2px 16px;
+    @media only screen and (max-width: 660px) {
+      .right, .left {
+        padding: 27px 0 0 0 ;
+      }
     }
-    .h3-sidebar{
-      margin: 19px 0 0 19px!important;
-    }
-    .v-material h3 {
-      margin: 0 ;
 
+    @media only screen and (max-width: 768px) {
+      .right, .left {
+        padding: 27px 0 0 37px;
+      }
+      .wrapper {
+        justify-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        grid-template-areas:
+       "hd hd hd hd"
+       "lt lt rt rt"
+       "sd  sd sd sd";
+      }
+      .header {
+        padding: 19px 0 2px 36px;
+      }
+      .sidebar {
+        margin: 20px 0 20px 0;
+        padding-left: 0;
+        justify-self: center;
+        justify-content: center;
+      }
     }
-    .header-h4 {
-
-      width: 280px !important;
-      margin: 0 0 32px  0 ;
-    }
-    .sidebar .sidebar-description {
-      width: 300px !important;
-      margin: 0 0 0 19px;
-    }
-    .v-360-width {
-      margin: 0 0 0 19px;
-    }
-  }
-
   @media only screen and (max-width: 540px) {
     .sidebar .sidebar-description {
-      width: 274px !important;
+      max-width: 453px;
     }
-  }
-
-  @media only screen and (max-width: 540px) {
     .wrapper {
       margin: 11px auto 0 auto;
       justify-content: center;
@@ -201,54 +207,62 @@ export default {
        "rt rt "
        "sd sd " !important;
     }
+
     .left, .right, .sidebar {
+      padding: 0 0 0 0;
       justify-self: center;
     }
-    .sidebar .sidebar-description {
-      width: 360px !important;
+    .v-360-width{
+      margin-bottom: 32px;
     }
+
   }
 
-  @media only screen and (max-width: 660px) {
-    .right, .left {
-      padding: 27px 0 0 2px !important;
+  @media only screen and (max-width: 414px) {
+    .v-360-width-padding{
+      padding:  0 0 0 18px;
     }
-  }
-
-  @media only screen and (max-width: 660px) {
-    .right, .left {
-      padding: 27px 0 0 14px !important;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .block-description {
-      width: 290px;
+    .v-360-width{
+      margin-bottom: 32px;
     }
     .right, .left {
-      padding: 27px 0 0 37px;
-    }
-    .wrapper {
-      justify-content: center;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: minmax(100px, auto);
-      grid-template-areas:
-       "hd hd hd hd"
-       "lt lt rt rt"
-       "sd  sd sd sd";
+      padding: 0 0 0 0;
     }
     .header {
-      padding: 19px 0 2px 36px;
+      padding: 19px 0 2px 16px;
     }
-    .sidebar {
-      margin: 20px 0 20px 0;
-      padding-left: 0;
-      justify-self: center;
-      justify-content: center;
+    .h3-sidebar {
+      margin: 19px 0 0 19px !important;
+    }
+    .v-material h3 {
+      margin: 0;
 
-      .sidebar-description {
-        width: 503px;
-      }
     }
+    .header-h4 {
+
+      max-width: 280px;
+      margin: 0 0 32px 0;
+    }
+    .sidebar .sidebar-description {
+      max-width: 300px;
+      margin: 0 0 0 19px;
+    }
+
   }
+
+  @media only screen and (max-width: 360px) {
+    .v-360-width-padding{
+      padding:  0 0 0 18px;
+    }
+    .v-360-width{
+      margin-bottom: 32px;
+    }
+
+  }
+
+  @media only screen and (max-width: 320px) {
+    .right, .left {
+      padding: 0 ;
+    }}
+
 </style>
