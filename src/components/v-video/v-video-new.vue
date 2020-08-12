@@ -20,7 +20,7 @@
         <div class="v-video__item__inn">
           <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
           <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
-          <div>
+          <div class="v-video__item__description" >
             Детская кровать для маленькой принцессы
           </div>
           <v-transit  :text = 'textOut2'
@@ -33,7 +33,7 @@
         <div class="v-video__item__inn">
           <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
           <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
-          <div>
+          <div class="v-video__item__description" >
             Детская кровать для маленькой принцессы
           </div>
           <v-transit  :text = 'textOut2'
@@ -46,7 +46,7 @@
         <div class="v-video__item__inn">
           <img class="container--fluid" src="../../assets/img/video-screen.png" alt="video">
           <img  class="v-video__item__button" src="../../assets/img/svg/video.svg" alt="video button">
-          <div>
+          <div class="v-video__item__description" >
             Детская кровать для маленькой принцессы
           </div>
           <v-transit  :text = 'textOut2'
@@ -125,7 +125,7 @@ export default {
       }
       div {
         width: 289px;
-        height: 87px;
+        min-height: 87px;
         margin-bottom: 2px;
         font-size: 15px;
         line-height: 149%;
@@ -151,6 +151,20 @@ export default {
     }
   }
   @media only screen and (max-width: 960px){
+    .v-video___tittle,.v-video__item__1, .v-video__item__2,.v-video__item__3{
+       justify-self: center;
+      margin-bottom: 20px;
+    }
+  .v-video__item__description{
+    width: 247px;
+    margin-bottom: 10px;
+  }
+    .v-video__item__inn{
+      justify-self: center;
+    }
+    .v-video .v-video___tittle {
+      padding: 0 0 0 0;
+    }
     .v-video{
       margin: 41px auto 0 auto;
      }
@@ -158,13 +172,21 @@ export default {
      grid-template-columns: repeat(2, 1fr);
      grid-template-areas:
      "tl b1"
-     "b2 b3 "
-    ;
+     "b2 b3 " ;
     }
     .v-video__item__button{
         top: 45px;
         left: 94px;
       }
+  }
+
+  @media only screen and (max-width: 660px){
+    .v-video___tittle{
+        padding: 20px 0 0 28px!important;
+    }
+    .v-video .v-video___tittle h2 {
+      font-size: 28px;
+     }
   }
   @media only screen and (max-width: 600px){
     .v-video {
@@ -172,17 +194,13 @@ export default {
     }
   }
   @media only screen and (max-width: 540px){
-    .v-video {
-      .v-video___tittle div[data-v-b480f14e] {
-           height: 142px;
-        flex-direction: column;
-        margin-bottom: 18px;
-      }
-      .v-video__item .v-video__item__inn{
-        height: 142px;
-        flex-direction: column;
-        margin-bottom: 18px;
-      }
+    .v-v-wrapper {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+     "tl"
+     "b1"
+     "b2"
+     "b3";
     }
   }
 
