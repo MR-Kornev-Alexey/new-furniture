@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="second-one second-item-footer">
-        <img class="container--fluid"  src="../../assets/img/uniq-second/uniq-second-0.png" alt="material">
+        <img class="container--fluid"  src="../../assets/img/uniq-second/vurniture-all-1.jpg" alt="material">
         <h2>
           Andrria miss
         </h2>
@@ -27,7 +27,7 @@
         />
       </div>
       <div class="second-two second-item-footer">
-        <img class="container--fluid" src="../../assets/img/uniq-second/uniq-second-1.png" alt="material">
+        <img class="container--fluid" src="../../assets/img/uniq-second/vurniture-all-2.jpg" alt="material">
         <h2>
           Andrria miss
         </h2>
@@ -40,7 +40,7 @@
         />
       </div>
       <div class="second-three second-item-footer">
-        <img class="container--fluid"  src="../../assets/img/uniq-second/uniq-second-2.png" alt="material">
+        <img class="container--fluid"  src="../../assets/img/uniq-second/vurniture-all-3.jpg" alt="material">
         <h2>
           Andrria miss
         </h2>
@@ -76,7 +76,6 @@ export default {
 
 <style scoped lang="scss">
   .second-item-footer{
-    padding: 0 0 0 0;
     h2{
       margin: 0 0 11px 0;
     }
