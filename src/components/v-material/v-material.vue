@@ -12,21 +12,23 @@
       <v-transit :address='addressOut'
                  :color='colorBlack'
                  :text='textOut1'
-                 class="transit-header"
+                 class="transit-header "
       />
     </div>
     <div class="sidebar">
-      <img alt="material" class="container--fluid" src="../../assets/img/material/material-1.png">
-      <h3>Мебельная фабрика Wood Fans</h3>
-      <div class="sidebar-description">Это место, где Вам всегда помогут подобрать ткань для дивана или кровати,
-        определиться с размерами
-        и оживить интерьер декором из текстиля.
+      <div class="d-flex justify-center" style="flex-direction: column">
+        <img alt="material" class="container--fluid" src="../../assets/img/material/material-1.png">
+        <h3 class="h3-sidebar">Мебельная фабрика Wood Fans</h3>
+        <div class="sidebar-description">Это место, где Вам всегда помогут подобрать ткань для дивана или кровати,
+          определиться с размерами
+          и оживить интерьер декором из текстиля.
+        </div>
+        <v-transit :address='addressOut'
+                   :color='colorBlack'
+                   :text='textOut2'
+                   class="transit-footer v-360-width"
+        />
       </div>
-      <v-transit :address='addressOut'
-                 :color='colorBlack'
-                 :text='textOut2'
-                 class="transit-footer"
-      />
     </div>
     <div class="left"><img alt="material" class="container--fluid" src="../../assets/img/material/material-2.png">
       <h3>Мебельная фабрика Wood Fans</h3>
@@ -109,7 +111,7 @@ export default {
 
   .right {
     grid-area: rt;
-    padding: 27px 0 0 6px;
+    padding: 27px 0 0 15px;
   }
 
   .left {
@@ -142,18 +144,54 @@ export default {
     margin: 57px auto 0 auto;
   }
 
+  @media only screen and (max-width: 1024px) {
+    .right, .left {
+      padding: 27px 0 0 6px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .right, .left {
+      padding: 0;
+    }
+    .wrapper {
+      margin: 0 auto 0 auto;
+    }
+  }
+
   @media only screen and (max-width: 411px) {
+    .header {
+      padding: 19px 0 2px 16px;
+    }
+    .h3-sidebar{
+      margin: 19px 0 0 19px!important;
+    }
+    .v-material h3 {
+      margin: 0 ;
+
+    }
     .header-h4 {
-      width: 340px!important;
-      margin-bottom: 32px;
+
+      width: 280px !important;
+      margin: 0 0 32px  0 ;
     }
     .sidebar .sidebar-description {
       width: 300px !important;
+      margin: 0 0 0 19px;
+    }
+    .v-360-width {
+      margin: 0 0 0 19px;
     }
   }
 
   @media only screen and (max-width: 540px) {
-     .wrapper {
+    .sidebar .sidebar-description {
+      width: 274px !important;
+    }
+  }
+
+  @media only screen and (max-width: 540px) {
+    .wrapper {
       margin: 11px auto 0 auto;
       justify-content: center;
       grid-template-columns: repeat(2, 1fr) !important;
