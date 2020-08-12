@@ -12,8 +12,8 @@
 <!--    <v-video/>-->
     <v-uniq-second/>
     <v-slider-feedback/>
-<!--    <v-feedback-form/>-->
-<!--    <v-recommendation/>-->
+    <v-feedback-form/>
+    <v-recommendation/>
     <v-team/>
     <v-social/>
     <v-furniture-gallery/>
@@ -36,8 +36,8 @@ import vMaterial from '../components/v-material/v-material'
 // import vVideo from '../components/v-video/v-video-new'
 import vUniqSecond from '../components/v-uniq-second/v-uniq-second'
 import vSliderFeedback from '../components/v-slider-feedback/v-slider-feedback'
-// import vFeedbackForm from '../components/v-feedback-form/v-feedback-form'
-// import vRecommendation from '../components/v-recommendation/v-recommendation'
+import vFeedbackForm from '../components/v-feedback-form/v-feedback-form'
+import vRecommendation from '../components/v-recommendation/v-recommendation'
 import vTeam from '../components/v-team/v-team'
 import vSocial from '../components/v-social/v-social'
 import vFurnitureGallery from '../components/v-furniture-gallery/v-furniture-gallery'
@@ -60,8 +60,8 @@ export default {
     // vVideo,
     vUniqSecond,
     vSliderFeedback,
-    // vFeedbackForm,
-    // vRecommendation,
+    vFeedbackForm,
+    vRecommendation,
     vTeam,
     vSocial,
     vFurnitureGallery,

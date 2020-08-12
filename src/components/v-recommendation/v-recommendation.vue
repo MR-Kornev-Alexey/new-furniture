@@ -183,6 +183,9 @@ export default {
   }
 
   @media only screen and (max-width: 900px) {
+    .right-side-div__item .right-side__item {
+       padding: 0 4px ;
+    }
     .right-side .v-recommendation__transit {
       margin-top: 7px;
       margin-bottom: 34px;
@@ -219,6 +222,11 @@ export default {
   }
 
   @media only screen and (max-width: 660px) {
+    .right-side-div__item .right-side__item {
+      width: 209px;
+      text-align: left;
+      padding: 0 4px ;
+    }
     .wrapper {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: minmax(200px, auto);
@@ -238,6 +246,7 @@ export default {
   }
 
   @media only screen and (max-width: 540px) {
+
     .wrapper {
       grid-template-columns: repeat(1, 1fr);
       grid-auto-rows: minmax(200px, auto);

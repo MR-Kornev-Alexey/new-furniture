@@ -17,7 +17,7 @@
       </div>
       <div class="slide">
         <div class="my-slide-item d-flex text-left">
-          <div>
+          <div class="div-avatar justify-sm-center">
             <img src="../../assets/img/avatar.png" alt="avatar">
           </div>
           <div class="description">
@@ -30,7 +30,7 @@
       </div>
       <div class="slide">
         <div class="my-slide-item d-flex text-left">
-          <div>
+          <div class="div-avatar justify-sm-center">
             <img src="../../assets/img/avatar.png" alt="avatar">
           </div>
           <div class="description">
@@ -43,7 +43,7 @@
       </div>
       <div class="slide">
         <div class="my-slide-item d-flex text-left">
-          <div>
+          <div class="div-avatar justify-sm-center">
             <img src="../../assets/img/avatar.png" alt="avatar">
           </div>
           <div class="description">
@@ -197,7 +197,7 @@ export default {
   }
   @media only screen and (max-width: 540px) {
     .my-slide-item {
-      padding: 56px 0 0 0;
+      padding: 56px 0 0 12px;
     }
     .agile {
       width: 520px;
