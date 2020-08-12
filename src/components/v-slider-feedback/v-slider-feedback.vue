@@ -72,6 +72,7 @@ export default {
       myOptions: {
         navButtons: true,
         infinite: true,
+        autoplay: true,
         responsive: [
           {
             breakpoint: 319,

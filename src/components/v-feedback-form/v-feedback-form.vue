@@ -274,6 +274,10 @@ export default {
   }
 
   @media only screen and (max-width: 375px){
+
+  .v-feedback-form .right-column .right-column__item_second .btn-send {
+    left: 48%;
+  }
     .v-feedback-form .form-description {
       max-width: 321px;
       min-height: 96px;
