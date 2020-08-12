@@ -102,6 +102,16 @@ export default {
       background-position-y: -122px;
      }
   }
+  @media only screen and (max-width: 768px) {
+       .v-seo .v-seo-right {
+      background-position-y: -36px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .v-seo .v-seo-right {
+      background-position-y: 2px;
+    }
+  }
 
   @media only screen and (max-width: 414px){
        .v-seo .v-seo-left h2{
