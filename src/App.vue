@@ -1,19 +1,22 @@
 <template>
   <v-app>
-     <v-main>
-      <v-main-page/>
-    </v-main>
+    <router-view>
+
+    </router-view>
+<!--     <v-main>-->
+<!--      <v-main-page/>-->
+<!--    </v-main>-->
   </v-app>
 </template>
 
 <script>
-import vMainPage from './components/v-main-page'
+// import vMainPage from './components/v-main-page'
 
 export default {
   name: 'App',
 
   components: {
-    vMainPage
+    // vMainPage
   },
 
   data: () => ({
