@@ -5,6 +5,7 @@
       <v-main-product-card/>
       <v-review/>
       <v-details/>
+      <v-main-fabric/>
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import vSmallMenu from './v-small-menu/v-small-menu'
 import vMainProductCard from './v-main-product-card/v-main-product-card'
 import vReview from './v-review/v-review'
 import vDetails from './v-details/v-details'
+import vMainFabric from './v-main-fabric/v-main-fabric'
 export default {
   name: 'main-product',
   components: {
@@ -21,7 +23,8 @@ export default {
     vSmallMenu,
     vMainProductCard,
     vReview,
-    vDetails
+    vDetails,
+    vMainFabric
   }
 }
 </script>
