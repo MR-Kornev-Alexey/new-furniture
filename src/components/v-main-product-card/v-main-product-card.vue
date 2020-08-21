@@ -64,20 +64,89 @@
         </div>
       </div>
     </div>
-    <div class="d-flex">
-      <v-col>
-        2
-      </v-col>
-      <v-col>
-        3
-      </v-col>
+    <div class="d-flex justify-center">
+      <div class="v-main-product-card__third ">
+        <img alt="furniture" class="margin-right-bottom" src="../../assets/img/main-product/image-1.jpg">
+        <img alt="furniture" class="margin-left-bottom" src="../../assets/img/main-product/image-2.jpg">
+        <img alt="furniture" class="margin-right" src="../../assets/img/main-product/image-3.jpg">
+        <img alt="furniture" src="../../assets/img/main-product/image-4.jpg">
+      </div>
+      <div class="v-main-product-card__fourth">
+        <div class="fabric">
+          <div class="d-flex">
+            <div class="number">3.</div>
+            Выберите текстуру и цвет ткани
+            <div class="resize"></div>
+            <div class="d-block text-center main-filter align-self-start">
+              <img alt="filter" src="../../assets/img/svg/fulter.svg">
+              <div class="icon-filter">
+                Фильтр
+              </div>
+
+            </div>
+          </div>
+          <div class="in-stock d-flex ">
+            <div class="align-self-center">В наличии и готов к отправке</div>
+          </div>
+          <div class="choice-in-stock d-flex ">
+            <div
+              :key="i"
+              v-for="(item, i) in fabricInStock">
+              <div class="d-block card ">
+                <div class="fabric-icons d-block">
+                  <div v-if="item.paw" style="height: 26px"><img  src="../../assets/img/svg/pow.svg" alt="animal"></div>
+                  <div v-if="item.clean" style="height: 26px"><img  src="../../assets/img/svg/clean.svg" alt="clear"></div>
+
+                </div>
+                <div>
+                  <img :src="item.image" alt="fabric">
+                </div>
+                <div class="card-item text-center">
+                  {{item.name}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="in-stock d-flex ">
+            <div class="align-self-center">На заказ (отправка через 6-9 недель)</div>
+          </div>
+        </div>
+      </div>
     </div>
   </v-row>
 </template>
 
 <script>
 export default {
-  name: 'v-main-product-card'
+  name: 'v-main-product-card',
+  data: () => ({
+    fabricInStock: [
+      {
+        name: 'Шенил',
+        image: require('@/assets/img/fabric/fabric-1.png'),
+        paw: true,
+        clean: true
+      },
+      {
+        name: 'Велюр',
+        image: require('@/assets/img/fabric/fabric-2.png'),
+        paw: true,
+        clean: false
+      },
+      {
+        name: 'Рогожка',
+        image: require('@/assets/img/fabric/fabric-3.png'),
+        paw: false,
+        clean: true
+      },
+      {
+        name: 'Рогожка',
+        image: require('@/assets/img/fabric/fabric-4.png'),
+        paw: false,
+        clean: false
+      }
+    ]
+  })
 }
 </script>
 
@@ -91,12 +160,14 @@ export default {
     }
 
     .v-main-product-card__one {
-      margin: 14px 19px 0 0;
+      margin: 9px 14px 0 0;
       max-width: 656px;
       height: 625px;
     }
 
     .v-main-product-card__two {
+      margin: 0 0 0 0;
+      padding-left: 3px;
       max-width: 460px;
 
       .v-m-card__two__tittle {
@@ -178,7 +249,7 @@ export default {
 
         .v-m-card__two__block {
           margin: 8px auto 0 auto;
-          width: 394px;
+          max-width: 394px;
           height: 90px;
           background: #FFFFFF;
           border: 1px solid #E1E1E1;
@@ -205,14 +276,17 @@ export default {
         box-sizing: border-box;
         font-size: 17px;
         line-height: 136.5%;
+
         .block-select {
           margin: 8px auto 0 auto;
           justify-content: center;
-          .group{
+
+          .group {
             margin: 0 8px 0 8px;
           }
         }
-        select{
+
+        select {
           width: 187px;
           height: 50px;
           background: #FFFFFF;
@@ -222,7 +296,8 @@ export default {
           font-size: 14px;
           line-height: 136.5%;
         }
-        label{
+
+        label {
           font-weight: 300;
           font-size: 12px;
           line-height: 136.5%;
@@ -230,6 +305,96 @@ export default {
           color: #A6A6A6;
         }
       }
+    }
+  }
+
+  .v-main-product-card__third {
+    margin: 8px 0 0 21px;
+    max-width: 656px;
+    display: block;
+
+    .margin-right-bottom {
+      margin-right: 10px;
+      margin-bottom: 6px;
+    }
+
+    .margin-right {
+      margin-right: 10px;
+    }
+
+    .margin-left-bottom {
+      margin-bottom: 6px;
+    }
+
+    img {
+      display: inline-flex;
+    }
+  }
+
+  .v-main-product-card__fourth {
+    margin: 19px 0 0 0;
+    padding-left: 32px;
+
+    .fabric {
+      .resize {
+        width: 94px;
+      }
+
+      padding-top: 14px;
+      width: 460px;
+      background: #FBFBFD;
+      border: 1px solid #DADADA;
+      box-sizing: border-box;
+      font-size: 17px;
+      line-height: 136.5%;
+
+      .in-stock {
+        padding-left: 17px;
+        vertical-align: center;
+        max-width: 458px;
+        height: 34px;
+        background: #EBF0F5;
+        font-size: 14px;
+        line-height: 136.5%;
+        /* or 19px */
+        color: #797979;
+      }
+      .choice-in-stock {
+       padding: 13px 0 0 28px;
+        .card{
+          position: relative;
+          margin-right: 29px;
+          .fabric-icons{
+            position: absolute;
+            top: -6px;
+            right: -14px;
+           }
+          .card-item{
+
+            font-size: 13px;
+            line-height: 136.5%;
+            /* or 18px */
+            color: #797979;
+
+          }
+
+        }
+      }
+
+      .main-filter {
+        margin: -11px 0px 0 5px;
+
+        .icon-filter {
+          font-family: Muller-Thin, sans-serif;
+          font-style: normal;
+          font-size: 11px;
+          line-height: 136.5%;
+          /* identical to box height, or 15px */
+          text-transform: uppercase;
+          color: #000000;
+        }
+      }
+
     }
   }
 </style>
