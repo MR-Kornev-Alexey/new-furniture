@@ -18,15 +18,15 @@ export default {
 
 <style lang="scss">
   .v-small-menu {
-    margin:66px 0 0 0;
+    margin:57px 0 0 0;
     .v-small-menu__card {
-      padding: 0 0 0 378px;
+      padding: 0 0 0 388px;
       font-size: 15px;
       line-height: 15px;
       /* identical to box height */
       color: #959595;
       .v-icon-small{
-        margin: 0 14px 0 14px;
+        margin: 0 14px 0 6px;
       }
       span {
         color: #000000;
