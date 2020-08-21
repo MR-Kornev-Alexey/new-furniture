@@ -108,7 +108,7 @@
             </div>
           </div>
           <div class="in-stock d-flex ">
-            <div class="align-self-center">На заказ (отправка через 6-9 недель)</div>
+            <div class="align-self-center">На заказ (отправка через 6-9 недель) <a href="#">Выбрать коллекцию</a></div>
           </div>
         </div>
       </div>
@@ -358,9 +358,13 @@ export default {
         line-height: 136.5%;
         /* or 19px */
         color: #797979;
+        a{
+          color: #0D0C0C;
+          margin: 0 0 0 36px;
+        }
       }
       .choice-in-stock {
-       padding: 13px 0 0 28px;
+       padding: 13px 0 25px 28px;
         .card{
           position: relative;
           margin-right: 29px;
