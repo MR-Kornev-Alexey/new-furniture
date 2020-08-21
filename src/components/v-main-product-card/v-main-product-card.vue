@@ -89,13 +89,15 @@
             <div class="align-self-center">В наличии и готов к отправке</div>
           </div>
           <div class="choice-in-stock d-flex ">
+            <div class="choice-vertical"><img src="../../assets/img/svg/vertical.svg"  alt="vertical"></div>
             <div
               :key="i"
               v-for="(item, i) in fabricInStock">
               <div class="d-block card ">
                 <div class="fabric-icons d-block">
-                  <div v-if="item.paw" style="height: 26px"><img  src="../../assets/img/svg/pow.svg" alt="animal"></div>
-                  <div v-if="item.clean" style="height: 26px"><img  src="../../assets/img/svg/clean.svg" alt="clear"></div>
+                  <div style="height: 26px" v-if="item.paw"><img alt="animal" src="../../assets/img/svg/pow.svg"></div>
+                  <div style="height: 26px" v-if="item.clean"><img alt="clear" src="../../assets/img/svg/clean.svg">
+                  </div>
 
                 </div>
                 <div>
@@ -110,7 +112,48 @@
           <div class="in-stock d-flex ">
             <div class="align-self-center">На заказ (отправка через 6-9 недель) <a href="#">Выбрать коллекцию</a></div>
           </div>
+          <div class="choice-in-stock for-order">
+            <div
+              :key="i"
+              style=" display: inline-flex" v-for="(item, i) in fabricForOrder">
+              <div class="d-block card ">
+                <div class="fabric-active">
+                  <img alt="active" src="../../assets/img/svg/active.svg" v-if="item.active">
+                </div>
+                <div class="fabric-icons d-block">
+                  <div style="height: 26px" v-if="item.paw"><img alt="animal" src="../../assets/img/svg/pow.svg"></div>
+                  <div style="height: 26px" v-if="item.clean"><img alt="clear" src="../../assets/img/svg/clean.svg">
+                  </div>
+
+                </div>
+                <div>
+                  <img :src="item.image" alt="fabric">
+                </div>
+                <div class="card-item text-center">
+                  {{item.name}}
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+        <div class="v-machine">
+          <div class="d-flex">
+            <div class="number">4.</div>
+            Механизм
+          </div>
+          <div class="d-flex row-machine">
+            <div class="d-flex v-machine-item"><img  class="d-flex  align-self-center" src="../../assets/img/svg/sofa-m.svg" alt="sofa without"> Без механизма</div>
+            <div class="d-flex v-machine-item"><img class="d-flex align-self-center" src="../../assets/img/svg/sofa-yes.svg" alt="sofa without"> С механизмом</div>
+          </div>
+
         </div>
+        <div class="v-legs">
+          <div class="d-flex">
+            <div class="number">5.</div>
+            Ножки
+          </div>
+        </div>
+        <button class="big-btn">Добавить в корзину</button>
       </div>
     </div>
   </v-row>
@@ -145,6 +188,65 @@ export default {
         paw: false,
         clean: false
       }
+    ],
+    fabricForOrder: [
+      {
+        active: true,
+        name: 'Шенил',
+        image: require('@/assets/img/fabric/fabric-1.png'),
+        paw: false,
+        clean: false
+      },
+      {
+        active: false,
+        name: 'Велюр',
+        image: require('@/assets/img/fabric/fabric-2.png'),
+        paw: true,
+        clean: true
+      },
+      {
+        active: false,
+        name: 'Рогожка',
+        image: require('@/assets/img/fabric/fabric-3.png'),
+        paw: false,
+        clean: false
+      },
+      {
+        active: false,
+        name: 'Рогожка',
+        image: require('@/assets/img/fabric/fabric-4.png'),
+        paw: true,
+        clean: false
+      },
+      {
+        active: false,
+        name: 'Рогожка',
+        image: require('@/assets/img/fabric/fabric-5.png'),
+        paw: false,
+        clean: false
+      },
+      {
+        active: false,
+        name: 'Рогожка',
+        image: require('@/assets/img/fabric/fabric-6.png'),
+        paw: false,
+        clean: true
+      },
+      {
+        active: false,
+        name: 'Велюр',
+        image: require('@/assets/img/fabric/fabric-7.png'),
+        paw: false,
+        clean: false
+      },
+      {
+        active: false,
+        name: 'Велюр',
+        image: require('@/assets/img/fabric/fabric-8.png'),
+        paw: false,
+        clean: false
+      }
+
     ]
   })
 }
@@ -333,11 +435,64 @@ export default {
 
   .v-main-product-card__fourth {
     margin: 19px 0 0 0;
-    padding-left: 32px;
+    padding-left: 30px;
+    .big-btn{
+      margin: 23px 0 0 0;
+      width: 459px;
+      height: 55px;
+      background: #D7B256;
+      border-radius: 2px;
+      font-size: 18px;
+      line-height: 136.5%;
+      /* or 25px */
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+    .v-legs{
+      margin:  21px 0 0 0;
+      padding: 13px 0 0 0;
+      width: 458px;
+      height: 138px;
+      background: #FBFBFD;
+      border: 1px solid #DADADA;
+      box-sizing: border-box;
+      font-size: 17px;
+      line-height: 136.5%;
+    }
+    .v-machine{
+      margin: 21px 0 0 0;
+      padding: 13px 0 20px 0;
+      width: 458px;
+      background: #FBFBFD;
+      border: 1px solid #DADADA;
+      box-sizing: border-box;
+      font-size: 17px;
+      line-height: 136.5%;
+      .row-machine{
+        margin: 15px 0 0 0;
+        .v-machine-item{
+          margin: 0 38px 0 19px;
+          cursor: pointer;
+          img{
+            margin: 0 7px 0 0;
+          }
+        }
+      }
+    }
 
     .fabric {
+      .choice-vertical{
+        position: absolute;
+        bottom: 3px;
+        right: 4px;
+      }
       .resize {
         width: 94px;
+      }
+
+      .for-order {
+        padding: 25px 0 22px 28px !important;
       }
 
       padding-top: 14px;
@@ -358,22 +513,35 @@ export default {
         line-height: 136.5%;
         /* or 19px */
         color: #797979;
-        a{
+
+        a {
           color: #0D0C0C;
           margin: 0 0 0 36px;
         }
       }
+
       .choice-in-stock {
-       padding: 13px 0 25px 28px;
-        .card{
+        padding: 13px 0 20px 28px;
+        width: 458px;
+        position: relative;
+
+        .card {
           position: relative;
-          margin-right: 29px;
-          .fabric-icons{
+          margin: 0 29px 5px 0;
+
+          .fabric-active {
+            position: absolute;
+            top: -4px;
+            right: -3px;
+          }
+
+          .fabric-icons {
             position: absolute;
             top: -6px;
             right: -14px;
-           }
-          .card-item{
+          }
+
+          .card-item {
 
             font-size: 13px;
             line-height: 136.5%;
