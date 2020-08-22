@@ -104,7 +104,7 @@ export default {
   }
 .v-filler{
   margin: 29px auto 0 auto;
-  padding: 100px 0 0 0;
+  padding: 100px 0 160px 0;
   background: #FBFBFD;
   border: 1px solid #DADADA;
   box-sizing: border-box;

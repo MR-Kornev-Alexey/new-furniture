@@ -7,6 +7,7 @@
       <v-details/>
       <v-main-fabric/>
       <v-filler/>
+      <v-product-faq/>
     </div>
 </template>
 
@@ -18,7 +19,7 @@ import vReview from './v-review/v-review'
 import vDetails from './v-details/v-details'
 import vMainFabric from './v-main-fabric/v-main-fabric'
 import vFiller from './v-filler/v-filler'
-
+import vProductFaq from './v-product-faq/v-product-faq'
 export default {
   name: 'main-product',
   components: {
@@ -28,7 +29,8 @@ export default {
     vReview,
     vDetails,
     vMainFabric,
-    vFiller
+    vFiller,
+    vProductFaq
   }
 }
 </script>
