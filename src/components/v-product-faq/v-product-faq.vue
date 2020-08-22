@@ -13,7 +13,6 @@
         <label class="input-text">
           <input placeholder="Опишите свой вопрос " type="text" v-model="faq">
         </label>
-
         <button
             class="btn-faq"
         >
