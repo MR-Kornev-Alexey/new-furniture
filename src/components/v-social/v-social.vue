@@ -1,6 +1,6 @@
 <template>
   <div class="v-social">
-    <div>
+    <div v-if="showProduct">
       <h3>Социальные сети</h3>
       <h2>
         Следите за нами в instagram
@@ -37,6 +37,7 @@ export default {
   components: {
     agile: VueAgile
   },
+  props: ['showProduct'],
   data () {
     return {
       myOptions: {

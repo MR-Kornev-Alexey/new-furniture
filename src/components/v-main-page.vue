@@ -15,7 +15,7 @@
     <v-feedback-form/>
     <v-recommendation/>
     <v-team/>
-    <v-social/>
+    <v-social :showProduct = "showProduct" />
     <v-furniture-gallery/>
     <v-uniq-third/>
     <v-map/>
@@ -71,7 +71,7 @@ export default {
     vFooter
   },
   data: () => ({
-
+    showProduct: true
   })
 }
 </script>

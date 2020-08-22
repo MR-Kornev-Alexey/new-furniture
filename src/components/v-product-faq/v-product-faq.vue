@@ -15,8 +15,7 @@
         </label>
 
         <button
-          @click="validate"
-          class="btn-faq"
+            class="btn-faq"
         >
           Отправить
         </button>
@@ -36,6 +35,11 @@
         <div class="item-dataSend">{{item.dataSend}}</div>
       </div>
     </div>
+    <div class="row one-more d-flex justify-center">
+      <div class="col-md-6 d-flex justify-center text-center">
+        <a href="#">Показать еще 10 вопросов по этому продукту</a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -44,7 +48,7 @@ export default {
   name: 'v-product-faq',
   data: () => ({
     faq: null,
-    valid: null,
+    valid: '',
     arrayFaq: [
       {
         question: 'Каков уровень жесткости этого дивана?',
@@ -82,7 +86,14 @@ export default {
   .v-product-faq {
     margin: 86px auto 0 auto;
     max-width: 1140px;
-
+    .one-more{
+      margin: 15px 0 0 0;
+      a{
+        font-size: 15px;
+        line-height: 136.5%;
+       color: #040404;
+      }
+    }
     .row-all-cards {
       margin: 105px 0 0 0;
 

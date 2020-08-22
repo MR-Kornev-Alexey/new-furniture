@@ -8,6 +8,11 @@
       <v-main-fabric/>
       <v-filler/>
       <v-product-faq/>
+      <v-tittle/>
+      <v-furniture-gallery />
+      <v-social :showProduct = "showProduct" />
+      <v-map/>
+      <v-footer/>
     </div>
 </template>
 
@@ -20,6 +25,11 @@ import vDetails from './v-details/v-details'
 import vMainFabric from './v-main-fabric/v-main-fabric'
 import vFiller from './v-filler/v-filler'
 import vProductFaq from './v-product-faq/v-product-faq'
+import vTittle from './v-tiitle/v-tittle'
+import vFurnitureGallery from './v-furniture-gallery/v-furniture-gallery'
+import vSocial from './v-social/v-social'
+import vMap from '../components/v-map/v-map'
+import vFooter from '../components/v-footer/v-footer'
 export default {
   name: 'main-product',
   components: {
@@ -30,8 +40,16 @@ export default {
     vDetails,
     vMainFabric,
     vFiller,
-    vProductFaq
-  }
+    vProductFaq,
+    vTittle,
+    vFurnitureGallery,
+    vSocial,
+    vMap,
+    vFooter
+  },
+  data: () => ({
+    showProduct: false
+  })
 }
 </script>
 
