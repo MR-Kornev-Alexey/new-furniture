@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import vMainPage from '../components/v-main-page'
 import vMainProduct from '../components/v-main-product'
 import vMainContacts from '../components/v-main-contacts'
-
+import vMainSofas from '../components/v-main-sofas'
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,6 +21,11 @@ const routes = [
     path: '/contacts',
     name: 'v-main-contacts',
     component: vMainContacts
+  },
+  {
+    path: '/sofas',
+    name: 'v-main-sofas',
+    component: vMainSofas
   }
 ]
 

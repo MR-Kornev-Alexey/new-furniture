@@ -1,21 +1,21 @@
 <template>
-  <v-row class="v-small-menu-contacts">
+  <v-row class="v-small-menu-sofas">
     <v-col class="v-small-menu__card">
       Главная
       <v-icon class="v-icon-small">mdi-chevron-right</v-icon>
-      <span>Контакты</span>
+      <span>Диваны</span>
     </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
-  name: 'v-small-menu-contacts'
+  name: 'v-small-menu-sofas'
 }
 </script>
 
 <style lang="scss">
-  .v-small-menu-contacts{
+  .v-small-menu-sofas{
     margin:38px 0 0 0;
     .v-small-menu__card {
       padding: 0 0 0 388px;
