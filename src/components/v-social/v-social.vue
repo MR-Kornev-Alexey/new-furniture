@@ -1,5 +1,5 @@
 <template>
-  <div class="v-social">
+  <div class="v-social" :class="{'social-sofas': socialSofas}">
     <div v-if="showProduct">
       <h3>Социальные сети</h3>
       <h2>
@@ -37,7 +37,7 @@ export default {
   components: {
     agile: VueAgile
   },
-  props: ['showProduct'],
+  props: ['showProduct', 'socialSofas'],
   data () {
     return {
       myOptions: {
