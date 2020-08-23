@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
   .v-map {
     margin: 100px auto 0 auto;
     max-width: 1144px;
