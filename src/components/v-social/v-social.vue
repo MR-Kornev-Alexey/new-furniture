@@ -3,7 +3,7 @@
     <div v-if="showProduct">
       <h3>Социальные сети</h3>
       <h2>
-        Следите за нами в instagram
+        Следите за нами в Instagram
       </h2>
     </div>
     <agile  class="agile-social" :options="myOptions">
