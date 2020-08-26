@@ -23,6 +23,18 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Demo
+### Demo main
 
 https://furniture-shop-71b63.web.app/
+
+###Demo product
+
+https://furniture-shop-71b63.web.app/product
+
+#Demo contacts
+
+https://furniture-shop-71b63.web.app/contacts
+
+# Demo  sofas
+
+https://furniture-shop-71b63.web.app/sofas
