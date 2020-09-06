@@ -36,6 +36,6 @@ https://furniture-shop-71b63.web.app/product
 
 https://furniture-shop-71b63.web.app/contacts
 
-### Demo  sofas
+### Demo sofas
 
 https://furniture-shop-71b63.web.app/sofas
