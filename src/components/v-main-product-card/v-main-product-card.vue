@@ -21,11 +21,11 @@
           </div>
           <div class="v-m-card__two__block d-flex justify-center"><img alt="pattern Sofa"
                                                                        src="../../assets/img/svg/pattern-sofa.svg">
-            <div class="text align-self-center">Левый двухкомпонентный шезлонг в разрезе</div>
+            <div class="text align-self-center">Левосторонний диван</div>
           </div>
           <div class="v-m-card__two__block d-flex justify-center"><img alt="pattern Sofa"
                                                                        src="../../assets/img/svg/pattern-sofa.svg">
-            <div class="text align-self-center">Левый двухкомпонентный шезлонг в разрезе</div>
+            <div class="text align-self-center">Правосторонний диван</div>
           </div>
         </div>
         <div class="v-m-card__two__size">
@@ -152,6 +152,31 @@
             <div class="number">5.</div>
             Ножки
           </div>
+          <div class="choice-in-stock text-center justify-center" >
+            <div  :key="i"
+              v-for="(item, i) in arrayLegs" style="display: inline-block">
+                <div>
+                  <img class="img-legs transform" :src="item.src" alt="leg">
+                </div>
+           </div>
+          </div>
+        </div>
+        <div class="v-legs">
+          <div class="d-block">
+            <div class="d-flex"> <div class="number">6.</div>
+              Выберите мягкость дивана</div>
+            <div class="d-flex justify-space-around">
+              <div class="input-soft">
+                Мягкий
+              </div>
+              <div class="input-soft">
+                Средний
+              </div>
+              <div class="input-soft">
+                Жесткий
+              </div>
+            </div>
+          </div>
         </div>
         <button class="big-btn">Добавить в корзину</button>
       </div>
@@ -163,6 +188,56 @@
 export default {
   name: 'v-main-product-card',
   data: () => ({
+    arrayLegs: [
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      },
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      },
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      },
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      },
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      },
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      },
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      },
+      {
+        id: '',
+        img: '',
+        src: require('@/assets/img/sofas/nozh.jpg'),
+        selected: false
+      }
+    ],
     fabricInStock: [
       {
         name: 'Шенил',
@@ -255,7 +330,28 @@ export default {
 <style lang="scss">
   .v-main-product-card {
     margin: 30px auto 0 auto;
-
+    .transform{
+      transition: all 0.5s ease-out;
+    }
+    .transform:hover{
+      transform: scale(3);
+    }
+    .input-soft{
+      margin-top: 24px;
+      text-transform: uppercase;
+      color: #D7B256;
+      cursor: pointer;
+    }
+    .input-soft:hover{
+         color: #9D9D9D;
+       }
+    .img-legs{
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      margin: 0 22px;
+      cursor: pointer;
+    }
     .number {
       color: #9D9D9D;
       margin: 0 8px 0 19px;
