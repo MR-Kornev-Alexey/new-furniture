@@ -19,12 +19,12 @@
             <div class="number">1.</div>
             Выберите конфигурацию
           </div>
-          <div class="v-m-card__two__block d-flex justify-center"><img alt="pattern Sofa"
-                                                                       src="../../assets/img/svg/pattern-sofa.svg">
+          <div class="v-m-card__two__block d-flex justify-center ">
+            <v-icon-sofa-left class="align-self-center" :flagSelectLeft="flagSelectLeft" @sendSelectLeft="getSelectLeft"/>
             <div class="text align-self-center">Левосторонний диван</div>
           </div>
-          <div class="v-m-card__two__block d-flex justify-center"><img alt="pattern Sofa"
-                                                                       src="../../assets/img/svg/pattern-sofa.svg">
+          <div class="v-m-card__two__block d-flex justify-center">
+            <v-icon-sofa-right class="align-self-center" :flagSelectRight ="flagSelectRight" @sendSelectRight="getSelectRight"/>
             <div class="text align-self-center">Правосторонний диван</div>
           </div>
         </div>
@@ -36,31 +36,37 @@
           <div class="d-flex block-select">
             <div class="d-block group">
               <div>
-                <label for="width-item">Ширина</label>
+                <label>Длина дивана</label>
               </div>
               <div>
-                <select id="width-item" name="width">
-                  <option value="size-1">1400 мм</option>
-                  <option value="size-1">1500 мм</option>
-                  <option value="size-1">1600 мм</option>
-                  <option value="size-1">1700 мм</option>
-                </select>
+                <v-select
+                  :items="steps"
+                  @change="inputLengthStraight(stepLengthStraight)"
+                  class="my-select-choice"
+                  color="primary"
+                  label="выберите шаг"
+                  solo
+                  v-model="stepLengthStraight"
+                ></v-select>
               </div>
             </div>
             <div class="d-block group">
               <div>
-                <label for="length-item">Длина</label>
+                <label >Длина стороны</label>
               </div>
-              <div><select id="length-item" name="length">
-                <option value="size-1">900 мм</option>
-                <option value="size-1">1000 мм</option>
-                <option value="size-1">1100 мм</option>
-                <option value="size-1">1200 мм</option>
-              </select>
+              <div>
+                <v-select
+                  :items="steps"
+                  @change="inputLengthSide(stepLengthSide)"
+                  class="my-select-choice"
+                  color="primary"
+                  label="выберите шаг"
+                  solo
+                  v-model="stepLengthSide"
+                ></v-select>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -72,13 +78,15 @@
         <img alt="furniture" src="../../assets/img/main-product/image-4.jpg">
       </div>
       <div class="v-main-product-card__fourth">
-        <div class="fabric">
+        <div class="fabric" :key="renderFabric">
           <div class="d-flex">
             <div class="number">3.</div>
             Выберите текстуру и цвет ткани
-            <div class="resize"></div>
+            <div class="resize">
+
+            </div>
             <div class="d-block text-center main-filter align-self-start">
-              <img alt="filter" src="../../assets/img/svg/fulter.svg">
+              <img alt="filter" src="../../assets/img/svg/filter.svg" @click="openWindowsFilter">
               <div class="icon-filter">
                 Фильтр
               </div>
@@ -91,14 +99,17 @@
           <div class="choice-in-stock d-flex ">
             <div class="choice-vertical"><img src="../../assets/img/svg/vertical.svg"  alt="vertical"></div>
             <div
-              :key="i"
+              :key="'InStock_' + i"
               v-for="(item, i) in fabricInStock">
-              <div class="d-block card ">
+              <div class="d-block card transform-1-5" @click="choiceFabric(item.id)">
                 <div class="fabric-icons d-block">
-                  <div style="height: 26px" v-if="item.paw"><img alt="animal" src="../../assets/img/svg/pow.svg"></div>
+                  <div style="height: 26px" v-if="item.paw"><img alt="animal"  src="../../assets/img/svg/pow.svg"></div>
                   <div style="height: 26px" v-if="item.clean"><img alt="clear" src="../../assets/img/svg/clean.svg">
                   </div>
 
+                </div>
+                <div class="fabric-active">
+                  <img alt="active" src="../../assets/img/svg/active.svg" v-if="item.active">
                 </div>
                 <div>
                   <img :src="item.image" alt="fabric">
@@ -109,14 +120,15 @@
               </div>
             </div>
           </div>
-          <div class="in-stock d-flex ">
-            <div class="align-self-center">На заказ (отправка через 6-9 недель) <a href="#">Выбрать коллекцию</a></div>
+          <div class="in-stock d-flex justify-space-between">
+            <div class="align-self-center">На заказ (отправка через 6-9 недель)</div>
+              <div class="choice-collection align-self-center" @click="choiceCollection()">Выбрать коллекцию</div>
           </div>
           <div class="choice-in-stock for-order">
             <div
-              :key="i"
+              :key="'ForOrder_' + i"
               style=" display: inline-flex" v-for="(item, i) in fabricForOrder">
-              <div class="d-block card ">
+              <div class="d-block card transform-1-5" @click="choiceFabricForOrder(item.id)">
                 <div class="fabric-active">
                   <img alt="active" src="../../assets/img/svg/active.svg" v-if="item.active">
                 </div>
@@ -142,8 +154,8 @@
             Механизм
           </div>
           <div class="d-flex row-machine">
-            <div class="d-flex v-machine-item"><img  class="d-flex  align-self-center" src="../../assets/img/svg/sofa-m.svg" alt="sofa without"> Без механизма</div>
-            <div class="d-flex v-machine-item"><img class="d-flex align-self-center" src="../../assets/img/svg/sofa-yes.svg" alt="sofa without"> С механизмом</div>
+            <div :class="{'v-machine-item-selected': withMachineItemSelected }" class="d-flex v-machine-item transform-1-5" @click="choiceIdMachine('with')"><img  class="d-flex  align-self-center " src="../../assets/img/svg/sofa-m.svg" alt="sofa without"> Без механизма</div>
+            <div :class="{'v-machine-item-selected': withOutMachineItemSelected}" class="d-flex v-machine-item transform-1-5" @click="choiceIdMachine('without')"><img class="d-flex align-self-center " src="../../assets/img/svg/sofa-yes.svg" alt="sofa without"> С механизмом</div>
           </div>
 
         </div>
@@ -155,8 +167,8 @@
           <div class="choice-in-stock text-center justify-center" >
             <div  :key="i"
               v-for="(item, i) in arrayLegs" style="display: inline-block">
-                <div>
-                  <img class="img-legs transform" :src="item.src" alt="leg">
+                <div :class="{'v-legs-item-selected': item.selected }" class="transform"  @click="selectArrayLegs(item.id)">
+                  <img class="img-legs" :src="item.src" alt="leg">
                 </div>
            </div>
           </div>
@@ -166,73 +178,179 @@
             <div class="d-flex"> <div class="number">6.</div>
               Выберите мягкость дивана</div>
             <div class="d-flex justify-space-around">
-              <div class="input-soft">
-                Мягкий
+              <div class="input-soft" :class="{'input-soft-selected': item.selected }" v-for="item in arraySoftness" :key="item.id" @click="choiceSoftness(item.id)">
+                {{item.name}}
               </div>
-              <div class="input-soft">
-                Средний
-              </div>
-              <div class="input-soft">
-                Жесткий
-              </div>
-            </div>
+           </div>
           </div>
         </div>
         <button class="big-btn">Добавить в корзину</button>
       </div>
     </div>
+    <v-pop-filter :visible="showModal" />
+    <v-pop-collection :visible = "showModalCollection" :fabricForOrder="fabricForOrder"/>
   </v-row>
 </template>
 
 <script>
+import vPopCollection from '../v-common/v-pop-collection'
+import vPopFilter from '../v-common/v-pop-filter'
+import vIconSofaLeft from '../v-common/v-icon-sofa-left'
+import vIconSofaRight from '../v-common/v-icon-sofa-right'
 export default {
   name: 'v-main-product-card',
+  components: {
+    vIconSofaLeft,
+    vIconSofaRight,
+    vPopFilter,
+    vPopCollection
+  },
+  methods: {
+    choiceSoftness (id) {
+      this.choiceIdSoftness = id
+      for (let i = 0; i < this.arraySoftness.length; i++) {
+        this.arraySoftness[i].selected = this.arraySoftness[i].id === id
+      }
+    },
+    selectArrayLegs (id) {
+      this.choiceIdLegs = id
+      for (let i = 0; i < this.arrayLegs.length; i++) {
+        this.arrayLegs[i].selected = this.arrayLegs[i].id === id
+      }
+    },
+    choiceIdMachine (data) {
+      if (data === 'with') {
+        this.withOutMachineItemSelected = false
+        this.withMachineItemSelected = true
+      } else if (data === 'without') {
+        this.withOutMachineItemSelected = true
+        this.withMachineItemSelected = false
+      }
+    },
+    clearArray (array) {
+      for (let i = 0; i < array.length; i++) {
+        array[i].active = false
+      }
+      this.renderFabric++
+    },
+    choiceFabricForOrder (id) {
+      this.choiceIdFabric = id
+      for (let i = 0; i < this.fabricForOrder.length; i++) {
+        this.fabricForOrder[i].active = this.fabricForOrder[i].id === id
+      }
+      this.clearArray(this.fabricInStock)
+    },
+    choiceFabric (id) {
+      this.choiceIdFabric = id
+      for (let i = 0; i < this.fabricInStock.length; i++) {
+        this.fabricInStock[i].active = this.fabricInStock[i].id === id
+      }
+      this.clearArray(this.fabricForOrder)
+    },
+    choiceCollection () {
+      this.showModalCollection = !this.showModalCollection
+    },
+    openWindowsFilter () {
+      this.showModal = !this.showModal
+    },
+    clearAllSelect () {
+      this.flagSelectLeft = this.flagSelectRight = false
+    },
+    getSelectLeft () {
+      this.clearAllSelect()
+      this.flagSelectLeft = true
+    },
+    getSelectRight () {
+      this.clearAllSelect()
+      this.flagSelectRight = true
+    },
+    inputLengthStraight (data) {
+      alert(data)
+    },
+    inputLengthSide (data) {
+      alert(data)
+    }
+  },
   data: () => ({
+    choiceIdFabric: '',
+    stepLengthStraight: '',
+    showModalCollection: false,
+    stepLengthSide: '',
+    flagSelectLeft: false,
+    flagSelectRight: false,
+    showModal: false,
+    renderFabric: 0,
+    withOutMachineItemSelected: false,
+    withMachineItemSelected: false,
+    choiceIdLegs: '',
+    choiceIdSoftness: '',
+    steps: [
+      '1000мм', '1200мм', '1400мм', '1600мм', '1800мм',
+      '2000мм', '2200мм', '2400мм', '2600мм', '2800мм',
+      '3000мм', '3200мм', '3400мм', '3600мм', '3800мм', '4000мм'
+    ],
+    arraySoftness: [
+      {
+        id: 'soft',
+        name: 'Мягкий',
+        selected: false
+      },
+      {
+        id: 'middle',
+        name: 'средний',
+        selected: false
+      },
+      {
+        id: 'hard',
+        name: 'жесткий',
+        selected: false
+      }
+    ],
     arrayLegs: [
       {
-        id: '',
+        id: 'legs01',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
       },
       {
-        id: '',
+        id: 'legs02',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
       },
       {
-        id: '',
+        id: 'legs03',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
       },
       {
-        id: '',
+        id: 'legs04',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
       },
       {
-        id: '',
+        id: 'legs05',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
       },
       {
-        id: '',
+        id: 'legs06',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
       },
       {
-        id: '',
+        id: 'legs07',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
       },
       {
-        id: '',
+        id: 'legs08',
         img: '',
         src: require('@/assets/img/sofas/nozh.jpg'),
         selected: false
@@ -240,24 +358,32 @@ export default {
     ],
     fabricInStock: [
       {
+        id: 'fabricInStock01',
+        active: false,
         name: 'Шенил',
         image: require('@/assets/img/fabric/fabric-1.png'),
         paw: true,
         clean: true
       },
       {
+        id: 'fabricInStock02',
+        active: false,
         name: 'Велюр',
         image: require('@/assets/img/fabric/fabric-2.png'),
         paw: true,
         clean: false
       },
       {
+        id: 'fabricInStock03',
+        active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-3.png'),
         paw: false,
         clean: true
       },
       {
+        id: 'fabricInStock04',
+        active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-4.png'),
         paw: false,
@@ -266,13 +392,15 @@ export default {
     ],
     fabricForOrder: [
       {
-        active: true,
+        id: 'fabricForOrder01',
+        active: false,
         name: 'Шенил',
         image: require('@/assets/img/fabric/fabric-1.png'),
         paw: false,
         clean: false
       },
       {
+        id: 'fabricForOrder02',
         active: false,
         name: 'Велюр',
         image: require('@/assets/img/fabric/fabric-2.png'),
@@ -280,6 +408,7 @@ export default {
         clean: true
       },
       {
+        id: 'fabricForOrder03',
         active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-3.png'),
@@ -287,6 +416,7 @@ export default {
         clean: false
       },
       {
+        id: 'fabricForOrder04',
         active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-4.png'),
@@ -294,6 +424,7 @@ export default {
         clean: false
       },
       {
+        id: 'fabricForOrder05',
         active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-5.png'),
@@ -301,6 +432,7 @@ export default {
         clean: false
       },
       {
+        id: 'fabricForOrder06',
         active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-6.png'),
@@ -308,6 +440,7 @@ export default {
         clean: true
       },
       {
+        id: 'fabricForOrder07',
         active: false,
         name: 'Велюр',
         image: require('@/assets/img/fabric/fabric-7.png'),
@@ -315,6 +448,7 @@ export default {
         clean: false
       },
       {
+        id: 'fabricForOrder08',
         active: false,
         name: 'Велюр',
         image: require('@/assets/img/fabric/fabric-8.png'),
@@ -330,17 +464,34 @@ export default {
 <style lang="scss">
   .v-main-product-card {
     margin: 30px auto 0 auto;
-    .transform{
+    .v-legs-item-selected{
+      border: 2px solid #D7B256;
+    }
+    .choice-collection{
+      cursor: pointer;
+      margin-right: 12px;
+    }
+    input, textarea {
+          border: 0 !important;
+        }
+    .transform, .transform-1-5{
       transition: all 0.5s ease-out;
     }
+    .transform-1-5:hover{
+      transform: scale(1.3);
+    }
     .transform:hover{
-      transform: scale(3);
+      transform: scale(2);
     }
     .input-soft{
       margin-top: 24px;
       text-transform: uppercase;
       color: #D7B256;
       cursor: pointer;
+      padding: 6px;
+    }
+    .input-soft-selected{
+      color: #9D9D9D;
     }
     .input-soft:hover{
          color: #9D9D9D;
@@ -569,10 +720,14 @@ export default {
         margin: 15px 0 0 0;
         .v-machine-item{
           margin: 0 38px 0 19px;
+          padding-bottom: 6px;
           cursor: pointer;
           img{
             margin: 0 7px 0 0;
           }
+        }
+        .v-machine-item-selected {
+         border-bottom: 2px solid #D7B256;
         }
       }
     }
@@ -624,14 +779,17 @@ export default {
         .card {
           position: relative;
           margin: 0 29px 5px 0;
+          cursor: pointer;
 
           .fabric-active {
+            z-index: 100;
             position: absolute;
             top: -4px;
             right: -3px;
           }
 
           .fabric-icons {
+            z-index: 101;
             position: absolute;
             top: -6px;
             right: -14px;
@@ -651,7 +809,7 @@ export default {
 
       .main-filter {
         margin: -11px 0px 0 5px;
-
+        cursor: pointer;
         .icon-filter {
           font-family: Muller-Thin, sans-serif;
           font-style: normal;
