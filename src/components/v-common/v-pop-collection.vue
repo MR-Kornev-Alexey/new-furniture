@@ -13,9 +13,8 @@
           <div class="vuexplosive-modal-inner ">
             <div class="vuexplosive-modal-header justify-space-between">
               <h3>
-                Выберите ткань для вашего дивана
+                Выберите ткань на заказ для вашего дивана
               </h3>
-
               <div>
                 <button
                   @click="modalToggle"
