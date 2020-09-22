@@ -1,14 +1,79 @@
 {
+  "otherCalculation": {
+    "wireframe": {
+      "name": "Каркасник",
+      "threshold": "2200",
+      "size": true,
+      "first": "1000",
+      "second": "1500"
+    },
+    "upholsterer": {
+      "name": "Обивщик",
+      "threshold": "2200",
+      "size": true,
+      "first": "1500",
+      "second": "2500"
+    },
+    "carpenter": {
+      "name": "Столяр",
+      "threshold": "1",
+      "size": false,
+      "first": "5000",
+      "second": "0"
+    },
+    "welder": {
+      "name": "Сварщик",
+      "threshold": "1",
+      "size": false,
+      "first": "1500",
+      "second": "0"
+    },
+    "seamstress": {
+      "name": "Швея",
+      "threshold": "2200",
+      "size": true,
+      "first": "1500",
+      "second": "2500"
+    },
+    "rent": {
+      "name": "Аренда",
+      "threshold": "2200",
+      "size": true,
+      "first": "2500",
+      "second": "5000"
+    },
+    "packaging": {
+      "name": "Упаковка",
+      "threshold": "2200",
+      "size": true,
+      "first": "1000",
+      "second": "1500"
+    },
+    "delivery": {
+      "name": "Доставка",
+      "threshold": "2200",
+      "size": true,
+      "first": "1000",
+      "second": "1500"
+    },
+    "welding": {
+      "name": "Сварка",
+      "threshold": "0",
+      "size": false,
+      "first": "1000",
+      "second": "1000"
+    }
+  },
   "basicSizesArmrest": {
-    "width":   {
+    "width": {
       "name": "Ширина",
       "parameter": "950"
     },
-    "height":   {
+    "height": {
       "name": "Высота",
       "parameter": "630"
     },
-    "thickness":   {
+    "thickness": {
       "name": "Толщина",
       "parameter": "110"
     }
@@ -17,16 +82,16 @@
     "zSideBar": {
       "name": "Z (царга)",
       "parameter": "180"
-     },
-    "backThickness":   {
+    },
+    "backThickness": {
       "name": "Толщина спинки",
       "parameter": "200"
     },
-    "backHeight":   {
+    "backHeight": {
       "name": "Высота спинки",
       "parameter": "630"
     },
-    "technologicalGap":   {
+    "technologicalGap": {
       "name": "Технологический зазор",
       "parameter": "40"
     },
@@ -46,15 +111,15 @@
       "name": "Количество подушек",
       "parameter": "2"
     },
-    "backCushionThickness":{
+    "backCushionThickness": {
       "name": "Толщина подушек спина",
       "parameter": "150"
-   },
-    "backCushionHeight":{
+    },
+    "backCushionHeight": {
       "name": "Высота подушек спина",
       "parameter": "500"
     },
-    "metalFrame":{
+    "metalFrame": {
       "name": "Металлокаркас",
       "parameter": "0"
     },
@@ -163,7 +228,7 @@
     "foamGlue": {
       "name": "Клей для поролона",
       "unit": " л.",
-      "price": "180",
+      "price": "250",
       "square": null
     },
     "spandBond": {
@@ -226,7 +291,7 @@
       "price": "2300",
       "square": null
     },
-    "foamRubberMemory_40_14_40": {
+    "foamRubberMemory_50_14_40": {
       "name": "Поролон Мемори 40/14 40 мм",
       "unit": "кв. м.",
       "price": "2160",

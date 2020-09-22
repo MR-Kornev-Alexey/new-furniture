@@ -199,6 +199,7 @@ import vPopFilter from '../v-common/v-pop-filter'
 import vIconSofaLeft from '../v-common/v-icon-sofa-left'
 import vIconSofaRight from '../v-common/v-icon-sofa-right'
 import BasicCalculation from '../v-common/basicCalculation'
+import ListOtherCalculation from '../v-common/listOtherCalculation'
 import axios from 'axios'
 export default {
   name: 'v-main-product-card',
@@ -220,6 +221,7 @@ export default {
           this.allDataFromAPI = resp.data
           this.listPriceMaterials = []
           this.listInputParameters = []
+          this.otherCalculation = []
           const list = new BasicCalculation(
             null,
             res.basicSizesArmrest.width.parameter,
@@ -239,6 +241,18 @@ export default {
             res.backrest.solidWoodDrawer.parameter
           )
           this.listInputParameters.push(list)
+
+          Object.keys(res.otherCalculation).forEach((keyOther) => {
+            const works = new ListOtherCalculation(
+              keyOther,
+              res.otherCalculation[keyOther].name,
+              res.otherCalculation[keyOther].threshold,
+              res.otherCalculation[keyOther].size,
+              res.otherCalculation[keyOther].first,
+              res.otherCalculation[keyOther].second
+            )
+            this.otherCalculation.push(works)
+          })
           Object.keys(res.materials).forEach((keyMaterials) => {
             this.listPriceMaterials.push(
               {
@@ -256,9 +270,25 @@ export default {
     inputLengthStraight (data) {
       const clearData = data.slice(0, -2)
       this.resultPrice = Number(clearData)
+      this.priceOther = null
       this.listInputParameters[0].totalWidth = Number(clearData)
-      const a = this.listInputParameters[0].totalCalculate(58, 207, 329, 490, 20, 200, 80)
-      this.resultPrice = Math.ceil(a)
+      const calcAllMaterials = this.listInputParameters[0].totalCalculate(58, 207, 329, 490,
+        20, 620, 200, 950, 10, 550, 250, 26, 38,
+        1000, 920, 2160, 60, 105, 80)
+      for (let i = 0; i < this.otherCalculation.length; i++) {
+        if (this.otherCalculation[i].size) {
+          if (this.otherCalculation[i].condition < clearData) {
+            this.priceOther = this.priceOther + Number(this.otherCalculation[i].secondPrice)
+          } else {
+            this.priceOther = this.priceOther + Number(this.otherCalculation[i].firstPrice)
+          }
+        } else {
+          // not
+        }
+      }
+      alert(this.priceOther)
+      this.resultPrice = calcAllMaterials + this.priceOther
+      this.resultPrice = Math.ceil(this.resultPrice)
     },
     choiceSoftness (id) {
       this.choiceIdSoftness = id
@@ -324,6 +354,8 @@ export default {
     }
   },
   data: () => ({
+    priceOther: 0,
+    otherCalculation: [],
     resultPrice: null,
     listPriceMaterials: [],
     listInputParameters: [],
@@ -342,7 +374,7 @@ export default {
     choiceIdLegs: '',
     choiceIdSoftness: '',
     steps: [
-      '1000мм', '1200мм', '1400мм', '1600мм', '1800мм',
+      '1400мм', '1600мм', '1800мм',
       '2000мм', '2200мм', '2400мм', '2600мм', '2800мм',
       '3000мм', '3200мм', '3400мм', '3600мм', '3800мм', '4000мм'
     ],
