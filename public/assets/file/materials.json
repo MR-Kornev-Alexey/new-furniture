@@ -18,15 +18,11 @@
       "name": "Z (царга)",
       "parameter": "180"
      },
-    "backLength":   {
-      "name": "Длина спинки",
-      "parameter": "2200"
-    },
-    "backHeight":   {
+    "backThickness":   {
       "name": "Толщина спинки",
       "parameter": "200"
     },
-    "backThickness":   {
+    "backHeight":   {
       "name": "Высота спинки",
       "parameter": "630"
     },
@@ -36,10 +32,6 @@
     },
     "numberOfArmrests": {
       "name": "Количество подлокотников",
-      "parameter": "2"
-    },
-    "ribs": {
-      "name": "Ребра",
       "parameter": "2"
     },
     "fabricStock": {

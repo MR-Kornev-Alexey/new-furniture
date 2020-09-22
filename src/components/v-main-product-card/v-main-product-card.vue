@@ -6,7 +6,8 @@
       </div>
       <div class="v-main-product-card__two">
         <div class="v-m-card__two__tittle">Диван</div>
-        <div class="v-m-card__two__price"><span>от</span> 55 000 &#8381;</div>
+        <div class="v-m-card__two__price" v-if="!resultPrice"><span>от</span> 55 000 &#8381;</div>
+        <div class="v-m-card__two__price" v-if="resultPrice">{{resultPrice}} &#8381;</div>
         <div class="v-m-card__two__name">Florence bergamo light</div>
         <div class="v-m-card__two__quest d-flex align-content-center"><img alt="message"
                                                                            src="../../assets/img/svg/message-call.svg">Вопрос
@@ -197,6 +198,8 @@ import vPopCollection from '../v-common/v-pop-collection'
 import vPopFilter from '../v-common/v-pop-filter'
 import vIconSofaLeft from '../v-common/v-icon-sofa-left'
 import vIconSofaRight from '../v-common/v-icon-sofa-right'
+import BasicCalculation from '../v-common/basicCalculation'
+import axios from 'axios'
 export default {
   name: 'v-main-product-card',
   components: {
@@ -205,7 +208,58 @@ export default {
     vPopFilter,
     vPopCollection
   },
+  mounted () {
+    this.GET_JSON_FROM_API()
+  },
   methods: {
+    GET_JSON_FROM_API () {
+      const url = 'assets/file/materials.json'
+      return axios.get(url)
+        .then((resp) => {
+          const res = resp.data
+          this.allDataFromAPI = resp.data
+          this.listPriceMaterials = []
+          this.listInputParameters = []
+          const list = new BasicCalculation(
+            null,
+            res.basicSizesArmrest.width.parameter,
+            res.basicSizesArmrest.height.parameter,
+            res.basicSizesArmrest.thickness.parameter,
+            res.backrest.zSideBar.parameter,
+            res.backrest.backThickness.parameter,
+            res.backrest.backHeight.parameter,
+            res.backrest.technologicalGap.parameter,
+            res.backrest.numberOfArmrests.parameter,
+            res.backrest.fabricStock.parameter,
+            res.backrest.seatHeight.parameter,
+            res.backrest.numberOfPillows.parameter,
+            res.backrest.backCushionThickness.parameter,
+            res.backrest.backCushionHeight.parameter,
+            res.backrest.metalFrame.parameter,
+            res.backrest.solidWoodDrawer.parameter
+          )
+          this.listInputParameters.push(list)
+          Object.keys(res.materials).forEach((keyMaterials) => {
+            this.listPriceMaterials.push(
+              {
+                id: keyMaterials,
+                name: res.materials[keyMaterials].name,
+                price: res.materials[keyMaterials].price
+              })
+          })
+        })
+        .catch((error) => {
+          alert(error)
+          return error
+        })
+    },
+    inputLengthStraight (data) {
+      const clearData = data.slice(0, -2)
+      this.resultPrice = Number(clearData)
+      this.listInputParameters[0].totalWidth = Number(clearData)
+      const a = this.listInputParameters[0].totalCalculate(58, 207, 329, 490, 20, 200, 80)
+      this.resultPrice = Math.ceil(a)
+    },
     choiceSoftness (id) {
       this.choiceIdSoftness = id
       for (let i = 0; i < this.arraySoftness.length; i++) {
@@ -264,14 +318,17 @@ export default {
       this.clearAllSelect()
       this.flagSelectRight = true
     },
-    inputLengthStraight (data) {
-      alert(data)
-    },
+
     inputLengthSide (data) {
       alert(data)
     }
   },
   data: () => ({
+    resultPrice: null,
+    listPriceMaterials: [],
+    listInputParameters: [],
+    allDataFromAPI: {},
+    listNewSofas: [],
     choiceIdFabric: '',
     stepLengthStraight: '',
     showModalCollection: false,
