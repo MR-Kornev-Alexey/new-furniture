@@ -198,9 +198,12 @@ import vPopCollection from '../v-common/v-pop-collection'
 import vPopFilter from '../v-common/v-pop-filter'
 import vIconSofaLeft from '../v-common/v-icon-sofa-left'
 import vIconSofaRight from '../v-common/v-icon-sofa-right'
-import BasicCalculation from '../v-common/basicCalculation'
-import ListOtherCalculation from '../v-common/listOtherCalculation'
-import axios from 'axios'
+import { mapActions, mapGetters } from 'vuex'
+
+import ClassArmrest from '../v-classes/classArmrest'
+// import BasicCalculation from '../v-common/basicCalculation'
+// import ListOtherCalculation from '../v-common/listOtherCalculation'
+// import axios from 'axios'
 export default {
   name: 'v-main-product-card',
   components: {
@@ -211,82 +214,96 @@ export default {
   },
   mounted () {
     this.GET_JSON_FROM_API()
+    this.GET_DATA_FROM_API()
+  },
+  computed: {
+    ...mapGetters([
+      'BASIC_SIZES_ARMREST',
+      'PRICE_FOR_ARMREST'
+    ])
   },
   methods: {
-    GET_JSON_FROM_API () {
-      const url = 'assets/file/materials.json'
-      return axios.get(url)
-        .then((resp) => {
-          const res = resp.data
-          this.allDataFromAPI = resp.data
-          this.listPriceMaterials = []
-          this.listInputParameters = []
-          this.otherCalculation = []
-          const list = new BasicCalculation(
-            null,
-            res.basicSizesArmrest.width.parameter,
-            res.basicSizesArmrest.height.parameter,
-            res.basicSizesArmrest.thickness.parameter,
-            res.backrest.zSideBar.parameter,
-            res.backrest.backThickness.parameter,
-            res.backrest.backHeight.parameter,
-            res.backrest.technologicalGap.parameter,
-            res.backrest.numberOfArmrests.parameter,
-            res.backrest.fabricStock.parameter,
-            res.backrest.seatHeight.parameter,
-            res.backrest.numberOfPillows.parameter,
-            res.backrest.backCushionThickness.parameter,
-            res.backrest.backCushionHeight.parameter,
-            res.backrest.metalFrame.parameter,
-            res.backrest.solidWoodDrawer.parameter
-          )
-          this.listInputParameters.push(list)
-
-          Object.keys(res.otherCalculation).forEach((keyOther) => {
-            const works = new ListOtherCalculation(
-              keyOther,
-              res.otherCalculation[keyOther].name,
-              res.otherCalculation[keyOther].threshold,
-              res.otherCalculation[keyOther].size,
-              res.otherCalculation[keyOther].first,
-              res.otherCalculation[keyOther].second
-            )
-            this.otherCalculation.push(works)
-          })
-          Object.keys(res.materials).forEach((keyMaterials) => {
-            this.listPriceMaterials.push(
-              {
-                id: keyMaterials,
-                name: res.materials[keyMaterials].name,
-                price: res.materials[keyMaterials].price
-              })
-          })
-        })
-        .catch((error) => {
-          alert(error)
-          return error
-        })
-    },
+    ...mapActions([
+      'GET_JSON_FROM_API',
+      'GET_DATA_FROM_API'
+    ]),
+    // GET_JSON_FROM_API () {
+    //   const url = 'assets/file/materials.json'
+    //   return axios.get(url)
+    //     .then((resp) => {
+    //       const res = resp.data
+    //       this.allDataFromAPI = resp.data
+    //       this.listPriceMaterials = []
+    //       this.listInputParameters = []
+    //       this.otherCalculation = []
+    //       const list = new BasicCalculation(
+    //         null,
+    //         res.basicSizesArmrest.width.parameter,
+    //         res.basicSizesArmrest.height.parameter,
+    //         res.basicSizesArmrest.thickness.parameter,
+    //         res.backrest.zSideBar.parameter,
+    //         res.backrest.backThickness.parameter,
+    //         res.backrest.backHeight.parameter,
+    //         res.backrest.technologicalGap.parameter,
+    //         res.backrest.numberOfArmrests.parameter,
+    //         res.backrest.fabricStock.parameter,
+    //         res.backrest.seatHeight.parameter,
+    //         res.backrest.numberOfPillows.parameter,
+    //         res.backrest.backCushionThickness.parameter,
+    //         res.backrest.backCushionHeight.parameter,
+    //         res.backrest.metalFrame.parameter,
+    //         res.backrest.solidWoodDrawer.parameter
+    //       )
+    //       this.listInputParameters.push(list)
+    //
+    //       Object.keys(res.otherCalculation).forEach((keyOther) => {
+    //         const works = new ListOtherCalculation(
+    //           keyOther,
+    //           res.otherCalculation[keyOther].name,
+    //           res.otherCalculation[keyOther].threshold,
+    //           res.otherCalculation[keyOther].size,
+    //           res.otherCalculation[keyOther].first,
+    //           res.otherCalculation[keyOther].second
+    //         )
+    //         this.otherCalculation.push(works)
+    //       })
+    //       Object.keys(res.materials).forEach((keyMaterials) => {
+    //         this.listPriceMaterials.push(
+    //           {
+    //             id: keyMaterials,
+    //             name: res.materials[keyMaterials].name,
+    //             price: res.materials[keyMaterials].price
+    //           })
+    //       })
+    //     })
+    //     .catch((error) => {
+    //       alert(error)
+    //       return error
+    //     })
+    // },
     inputLengthStraight (data) {
       const clearData = data.slice(0, -2)
       this.resultPrice = Number(clearData)
       this.priceOther = null
-      this.listInputParameters[0].totalWidth = Number(clearData)
-      const calcAllMaterials = this.listInputParameters[0].totalCalculate(58, 207, 329, 490,
-        20, 620, 200, 950, 10, 550, 250, 26, 38,
-        1000, 920, 2160, 60, 105, 80)
-      for (let i = 0; i < this.otherCalculation.length; i++) {
-        if (this.otherCalculation[i].size) {
-          if (this.otherCalculation[i].condition < clearData) {
-            this.priceOther = this.priceOther + Number(this.otherCalculation[i].secondPrice)
-          } else {
-            this.priceOther = this.priceOther + Number(this.otherCalculation[i].firstPrice)
-          }
-        } else {
-          // not
-        }
-      }
-      alert(this.priceOther)
+      const a = new ClassArmrest(this.BASIC_SIZES_ARMREST, false, true, true, 950, this.PRICE_FOR_ARMREST)
+      this.listInputParameters.push(a)
+      const calcAllMaterials = a.calcArmrest()
+      alert(calcAllMaterials)
+      // const calcAllMaterials = this.listInputParameters[0].totalCalculate(58, 207, 329, 490,
+      //   20, 620, 200, 950, 10, 550, 250, 26, 38,
+      //   1000, 920, 2160, 60, 105, 80)
+      // for (let i = 0; i < this.otherCalculation.length; i++) {
+      //   if (this.otherCalculation[i].size) {
+      //     if (this.otherCalculation[i].condition < clearData) {
+      //       this.priceOther = this.priceOther + Number(this.otherCalculation[i].secondPrice)
+      //     } else {
+      //       this.priceOther = this.priceOther + Number(this.otherCalculation[i].firstPrice)
+      //     }
+      //   } else {
+      //     // not
+      //   }
+      // }
+      // alert(this.priceOther)
       this.resultPrice = calcAllMaterials + this.priceOther
       this.resultPrice = Math.ceil(this.resultPrice)
     },

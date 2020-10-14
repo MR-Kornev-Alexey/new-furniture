@@ -21,9 +21,9 @@ class BasicCalculation {
     this.solidWoodDrawer = solidWoodDrawer
   }
 
-  static totalRibs (lengthBackrest) {
-    return Math.ceil(lengthBackrest / 50)
-  }
+  // static totalRibs (lengthBackrest) {
+  //   return Math.ceil(lengthBackrest / 50)
+  // }
 
   calcLengthBackrest (totalWidth, thicknessArmrest, numberOfArmrests, technologicalGap) {
     return totalWidth - thicknessArmrest * numberOfArmrests - technologicalGap * numberOfArmrests

@@ -1,0 +1,37 @@
+{"data":
+[{"id":4,"name":"Диван Магнум","slug":"magnum2",
+  "category": {"id":1,"name":"Диваны"},
+  "options":[
+    "metal_in_base",
+    "right_armrest",
+    "tape_base",
+    "solid_wood_drawer",
+    "bar_in_base",
+    "tape_armrest",
+    "tape_back",
+    "bar_in_back",
+    "left_armrest",
+    "bar_in_shelf",
+    "metal_in_back",
+    "metal_in_armrest"
+  ],
+  "materials":{"mdfLaminated_3":97,
+                "hardboard":58,
+                 "plywood_4":207,
+                 "plywood_9":329,
+                  "plywood_15":490,"plywood_21":781,"bar_30_40":20,
+    "foam_rubber_40_65_10":155,"foam_rubber_40_65_20":310,
+    "foam_rubber_20":200,"foam_rubber_5":50,
+    "theCloth":950,"theNut":10,"theBolt":10,
+    "ratchetMechanism":550,"theStaple":0.4,
+    "foamGlue":180,"spandBond":9,"periotec":100,
+    "velcro":12,"PVA":225,"ribbon_60":26,"spring":40,
+    "fabricSpandbond":38,"foamRubber_35_42_40":500,
+    "foamRubber_30_30_40":460,"foamRubberMemory_40_10_40":1150,
+    "foamRubberMemory_50_14_40":1080,"holcon_20":60,"theFelt":105,"metallicProfile":80}},
+
+  {"id":5,"name":"\u0414\u0438\u043231","slug":"magnum31","category":{"id":1,"name":"диваны"},
+    "options":null,
+    "materials":{"mdfLaminated_3":97,"hardboard":58,"plywood_4":207,"plywood_9":329,"plywood_15":490,"plywood_21":781,"bar_30_40":20,"foam_rubber_40_65_10":155,"foam_rubber_40_65_20":310,"foam_rubber_20":200,"foam_rubber_5":50,"theCloth":950,"theNut":10,"theBolt":10,"ratchetMechanism":550,"theStaple":0.4,"foamGlue":180,"spandBond":9,"periotec":100,"velcro":12,"PVA":225,"ribbon_60":26,"spring":40,"fabricSpandbond":38,"foamRubber_35_42_40":500,"foamRubber_30_30_40":460,"foamRubberMemory_40_10_40":1150,"foamRubberMemory_50_14_40":1080,"holcon_20":60,"theFelt":105,"metallicProfile":80}}],
+
+  "links":{"first":"http:\/\/sdelay.online\/api\/products?page=1","last":"http:\/\/sdelay.online\/api\/products?page=2","prev":null,"next":"http:\/\/sdelay.online\/api\/products?page=2"},"meta":{"current_page":1,"from":1,"last_page":2,"path":"http:\/\/sdelay.online\/api\/products","per_page":2,"to":2,"total":3}}

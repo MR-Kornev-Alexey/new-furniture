@@ -1,0 +1,114 @@
+{
+  "Materials": {
+    "mdf3": {
+      "name": "мдф ламинированный 3 мм",
+      "price": "97",
+      "measure": "кв.м."
+    },
+    "hardboard": {
+      "name": "Оргалит",
+      "price": "58",
+      "measure": "кв.м."
+    },
+    "plywood4": {
+      "name": "Фанера 4",
+      "price": "207",
+      "measure": "кв.м."
+    },
+    "plywood9": {
+      "name": "Фанера 9",
+      "price": "329",
+      "measure": "кв.м."
+    },
+  "plywood15": {
+    "name": "Фанера 15",
+    "price": "490",
+    "measure": "кв.м."
+  },
+  "plywood21": {
+    "name": "Фанера 21",
+    "price": "781",
+    "measure": "кв.м."
+  },
+  "bar30x40": {
+    "name": "Брусок 30*40",
+    "price": "20",
+    "measure": "пог.м."
+  },
+  "foamRubber40x65x10": {
+    "name": "Поролон 40/65 10 мм",
+    "price": "310",
+    "measure": "кв.м."
+  },
+    "foamRubber40x65x20": {
+      "name": "Поролон 40/65 10 мм",
+      "price": "620",
+      "measure": "кв.м."
+    },
+  "foamRubber20": {
+    "name": "Поролон 20 мм",
+    "price": "200",
+    "measure": "кв.м."
+  },
+  "foamRubber5": {
+    "name": "Поролон 5 мм",
+    "price": "50",
+    "measure": "кв.м."
+  },
+  "foamRubber5": {
+    "name": "Поролон 5 мм",
+    "price": "50",
+    "measure": "кв.м."
+  },
+  "theCloth": {
+    "name": "Ткань",
+    "price": "950",
+    "measure": "пог.м."
+  },
+  "theCloth": {
+    "name": "Ткань",
+    "price": "950",
+    "measure": "пог.м."
+  },
+  "theNut": {
+    "name": "Гайка",
+    "price": "10",
+    "measure": "шт."
+  },
+  "theBolt": {
+    "name": "Болт",
+    "price": "10",
+    "measure": "шт."
+  },
+  "ratchetMechanism": {
+    "name": "Механизм Трещотка",
+    "price": "550",
+    "measure": "шт."
+  },
+  "staple": {
+    "name": "Скоба",
+    "price": "0.4",
+    "measure": "шт."
+  },
+  "foamGlue": {
+    "name": "Клей для поролона",
+    "price": "180",
+    "measure": "л."
+  },
+  "spandBond": {
+    "name": "Спандбонд",
+    "price": "9",
+    "measure": "пог.м."
+  },
+  "periotec": {
+    "name": "Периотек",
+    "price": "100",
+    "measure": "пог.м."
+  },
+  "velcro": {
+    "name": "Липучка",
+    "price": "12",
+    "measure": "пог.м."
+  }
+}
+}
