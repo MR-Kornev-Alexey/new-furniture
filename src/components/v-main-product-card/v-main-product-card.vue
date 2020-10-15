@@ -201,9 +201,10 @@ import vIconSofaRight from '../v-common/v-icon-sofa-right'
 import { mapActions, mapGetters } from 'vuex'
 
 import ClassArmrest from '../v-classes/classArmrest'
-// import BasicCalculation from '../v-common/basicCalculation'
-// import ListOtherCalculation from '../v-common/listOtherCalculation'
-// import axios from 'axios'
+// import ClassBack from '../v-classes/classBack'
+import ClassBase from '../v-classes/classBase'
+import ClassStrBack from '../v-classes/classStrBack'
+
 export default {
   name: 'v-main-product-card',
   components: {
@@ -219,93 +220,37 @@ export default {
   computed: {
     ...mapGetters([
       'BASIC_SIZES_ARMREST',
-      'PRICE_FOR_ARMREST'
+      'PRICE_FOR_ALL',
+      'SLUG_SOFA',
+      'PRICE_FABRIC',
+      'BASIC_SIZES_BACK',
+      'BASIC_SIZES_BASE',
+      'SOFTNESS',
+      'SOLID_WOOD_DRAWER'
     ])
   },
   methods: {
     ...mapActions([
       'GET_JSON_FROM_API',
-      'GET_DATA_FROM_API'
+      'GET_DATA_FROM_API',
+      'GET_STRAIGHT_TO_STORE'
     ]),
-    // GET_JSON_FROM_API () {
-    //   const url = 'assets/file/materials.json'
-    //   return axios.get(url)
-    //     .then((resp) => {
-    //       const res = resp.data
-    //       this.allDataFromAPI = resp.data
-    //       this.listPriceMaterials = []
-    //       this.listInputParameters = []
-    //       this.otherCalculation = []
-    //       const list = new BasicCalculation(
-    //         null,
-    //         res.basicSizesArmrest.width.parameter,
-    //         res.basicSizesArmrest.height.parameter,
-    //         res.basicSizesArmrest.thickness.parameter,
-    //         res.backrest.zSideBar.parameter,
-    //         res.backrest.backThickness.parameter,
-    //         res.backrest.backHeight.parameter,
-    //         res.backrest.technologicalGap.parameter,
-    //         res.backrest.numberOfArmrests.parameter,
-    //         res.backrest.fabricStock.parameter,
-    //         res.backrest.seatHeight.parameter,
-    //         res.backrest.numberOfPillows.parameter,
-    //         res.backrest.backCushionThickness.parameter,
-    //         res.backrest.backCushionHeight.parameter,
-    //         res.backrest.metalFrame.parameter,
-    //         res.backrest.solidWoodDrawer.parameter
-    //       )
-    //       this.listInputParameters.push(list)
-    //
-    //       Object.keys(res.otherCalculation).forEach((keyOther) => {
-    //         const works = new ListOtherCalculation(
-    //           keyOther,
-    //           res.otherCalculation[keyOther].name,
-    //           res.otherCalculation[keyOther].threshold,
-    //           res.otherCalculation[keyOther].size,
-    //           res.otherCalculation[keyOther].first,
-    //           res.otherCalculation[keyOther].second
-    //         )
-    //         this.otherCalculation.push(works)
-    //       })
-    //       Object.keys(res.materials).forEach((keyMaterials) => {
-    //         this.listPriceMaterials.push(
-    //           {
-    //             id: keyMaterials,
-    //             name: res.materials[keyMaterials].name,
-    //             price: res.materials[keyMaterials].price
-    //           })
-    //       })
-    //     })
-    //     .catch((error) => {
-    //       alert(error)
-    //       return error
-    //     })
-    // },
     inputLengthStraight (data) {
       const clearData = data.slice(0, -2)
       this.resultPrice = Number(clearData)
+      this.GET_STRAIGHT_TO_STORE(this.resultPrice)
       this.priceOther = null
-      const a = new ClassArmrest(this.BASIC_SIZES_ARMREST, false, true, true, 950, this.PRICE_FOR_ARMREST)
-      this.listInputParameters.push(a)
+      const d = new ClassStrBack(this.SLUG_SOFA, this.BASIC_SIZES_BACK, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+      const calcStrBack = d.calcStrBack()
+
+      const c = new ClassBase(this.SLUG_SOFA, this.BASIC_SIZES_BASE, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
+      const calcBase = c.calcBase()
+
+      const a = new ClassArmrest(this.SLUG_SOFA, this.BASIC_SIZES_ARMREST, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
       const calcAllMaterials = a.calcArmrest()
-      alert(calcAllMaterials)
-      // const calcAllMaterials = this.listInputParameters[0].totalCalculate(58, 207, 329, 490,
-      //   20, 620, 200, 950, 10, 550, 250, 26, 38,
-      //   1000, 920, 2160, 60, 105, 80)
-      // for (let i = 0; i < this.otherCalculation.length; i++) {
-      //   if (this.otherCalculation[i].size) {
-      //     if (this.otherCalculation[i].condition < clearData) {
-      //       this.priceOther = this.priceOther + Number(this.otherCalculation[i].secondPrice)
-      //     } else {
-      //       this.priceOther = this.priceOther + Number(this.otherCalculation[i].firstPrice)
-      //     }
-      //   } else {
-      //     // not
-      //   }
-      // }
-      // alert(this.priceOther)
-      this.resultPrice = calcAllMaterials + this.priceOther
-      this.resultPrice = Math.ceil(this.resultPrice)
+
+      this.resultPrice = calcAllMaterials * 2 + calcStrBack + calcBase
+      this.resultPrice = this.resultPrice.toFixed(2)
     },
     choiceSoftness (id) {
       this.choiceIdSoftness = id

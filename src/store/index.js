@@ -8,6 +8,11 @@ export default new Vuex.Store({
   state: {
     data: null,
     json: null,
+    totalLength: 1200,
+    backLength: null,
+    depth: null,
+    softness: 'middle',
+    solidWoodDrawer: false,
     basicSizesArmrest: [ // Подлокотник
       { width: 950 },
       { height: 630 },
@@ -26,6 +31,7 @@ export default new Vuex.Store({
     fabricStock: 20, // Ткань запас
     seatHeight: 160, // Высота сидушек
     numberOfPillows: 2, // Количество подушек
+    fasteningTape: 28,
 
     metal_in_armrest: null, // Метеллокаркас в подлокотнике
     metal_in_base: null, // Металлокаркас в основании
@@ -42,7 +48,8 @@ export default new Vuex.Store({
     tape_base: null, // Лента в основании
     tape_back: null, // Лента в спинке
 
-    solid_wood_drawer: null// Царга из массива
+    solid_wood_drawer: null, // Царга из массива
+    price_fabric: 950 // цена ткани
   },
   mutations: {
     SET_DATA_TO_STATE: (state, data) => {
@@ -50,9 +57,15 @@ export default new Vuex.Store({
     },
     SEND_JSON_TO_STATE: (state, data) => {
       state.json = data
+    },
+    SET_STRAIGHT_WIDTH_TO_STATE: (state, data) => {
+      state.totalLength = data
     }
   },
   actions: {
+    GET_STRAIGHT_TO_STORE ({ commit }, width) {
+      commit('SET_STRAIGHT_WIDTH_TO_STATE', width)
+    },
     GET_DATA_FROM_API ({ commit }) {
       const url = 'http://sdelay.online/api/products'
       return axios.get(url)
@@ -79,21 +92,65 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    SOLID_WOOD_DRAWER (state) {
+      return {
+        depth: state.solidWoodDrawer
+      }
+    },
+    SOFTNESS (state) {
+      return {
+        depth: state.depth
+      }
+    },
+    BASIC_SIZES_BASE (state) {
+      return {
+        depth: state.depth,
+        totalLength: state.totalLength,
+        thicknessArmrest: state.basicSizesArmrest[2].thickness,
+        thicknessBack: state.basicSizesBack[1].thickness,
+        zSideBar: state.zSideBar
+      }
+    },
+    BASIC_SIZES_BACK (state) {
+      return {
+        heightBack: state.basicSizesBack[0].height,
+        thicknessBack: state.basicSizesBack[1].thickness,
+        backCushionThickness: state.basicSizesBack[2].back_cushion_thickness,
+        backCushionHeight: state.basicSizesBack[3].back_cushion_height,
+        zSideBar: state.zSideBar,
+        totalLength: state.totalLength,
+        width: state.basicSizesArmrest[0].width,
+        thicknessArmrest: state.basicSizesArmrest[2].thickness,
+        seatHeight: state.seatHeight
+      }
+    },
     BASIC_SIZES_ARMREST (state) {
       return {
         width: state.basicSizesArmrest[0].width,
         height: state.basicSizesArmrest[1].height,
-        thickness: state.basicSizesArmrest[2].thickness
+        thickness: state.basicSizesArmrest[2].thickness,
+        zSideBar: state.zSideBar
       }
     },
-    PRICE_FOR_ARMREST (state) {
+    SLUG_SOFA (state) {
+      return state.data.data[0].slug
+    },
+    PRICE_FABRIC (state) {
+      return state.price_fabric
+    },
+    PRICE_FOR_ALL (state) {
       return {
+        hardboard: state.data.data[0].materials.hardboard,
         plywood_4: state.data.data[0].materials.plywood_4,
         plywood_9: state.data.data[0].materials.plywood_9,
         plywood_15: state.data.data[0].materials.plywood_15,
+        bar_30_40: state.data.data[0].materials.bar_30_40,
         theFelt: state.data.data[0].materials.theFelt,
+        ribbon_60: state.data.data[0].materials.ribbon_60,
         foam_rubber_40_65_10: state.data.data[0].materials.foam_rubber_40_65_10,
-        foam_rubber_40_65_20: state.data.data[0].materials.foam_rubber_40_65_20
+        foam_rubber_40_65_20: state.data.data[0].materials.foam_rubber_40_65_20,
+        metallicProfile: state.data.data[0].materials.metallicProfile,
+        fasteningTape: state.fasteningTape
       }
     }
 
