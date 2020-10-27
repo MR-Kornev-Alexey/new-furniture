@@ -1,0 +1,17 @@
+https://cp.beget.com/main
+ftp://i79206_alexey@sdelay.online/
+N*7%Ck1s
+[18:03, 21.10.2020] Сергей  БэкЕнд: D:\OSPanel\domains\kwork\mebel\resources\views\welcome.blade.php
+[18:04, 21.10.2020] Сергей  БэкЕнд: вней пути
+[18:04, 21.10.2020] Сергей  БэкЕнд: <link href="/js/app.60111f71.js" rel=preload as=script>
+    <link href="/js/chunk-vendors.7ac27179.js" rel=preload as=script>
+    <link href="/css/chunk-vendors.99565ec6.css" rel=stylesheet>
+    <link href="/css/app.fdff2e19.css" rel=stylesheet>
+[18:04, 21.10.2020] Сергей  БэкЕнд: /js/
+/css
+[18:05, 21.10.2020] Сергей  БэкЕнд:
+
+ /sdelay.online/folder/public/js/ и
+/sdelay.online/folder/public/css
+
+Шаблон на сервере находиться /sdelay.online/folder/resources/views/welcome.blade.php

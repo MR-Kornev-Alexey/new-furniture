@@ -4,6 +4,8 @@ import vMainPage from '../components/v-main-page'
 import vMainProduct from '../components/v-main-product'
 import vMainContacts from '../components/v-main-contacts'
 import vMainSofas from '../components/v-main-sofas'
+import vMainBasket from '../components/v-basket'
+import oneSofas from '../components/v-one-sofas'
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,6 +28,16 @@ const routes = [
     path: '/sofas',
     name: 'v-main-sofas',
     component: vMainSofas
+  },
+  {
+    path: '/basket',
+    name: 'v-main-basket',
+    component: vMainBasket
+  },
+  {
+    path: '/one-sofa',
+    name: 'v-one-sofas',
+    component: oneSofas
   }
 ]
 

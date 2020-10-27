@@ -1,25 +1,22 @@
 <template>
-  <v-row class="v-small-menu">
+  <v-row class="v-small-menu-basket">
     <v-col class="v-small-menu__card">
       Главная
       <v-icon class="v-icon-small">mdi-chevron-right</v-icon>
-      Диваны
-      <v-icon class="v-icon-small">mdi-chevron-right</v-icon>
-      <span>{{nameOfSofa}}</span>
+      <span>Корзина</span>
     </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
-  name: 'v-small-menu',
-  props: ['nameOfSofa']
+  name: 'v-small-menu-basket'
 }
 </script>
 
 <style lang="scss">
-  .v-small-menu {
-    margin:57px 0 0 0;
+  .v-small-menu-basket{
+    margin:38px 0 0 0;
     .v-small-menu__card {
       padding: 0 0 0 388px;
       font-size: 15px;

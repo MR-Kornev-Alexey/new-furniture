@@ -1,14 +1,14 @@
 <template>
   <v-row class="v-main-product-card d-block">
     <div class="d-flex justify-center">
-      <div class="v-main-product-card__one">
-        <img alt="sofa" class="" src="../../assets/img/main-product/main-product-sofa-.png">
+      <div class="v-main-product-card__one"
+           :style="{ backgroundImage: 'url(' + dataOneSofa.image + ')' }">
       </div>
       <div class="v-main-product-card__two">
         <div class="v-m-card__two__tittle">Диван</div>
-        <div class="v-m-card__two__price" v-if="!resultPrice"><span>от</span> 55 000 &#8381;</div>
+        <div class="v-m-card__two__price" v-if="!resultPrice"><span>от</span> {{dataOneSofa.newPrice}} &#8381;</div>
         <div class="v-m-card__two__price" v-if="resultPrice">{{resultPrice}} &#8381;</div>
-        <div class="v-m-card__two__name">Florence bergamo light</div>
+        <div class="v-m-card__two__name">{{nameOfSofa}}</div>
         <div class="v-m-card__two__quest d-flex align-content-center"><img alt="message"
                                                                            src="../../assets/img/svg/message-call.svg">Вопрос
           + ответ:
@@ -155,8 +155,8 @@
             Механизм
           </div>
           <div class="d-flex row-machine">
-            <div :class="{'v-machine-item-selected': withMachineItemSelected }" class="d-flex v-machine-item transform-1-5" @click="choiceIdMachine('with')"><img  class="d-flex  align-self-center " src="../../assets/img/svg/sofa-m.svg" alt="sofa without"> Без механизма</div>
-            <div :class="{'v-machine-item-selected': withOutMachineItemSelected}" class="d-flex v-machine-item transform-1-5" @click="choiceIdMachine('without')"><img class="d-flex align-self-center " src="../../assets/img/svg/sofa-yes.svg" alt="sofa without"> С механизмом</div>
+            <div :class="{'v-machine-item-selected':  withOutMachineItemSelected }" class="d-flex v-machine-item transform-1-5" @click="choiceIdMachine('without')"><img  class="d-flex  align-self-center " src="../../assets/img/svg/sofa-m.svg" alt="sofa without"> Без механизма</div>
+            <div :class="{'v-machine-item-selected': withMachineItemSelected}" class="d-flex v-machine-item transform-1-5" @click="choiceIdMachine('with')"><img class="d-flex align-self-center " src="../../assets/img/svg/sofa-yes.svg" alt="sofa without"> С механизмом</div>
           </div>
 
         </div>
@@ -185,7 +185,7 @@
            </div>
           </div>
         </div>
-        <button class="big-btn">Добавить в корзину</button>
+        <button  :disabled="disabledBasket" @click="sendToBasket()" class="big-btn">Добавить в корзину</button>
       </div>
     </div>
     <v-pop-filter :visible="showModal" />
@@ -201,12 +201,14 @@ import vIconSofaRight from '../v-common/v-icon-sofa-right'
 import { mapActions, mapGetters } from 'vuex'
 
 import ClassArmrest from '../v-classes/classArmrest'
-// import ClassBack from '../v-classes/classBack'
 import ClassBase from '../v-classes/classBase'
 import ClassStrBack from '../v-classes/classStrBack'
+import ClassCommon from '../v-classes/classCommon'
+import ClassWorks from '../v-classes/classWorks'
 
 export default {
   name: 'v-main-product-card',
+  props: ['nameOfSofa'],
   components: {
     vIconSofaLeft,
     vIconSofaRight,
@@ -226,20 +228,64 @@ export default {
       'BASIC_SIZES_BACK',
       'BASIC_SIZES_BASE',
       'SOFTNESS',
-      'SOLID_WOOD_DRAWER'
+      'SOLID_WOOD_DRAWER',
+      'COMMON_MATERIALS',
+      'COMMON_WORKS',
+      'ALL_SOFAS'
     ])
   },
   methods: {
     ...mapActions([
       'GET_JSON_FROM_API',
       'GET_DATA_FROM_API',
-      'GET_STRAIGHT_TO_STORE'
+      'SET_STRAIGHT_TO_STORE',
+      'SET_SOFTNESS_TO_STORE',
+      'SEND_DATA_TO_API'
     ]),
+    getDataOneSofa (name) {
+      alert('name - ' + name)
+      for (let i = 0; i < this.ALL_SOFAS.length; i++) {
+        if (this.ALL_SOFAS[i].name === name) {
+          this.dataOneSofa = this.ALL_SOFAS[i]
+          alert('this.dataOneSofa - ' + this.dataOneSofa.name)
+        }
+      }
+    },
+    sendToBasket () {
+      let flagPosition = ''
+      if (this.flagSelectLeft) {
+        flagPosition = 'left'
+      } else if (this.flagSelectRight) {
+        flagPosition = 'right'
+      } else {
+        flagPosition = 'straight'
+      }
+
+      let rawData = {
+        slug: this.getName,
+        position: flagPosition,
+        width: this.resultWidth,
+        length: this.resultLength,
+        fabric: this.choiceIdFabric,
+        collection: this.fabricCollection,
+        mechanism: this.withMachineItemSelected,
+        legs: this.choiceIdLegs,
+        softness: this.choiceIdSoftness,
+        price: this.resultPrice
+      }
+      rawData = JSON.stringify(rawData)
+      alert(rawData)
+      this.SEND_DATA_TO_API(rawData)
+    },
     inputLengthStraight (data) {
       const clearData = data.slice(0, -2)
-      this.resultPrice = Number(clearData)
-      this.GET_STRAIGHT_TO_STORE(this.resultPrice)
-      this.priceOther = null
+      this.resultWidth = Number(clearData)
+      this.SET_STRAIGHT_TO_STORE(this.resultWidth)
+      this.totalCalc()
+    },
+    totalCalc () {
+      this.priceOther = this.resultPrice = null
+      this.disabledBasket = true
       const d = new ClassStrBack(this.SLUG_SOFA, this.BASIC_SIZES_BACK, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
       const calcStrBack = d.calcStrBack()
 
@@ -247,16 +293,28 @@ export default {
       const calcBase = c.calcBase()
 
       const a = new ClassArmrest(this.SLUG_SOFA, this.BASIC_SIZES_ARMREST, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
-      const calcAllMaterials = a.calcArmrest()
+      const calcOneArmrest = a.calcArmrest()
 
-      this.resultPrice = calcAllMaterials * 2 + calcStrBack + calcBase
+      const b = new ClassCommon(this.COMMON_MATERIALS)
+      const calcCommon = b.calcOther()
+
+      const e = new ClassWorks(this.COMMON_WORKS, this.resultWidth)
+      const calcWorks = e.calcAllSpending()
+
+      this.resultPrice = calcOneArmrest * 2 + calcStrBack + calcBase + calcCommon + calcWorks
       this.resultPrice = this.resultPrice.toFixed(2)
+      if (this.resultPrice > 0) {
+        this.disabledBasket = false
+      }
     },
     choiceSoftness (id) {
       this.choiceIdSoftness = id
+      this.SET_SOFTNESS_TO_STORE(id)
       for (let i = 0; i < this.arraySoftness.length; i++) {
+        this.totalCalc()
         this.arraySoftness[i].selected = this.arraySoftness[i].id === id
       }
+      this.totalCalc()
     },
     selectArrayLegs (id) {
       this.choiceIdLegs = id
@@ -268,9 +326,15 @@ export default {
       if (data === 'with') {
         this.withOutMachineItemSelected = false
         this.withMachineItemSelected = true
+        if (this.resultPrice) {
+          this.resultPrice = (+this.resultPrice + 12000).toFixed(2)
+        }
       } else if (data === 'without') {
         this.withOutMachineItemSelected = true
         this.withMachineItemSelected = false
+        if (this.resultPrice) {
+          this.resultPrice = (+this.resultPrice - 12000).toFixed(2)
+        }
       }
     },
     clearArray (array) {
@@ -280,7 +344,7 @@ export default {
       this.renderFabric++
     },
     choiceFabricForOrder (id) {
-      this.choiceIdFabric = id
+      this.choiceOrderFabric = id
       for (let i = 0; i < this.fabricForOrder.length; i++) {
         this.fabricForOrder[i].active = this.fabricForOrder[i].id === id
       }
@@ -312,10 +376,18 @@ export default {
     },
 
     inputLengthSide (data) {
-      alert(data)
+      const clear = data.slice(0, -2)
+      this.resultLength = Number(clear)
     }
   },
   data: () => ({
+    dataOneSofa: [],
+    disabledBasket: true,
+    resultWidth: 0,
+    resultLength: 0,
+    choiceOrderFabric: 0,
+    getName: 'magnum2',
+    fabricCollection: 'currently',
     priceOther: 0,
     otherCalculation: [],
     resultPrice: null,
@@ -331,10 +403,10 @@ export default {
     flagSelectRight: false,
     showModal: false,
     renderFabric: 0,
-    withOutMachineItemSelected: false,
+    withOutMachineItemSelected: true,
     withMachineItemSelected: false,
     choiceIdLegs: '',
-    choiceIdSoftness: '',
+    choiceIdSoftness: 'soft',
     steps: [
       '1400мм', '1600мм', '1800мм',
       '2000мм', '2200мм', '2400мм', '2600мм', '2800мм',
@@ -342,19 +414,19 @@ export default {
     ],
     arraySoftness: [
       {
-        id: 'soft',
-        name: 'Мягкий',
+        id: 'ultra',
+        name: 'UltraSoft',
         selected: false
       },
       {
         id: 'middle',
-        name: 'средний',
+        name: 'Средняя мягкость',
         selected: false
       },
       {
-        id: 'hard',
-        name: 'жесткий',
-        selected: false
+        id: 'soft',
+        name: 'Нормальная мягкость ',
+        selected: true
       }
     ],
     arrayLegs: [
@@ -409,7 +481,7 @@ export default {
     ],
     fabricInStock: [
       {
-        id: 'fabricInStock01',
+        id: 'TD_runa_10',
         active: false,
         name: 'Шенил',
         image: require('@/assets/img/fabric/fabric-1.png'),
@@ -417,7 +489,7 @@ export default {
         clean: true
       },
       {
-        id: 'fabricInStock02',
+        id: 'TD_runa_6',
         active: false,
         name: 'Велюр',
         image: require('@/assets/img/fabric/fabric-2.png'),
@@ -425,7 +497,7 @@ export default {
         clean: false
       },
       {
-        id: 'fabricInStock03',
+        id: 'TD_runa_5',
         active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-3.png'),
@@ -433,7 +505,7 @@ export default {
         clean: true
       },
       {
-        id: 'fabricInStock04',
+        id: 'TD_runa_4',
         active: false,
         name: 'Рогожка',
         image: require('@/assets/img/fabric/fabric-4.png'),
@@ -540,6 +612,8 @@ export default {
       color: #D7B256;
       cursor: pointer;
       padding: 6px;
+      text-align: center;
+      width: 160px;
     }
     .input-soft-selected{
       color: #9D9D9D;
@@ -561,8 +635,11 @@ export default {
 
     .v-main-product-card__one {
       margin: 9px 14px 0 0;
-      max-width: 656px;
+      width: 656px;
       height: 625px;
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover;
     }
 
     .v-main-product-card__two {

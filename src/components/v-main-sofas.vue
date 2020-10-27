@@ -4,7 +4,7 @@
       <v-small-menu-sofas/>
       <v-sofas-main-screen/>
       <v-sofas-submenu/>
-      <v-sofas-gallery/>
+      <v-sofas-gallery @callPageSofa="getCallPageSofa"/>
       <v-social :showProduct = "showProduct" :socialSofas="socialSofas" />
       <v-map/>
       <v-footer/>
@@ -32,11 +32,19 @@ export default {
     vSocial,
     vMap,
     vFooter
+
   },
   data: () => ({
     showProduct: true,
-    socialSofas: true
-  })
+    socialSofas: true,
+    callMame: ''
+  }),
+  methods: {
+    getCallPageSofa (data) {
+      this.callMame = data.name
+      alert(this.callMame)
+    }
+  }
 }
 </script>
 

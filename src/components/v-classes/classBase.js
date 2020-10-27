@@ -55,12 +55,16 @@ class ClassBase {
     return Number(this.priceMaterials.fasteningTape)
   }
 
-  Q46 () {
-    return Number(this.priceMaterials.foam_rubber_40_65_10)
+  Q63 () {
+    return Number(this.priceMaterials.foamRubber_35_42_40)
   }
 
-  Q47 () {
-    return Number(this.priceMaterials.foam_rubber_40_65_20)
+  Q64 () {
+    return Number(this.priceMaterials.foamRubber_30_30_40)
+  }
+
+  Q66 () {
+    return Number(this.priceMaterials.foamRubberMemory_50_14_40)
   }
 
   // Металлокаркас, м
@@ -100,6 +104,23 @@ class ClassBase {
     return this.lengthBackFabric() * Number(this.priceFabric)
   }
 
+  calcBaseTechnicalFabric () {
+    return (this.C5() * this.C13() / 1000000) * this.Q68()
+  }
+
+  calcSoftness () {
+    let resultPrice = 0
+    const square = this.C5() * this.C13() / 1000000
+    if (this.softness === 'soft') {
+      resultPrice = this.Q64() * square * 2 + this.Q66() * square
+    } else if (this.softness === 'middle') {
+      resultPrice = this.Q63() * square * 2 + this.Q64() * square
+    } else {
+      resultPrice = this.Q66() * square * 2 + this.Q64() * square
+    }
+    return resultPrice
+  }
+
   calcBase () {
     let result = 0
     if (this.bar) {
@@ -107,7 +128,7 @@ class ClassBase {
     } else {
       result = result + this.calcMetalFrame()
     }
-    return result + this.calcTape() + this.calcBasePlywood() + this.calcFabric()
+    return result + this.calcTape() + this.calcBasePlywood() + this.calcFabric() + this.calcBaseTechnicalFabric() + this.calcSoftness()
   }
 }
 module.exports = ClassBase

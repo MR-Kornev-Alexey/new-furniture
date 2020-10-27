@@ -47,8 +47,8 @@
             ]"
                    :key="i"
                    v-for="(item, i) in subMenu"
-              >
-                {{item.name}}
+              ><a :href="item.link">{{item.name}}</a>
+
               </div>
             </div>
             <div class="nav-phone text-center">
@@ -149,23 +149,28 @@ export default {
     subMenu: [
       {
         left0: true,
-        name: 'Диваны'
+        name: 'Диваны',
+        link: '/sofas'
       },
       {
         left62: true,
-        name: 'Кровати'
+        name: 'Кровати',
+        link: '/#'
       },
       {
         left50: true,
-        name: 'Детская мебель'
+        name: 'Детская мебель',
+        link: '/#'
       },
       {
         left50: true,
-        name: 'Кресла'
+        name: 'Кресла',
+        link: '/#'
       },
       {
         left50: true,
-        name: 'Тумбы'
+        name: 'Тумбы',
+        link: '/#'
       }
     ]
   })
@@ -210,6 +215,9 @@ export default {
     .sub-nav__menu {
       margin-top: 10px;
       text-transform: uppercase;
+    }
+    a{
+      text-decoration: none;
     }
   }
 
