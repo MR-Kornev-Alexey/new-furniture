@@ -260,12 +260,17 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import delivery from './delivery'
 export default {
   name: 'v-form-input',
   components: {
     delivery
+  },
+  computed: {
+    ...mapGetters([
+      'GET_ITEMS_TO_BASKET'
+    ])
   },
   methods: {
     ...mapActions([
@@ -310,7 +315,8 @@ export default {
       this.disabledOrder = this.checkboxConfirm
     },
     sendRegistration () {
-      let regData = {
+      const regData = {
+        config: this.GET_ITEMS_TO_BASKET,
         name: this.name,
         surname: this.surname,
         email: this.email,
@@ -326,8 +332,8 @@ export default {
         deliveryAndFix: this.selectDelivery,
         payment: this.payment
       }
-      regData = JSON.stringify(regData)
-      alert(regData)
+      // regData = JSON.stringify(regData)
+      // alert(regData)
       this.SEND_REG_DATA_TO_API(regData)
     }
   },
@@ -473,6 +479,7 @@ export default {
     margin: 114px 0 0 0;
   }
   .v-form-input{
+    margin: 110px 0 0 0;
     padding: 0 0 0 390px;
     .basket-h1{
       font-size: 25px;

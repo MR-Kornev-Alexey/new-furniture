@@ -16,8 +16,12 @@ export default {
 
 <style lang="scss">
   .v-small-menu-sofas{
+
     margin:38px 0 0 0;
     .v-small-menu__card {
+      a {
+      text-decoration: none;
+    }
       padding: 0 0 0 388px;
       font-size: 15px;
       line-height: 15px;
@@ -25,6 +29,7 @@ export default {
       color: #959595;
       .v-icon-small{
         margin: 0 14px 0 6px;
+
       }
       span {
         color: #000000;

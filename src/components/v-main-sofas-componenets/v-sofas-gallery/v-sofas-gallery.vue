@@ -6,8 +6,8 @@
            v-for="(item, i) in  getSofas"
            :class="{'margin-middle': i===1 || i===4 || i === 7}"
       >
-        <router-link :to="{ path: '/one-sofa', query: { sofa: item.name }}">
-        <div class="item-sofas" @click="callPageSofas(item.name)"
+        <router-link :to="{ path: '/one-sofa', query: { sofa: item.slug }}">
+        <div class="item-sofas" @click="callPageSofas(item.slug)"
              :style="{ backgroundImage: 'url(' + item.image + ')' }">
         </div>
         </router-link>
@@ -60,14 +60,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'v-sofas-gallery',
   props: ['getNumberPage'],
   computed: {
     ...mapGetters([
       'ALL_SOFAS',
-      'SET_FIRST_PAGE'
+      'SET_FIRST_PAGE',
+      'SET_ALL_SOFAS'
     ]),
     getSofas () {
       return this.arraySofas
@@ -86,6 +87,11 @@ export default {
     byPage: 1
   }),
   methods: {
+    ...mapActions([
+      'GET_JSON_FROM_API',
+      'GET_DATA_FROM_API',
+      'GET_ALL_SOFAS_FROM_API'
+    ]),
     callPageSofas (name) {
       this.$emit('callPageSofa', {
         name: name
@@ -98,19 +104,28 @@ export default {
     },
     calcSofas (page) {
       let i = (page - 1) * 9
-      const rest = this.ALL_SOFAS.length
+      const rest = this.SET_ALL_SOFAS.length
       let last = i + 9
       if (last > rest) {
         last = rest
         i = last - 9
       }
       for (i; i < last; i++) {
-        this.arraySofas.push(this.ALL_SOFAS[i])
+        this.arraySofas.push(this.SET_ALL_SOFAS[i])
       }
     }
   },
   mounted () {
-    this.calcSofas(this.SET_FIRST_PAGE)
+    this.GET_ALL_SOFAS_FROM_API().then(
+      (res) => {
+        if (res) {
+          this.calcSofas(1)
+        }
+      }
+    ).catch((error) => {
+      alert(error)
+      return error
+    })
   }
 }
 </script>

@@ -8,30 +8,82 @@
         <div class="v-m-card__two__tittle">Диван</div>
         <div class="v-m-card__two__price" v-if="!resultPrice"><span>от</span> {{dataOneSofa.newPrice}} &#8381;</div>
         <div class="v-m-card__two__price" v-if="resultPrice">{{resultPrice}} &#8381;</div>
-        <div class="v-m-card__two__name">{{nameOfSofa}}</div>
+        <div class="v-m-card__two__name">{{dataOneSofa.name}}</div>
         <div class="v-m-card__two__quest d-flex align-content-center"><img alt="message"
                                                                            src="../../assets/img/svg/message-call.svg">Вопрос
           + ответ:
           <a href="#">см. 20 ответов</a></div>
         <button class="pale-btn"><img alt="credit"
                                       src="../../assets/img/svg/discount.svg"><span>купить в рассрочку</span></button>
-        <div class="v-m-card__two__config">
+        <div class="v-m-card__two__config height-348" >
           <div class="d-flex">
-            <div class="number">1.</div>
+            <div class="number"></div>
             Выберите конфигурацию
           </div>
-          <div class="v-m-card__two__block d-flex justify-center ">
-            <v-icon-sofa-left class="align-self-center" :flagSelectLeft="flagSelectLeft" @sendSelectLeft="getSelectLeft"/>
-            <div class="text align-self-center">Левосторонний диван</div>
+          <div class="d-flex justify-center text-center alles-switch">
+            <div v-for="item in  choiceSwitch" :key="`conf_` + item.id">
+              <v-switch
+                v-model="item.selected"
+                :label="item.name"
+                color="accent"
+                @change="choiceConfig(item.id)"
+                :disabled="item.selected"
+              ></v-switch>
+            </div>
+         </div>
+          <div v-if="choiceSwitch[0].selected">
+            <div class="v-m-card__two__block d-flex justify-center ">
+              <v-icon-sofa-left class="align-self-center" />
+              <div class="text align-self-center">Прямой диван</div>
+            </div>
+            <div>
+              <div class="d-flex my-4">
+                <div class="number "></div>
+                Выберите ширину дивана
+              </div>
+              <div class="text-center d-flex justify-center">
+                <v-select
+                  :items="steps"
+                  @change="inputLengthStraight(stepLengthStraight)"
+                  class="my-select-choice text-center"
+                  color="primary"
+                  label="выберите шаг"
+                  solo
+                  v-model="stepLengthSample"
+                ></v-select>
+              </div>
+
+            </div>
+
           </div>
-          <div class="v-m-card__two__block d-flex justify-center">
-            <v-icon-sofa-right class="align-self-center" :flagSelectRight ="flagSelectRight" @sendSelectRight="getSelectRight"/>
-            <div class="text align-self-center">Правосторонний диван</div>
+         <div v-if="choiceSwitch[1].selected">
+           <div class="v-m-card__two__block d-flex justify-center ">
+             <v-icon-sofa-left class="align-self-center" :flagSelectLeft="flagSelectLeft" @sendSelectLeft="getSelectLeft"/>
+             <div class="text align-self-center">Левосторонний диван</div>
+           </div>
+           <div class="v-m-card__two__block d-flex justify-center">
+             <v-icon-sofa-right class="align-self-center" :flagSelectRight ="flagSelectRight" @sendSelectRight="getSelectRight"/>
+             <div class="text align-self-center">Правосторонний диван</div>
+           </div>
+
+         </div>
+          <div v-if="choiceSwitch[2].selected">
+            <div class="v-m-card__two__block d-flex justify-center ">
+              <v-icon-sofa-left class="align-self-center" :flagSelectLeft="flagSelectLeft" @sendSelectLeft="getSelectLeft"/>
+              <div class="text align-self-center">Диван с левой оттоманкой  </div>
+            </div>
+            <div class="v-m-card__two__block d-flex justify-center">
+              <v-icon-sofa-right class="align-self-center" :flagSelectRight ="flagSelectRight" @sendSelectRight="getSelectRight"/>
+              <div class="text align-self-center">Диван с правой оттоманкой</div>
+            </div>
           </div>
+
         </div>
-        <div class="v-m-card__two__size">
-          <div class="d-flex">
-            <div class="number">2.</div>
+        <div class="v-m-card__two__size" :class="{'height-126':  choiceSwitch[0].selected}">
+          <div v-if="choiceSwitch[1].selected || choiceSwitch[2].selected  ">
+
+           <div class="d-flex">
+            <div class="number"></div>
             Выберите размер
           </div>
           <div class="d-flex block-select">
@@ -68,20 +120,64 @@
               </div>
             </div>
           </div>
+          </div>
+          <div v-if="choiceSwitch[2].selected" class="input-ottomans">
+            <div class="d-flex">
+              <div class="number"></div>
+              Выберите размер оттоманки (боковая длина)
+            </div>
+            <div class="d-flex justify-center">
+              <v-select
+                :items="stepsOttoman"
+                @change="inputLengthStraight(stepLengthStraight)"
+                class="my-select-choice"
+                color="primary"
+                label="выберите шаг"
+                solo
+                v-model="stepLengthOttoman"
+              ></v-select>
+            </div>
+
+          </div>
+          <div class="text-center">Приложить 2 декоративные подушки </div>
+          <div class="d-flex justify-center text-center">
+            <div v-for="item in   choiceSwitchPillow" :key="`pillow_` + item.id" class="item-pillow">
+              <v-switch
+                v-model="item.selected"
+                :label="item.name"
+                color="accent"
+                @change="choicePillow(item.id)"
+                :disabled="item.selected"
+              ></v-switch>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
     <div class="d-flex justify-center">
-      <div class="v-main-product-card__third ">
-        <img alt="furniture" class="margin-right-bottom" src="../../assets/img/main-product/image-1.jpg">
-        <img alt="furniture" class="margin-left-bottom" src="../../assets/img/main-product/image-2.jpg">
-        <img alt="furniture" class="margin-right" src="../../assets/img/main-product/image-3.jpg">
-        <img alt="furniture" src="../../assets/img/main-product/image-4.jpg">
+      <div class="v-main-product-card__third "
+     :class="{'margin-top-12':  choiceSwitch[0].selected,
+      'margin-top-48':  choiceSwitch[1].selected,
+      'margin-top-96':  choiceSwitch[2].selected
+      }">
+        <div class="d-flex">
+         <div class="margin-right-bottom under-image"
+             :style="{ backgroundImage: 'url(' + dataOneSofa.under_1 + ')' }"></div>
+        <div class="margin-left-bottom under-image"
+             :style="{ backgroundImage: 'url(' + dataOneSofa.under_2 + ')' }"></div>
+      </div>
+        <div class="d-flex">
+          <div class="margin-right-bottom under-image"
+               :style="{ backgroundImage: 'url(' + dataOneSofa.under_3 + ')' }"></div>
+          <div class="margin-left-bottom under-image"
+               :style="{ backgroundImage: 'url(' + dataOneSofa.under_4 + ')' }"></div>
+        </div>
       </div>
       <div class="v-main-product-card__fourth">
         <div class="fabric" :key="renderFabric">
           <div class="d-flex">
-            <div class="number">3.</div>
+            <div class="number"></div>
             Выберите текстуру и цвет ткани
             <div class="resize">
 
@@ -151,7 +247,7 @@
          </div>
         <div class="v-machine">
           <div class="d-flex">
-            <div class="number">4.</div>
+            <div class="number"></div>
             Механизм
           </div>
           <div class="d-flex row-machine">
@@ -162,7 +258,7 @@
         </div>
         <div class="v-legs">
           <div class="d-flex">
-            <div class="number">5.</div>
+            <div class="number"></div>
             Ножки
           </div>
           <div class="choice-in-stock text-center justify-center" >
@@ -176,7 +272,7 @@
         </div>
         <div class="v-legs">
           <div class="d-block">
-            <div class="d-flex"> <div class="number">6.</div>
+            <div class="d-flex"> <div class="number"></div>
               Выберите мягкость дивана</div>
             <div class="d-flex justify-space-around">
               <div class="input-soft" :class="{'input-soft-selected': item.selected }" v-for="item in arraySoftness" :key="item.id" @click="choiceSoftness(item.id)">
@@ -242,12 +338,28 @@ export default {
       'SET_SOFTNESS_TO_STORE',
       'SEND_DATA_TO_API'
     ]),
-    getDataOneSofa (name) {
-      alert('name - ' + name)
+    choicePillow (id) {
+      for (let i = 0; i < this.choiceSwitchPillow.length; i++) {
+        if (this.choiceSwitchPillow[i].id === id) {
+          this.choiceSwitchPillow[i].selected = true
+        } else {
+          this.choiceSwitchPillow[i].selected = false
+        }
+      }
+    },
+    choiceConfig (id) {
+      for (let i = 0; i < this.choiceSwitch.length; i++) {
+        if (this.choiceSwitch[i].id === id) {
+          this.choiceSwitch[i].selected = true
+        } else {
+          this.choiceSwitch[i].selected = false
+        }
+      }
+    },
+    getDataOneSofa (slug) {
       for (let i = 0; i < this.ALL_SOFAS.length; i++) {
-        if (this.ALL_SOFAS[i].name === name) {
+        if (this.ALL_SOFAS[i].slug === slug) {
           this.dataOneSofa = this.ALL_SOFAS[i]
-          alert('this.dataOneSofa - ' + this.dataOneSofa.name)
         }
       }
     },
@@ -261,8 +373,11 @@ export default {
         flagPosition = 'straight'
       }
 
-      let rawData = {
-        slug: this.getName,
+      const rawData = {
+        slug: this.dataOneSofa.slug,
+        name: this.dataOneSofa.name,
+        image: this.dataOneSofa.image,
+        config: this.dataOneSofa.config,
         position: flagPosition,
         width: this.resultWidth,
         length: this.resultLength,
@@ -273,8 +388,8 @@ export default {
         softness: this.choiceIdSoftness,
         price: this.resultPrice
       }
-      rawData = JSON.stringify(rawData)
-      alert(rawData)
+      // rawData = JSON.stringify(rawData)
+      // alert(rawData)
       this.SEND_DATA_TO_API(rawData)
     },
     inputLengthStraight (data) {
@@ -300,7 +415,6 @@ export default {
 
       const e = new ClassWorks(this.COMMON_WORKS, this.resultWidth)
       const calcWorks = e.calcAllSpending()
-
       this.resultPrice = calcOneArmrest * 2 + calcStrBack + calcBase + calcCommon + calcWorks
       this.resultPrice = this.resultPrice.toFixed(2)
       if (this.resultPrice > 0) {
@@ -381,7 +495,10 @@ export default {
     }
   },
   data: () => ({
+    stepLengthSample: '',
+    stepLengthOttoman: '',
     dataOneSofa: [],
+    cornerSofa: false,
     disabledBasket: true,
     resultWidth: 0,
     resultLength: 0,
@@ -411,6 +528,47 @@ export default {
       '1400мм', '1600мм', '1800мм',
       '2000мм', '2200мм', '2400мм', '2600мм', '2800мм',
       '3000мм', '3200мм', '3400мм', '3600мм', '3800мм', '4000мм'
+    ],
+    stepsOttoman: [
+      '600мм', '800мм', '1000мм',
+      '12000мм', '1400мм', '1600мм', '1800мм', '2000мм'
+    ],
+    choiceSwitch: [
+      {
+        id: 1,
+        name: 'Прямой диван',
+        selected: true
+      },
+      {
+        id: 2,
+        name: 'Угловой диван',
+        selected: false
+      },
+      {
+        id: 3,
+        name: 'Диван с оттоманкой',
+        selected: false
+      }
+    ],
+    choiceSwitchPillow: [
+      {
+        id: 1,
+        name: '30x30',
+        selected: false,
+        price: 1000
+      },
+      {
+        id: 2,
+        name: '40x40',
+        selected: false,
+        price: 1500
+      },
+      {
+        id: 3,
+        name: '50x50',
+        selected: false,
+        price: 2000
+      }
     ],
     arraySoftness: [
       {
@@ -587,6 +745,12 @@ export default {
 <style lang="scss">
   .v-main-product-card {
     margin: 30px auto 0 auto;
+    .alles-switch{
+     padding-left: 30px;
+      .theme--light.v-label--is-disabled {
+        color: #D7B256;
+    }
+    }
     .v-legs-item-selected{
       border: 2px solid #D7B256;
     }
@@ -609,17 +773,17 @@ export default {
     .input-soft{
       margin-top: 24px;
       text-transform: uppercase;
-      color: #D7B256;
+      color: #9D9D9D;
       cursor: pointer;
       padding: 6px;
       text-align: center;
       width: 160px;
     }
     .input-soft-selected{
-      color: #9D9D9D;
+      color: #D7B256;
     }
     .input-soft:hover{
-         color: #9D9D9D;
+         color: #D7B256;
        }
     .img-legs{
       width: 50px;
@@ -637,6 +801,14 @@ export default {
       margin: 9px 14px 0 0;
       width: 656px;
       height: 625px;
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover;
+
+    }
+    .under-image{
+      width: 323px;
+      height: 323px;
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
@@ -712,18 +884,24 @@ export default {
         }
       }
 
+      .height-348{
+        height: 348px;
+      }
+
       .v-m-card__two__config {
         padding: 19px 0 0 0;
         margin: 20px 0 0 13px;
         width: 460px;
-        height: 256px;
+
         background: #FBFBFD;
         border: 1px solid #DADADA;
         box-sizing: border-box;
         font-size: 17px;
         line-height: 136.5%;
         /* or 23px */
-
+        .v-input {
+          max-width: 394px;
+        }
         .v-m-card__two__block {
           margin: 8px auto 0 auto;
           max-width: 394px;
@@ -742,17 +920,28 @@ export default {
         }
 
       }
+      .height-360 {height: 360px;}
+      .height-126 {height: 126px;}
 
       .v-m-card__two__size {
-        margin: 21px 0 0 14px;
+        .input-ottomans{
+          margin: 0 0 6px 0 ;
+          .v-input {
+            max-width: 96%;
+          }
+        }
+        margin: 20px 0 0 14px;
         padding: 14px 0 0 0;
         width: 460px;
-        height: 134px;
         background: #FBFBFD;
         border: 1px solid #DADADA;
         box-sizing: border-box;
         font-size: 17px;
         line-height: 136.5%;
+        .item-pillow{
+          width: 100px;
+          margin: 3px 0;
+        }
 
         .block-select {
           margin: 8px auto 0 auto;
@@ -784,23 +973,31 @@ export default {
       }
     }
   }
-
+  .margin-top-12{
+                margin-top: -72px;
+              }
+  .margin-top-48{
+    margin-top: -188px;
+  }
+  .margin-top-96{
+    margin-top: -296px;
+  }
   .v-main-product-card__third {
-    margin: 8px 0 0 21px;
+    margin-left: 16px;
     max-width: 656px;
     display: block;
 
     .margin-right-bottom {
-      margin-right: 10px;
-      margin-bottom: 6px;
+      margin-right: 12px;
+      margin-bottom: 12px;
     }
 
     .margin-right {
-      margin-right: 10px;
+      margin-right: 7px;
     }
 
     .margin-left-bottom {
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
     img {

@@ -30,6 +30,7 @@ import vFurnitureGallery from './v-furniture-gallery/v-furniture-gallery'
 import vSocial from './v-social/v-social'
 import vMap from '../components/v-map/v-map'
 import vFooter from '../components/v-footer/v-footer'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'one-sofas',
   components: {
@@ -51,9 +52,33 @@ export default {
     showProduct: false,
     nameOfSofa: ''
   }),
+  methods: {
+    ...mapActions([
+      'GET_ALL_SOFAS_FROM_API'
+    ])
+  },
+  computed: {
+    ...mapGetters([
+      'SET_ALL_SOFAS'
+    ])
+  },
   mounted () {
-    this.nameOfSofa = this.$route.query.sofa
-    this.$refs.childComponent.getDataOneSofa(this.nameOfSofa)
+    const slugOfSofa = this.$route.query.sofa
+    this.GET_ALL_SOFAS_FROM_API().then(
+      (res) => {
+        if (res) {
+          for (let item = 0; item < this.SET_ALL_SOFAS.length; item++) {
+            if (this.SET_ALL_SOFAS[item].slug === slugOfSofa) {
+              this.nameOfSofa = this.SET_ALL_SOFAS[item].name
+            }
+          }
+          this.$refs.childComponent.getDataOneSofa(slugOfSofa)
+        }
+      }
+    ).catch((error) => {
+      alert(error)
+      return error
+    })
   }
 }
 </script>

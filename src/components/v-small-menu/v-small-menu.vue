@@ -1,9 +1,9 @@
 <template>
   <v-row class="v-small-menu">
     <v-col class="v-small-menu__card">
-      Главная
+      <a href="/">Главная</a>
       <v-icon class="v-icon-small">mdi-chevron-right</v-icon>
-      Диваны
+      <a href="/sofas">Диваны</a>
       <v-icon class="v-icon-small">mdi-chevron-right</v-icon>
       <span>{{nameOfSofa}}</span>
     </v-col>
@@ -21,6 +21,9 @@ export default {
   .v-small-menu {
     margin:57px 0 0 0;
     .v-small-menu__card {
+      a {
+        text-decoration: none;
+      }
       padding: 0 0 0 388px;
       font-size: 15px;
       line-height: 15px;

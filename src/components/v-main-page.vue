@@ -45,6 +45,7 @@ import vUniqThird from '../components/v-uniq-third/v-uniq-third'
 import vMap from '../components/v-map/v-map'
 import vSeo from '../components/v-seo/v-seo'
 import vFooter from '../components/v-footer/v-footer'
+import { mapActions } from 'vuex'
 export default {
   name: 'v-main-page',
   components: {
@@ -70,8 +71,16 @@ export default {
     vSeo,
     vFooter
   },
+  methods: {
+    ...mapActions([
+      'CLEAR'
+    ])
+  },
   data: () => ({
     showProduct: true
   })
+  // mounted () {
+  //   this.CLEAR()
+  // }
 }
 </script>

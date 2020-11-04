@@ -28,10 +28,12 @@
                 <img alt="Search" src="../../assets/img/svg/search.svg">
               </div>
               <div class="shopping-bag">
+                <a href="/basket">
                 <img alt="bag" src="../../assets/img/svg/shopping-bag.svg">
                 <div class="shopping-bag__round d-flex justify-center align-content-center">
-                  <div class="align-self-center">1</div>
+                  <div class="align-self-center" style="line-height: 30px">{{count_item}}</div>
                 </div>
+                </a>
               </div>
 
             </div>
@@ -103,8 +105,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'v-nav-bar',
+  computed: {
+    ...mapGetters([
+      'GET_ITEMS_TO_BASKET'
+    ]),
+    count_item () {
+      return this.GET_ITEMS_TO_BASKET.length
+    }
+  },
   data: () => ({
     group: '',
     drawer: false,
@@ -258,12 +270,13 @@ export default {
 
       .shopping-bag__round {
         position: absolute;
-        bottom: -4px;
+        bottom: 0;
         right: -4px;
         background-color: #FDC94C;
         width: 13px;
         height: 13px;
         border-radius: 50%;
+        line-height: 13px;
 
         div {
           font-size: 11px;

@@ -1,5 +1,7 @@
 https://cp.beget.com/main
 ftp://i79206_alexey@sdelay.online/
+
+sftp://alex@213.139.208.10/var/www/html/sdelay.online/
 N*7%Ck1s
 [18:03, 21.10.2020] Сергей  БэкЕнд: D:\OSPanel\domains\kwork\mebel\resources\views\welcome.blade.php
 [18:04, 21.10.2020] Сергей  БэкЕнд: вней пути

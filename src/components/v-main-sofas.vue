@@ -42,7 +42,7 @@ export default {
   methods: {
     getCallPageSofa (data) {
       this.callMame = data.name
-      alert(this.callMame)
+      // alert(this.callMame)
     }
   }
 }
