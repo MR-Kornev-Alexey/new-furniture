@@ -1,24 +1,21 @@
 class ClassStrBack {
-  constructor (slug, size, metalFrame, bar, tape, priceFabric, priceMaterials) {
+  constructor (width, slug, size, options, priceFabric, priceMaterials) {
+    this.width = width
     this.slug = slug
     this.size = size
-    this.metalFrame = metalFrame
-    this.bar = bar
-    this.tape = tape
+    this.options = options
     this.priceFabric = priceFabric
     this.priceMaterials = priceMaterials
   }
 
   C14 () {
+    // alert('C14 -' + this.size.heightBack)
     return Number(this.size.heightBack) // высота спинки
   }
 
   C15 () {
+    // alert('C15 -' + this.size.thicknessBack)
     return Number(this.size.thicknessBack) // толщина спинки
-  }
-
-  C17 () {
-    return Number(this.size.backCushionHeight)
   }
 
   C23 () {
@@ -30,7 +27,7 @@ class ClassStrBack {
   }
 
   C5 () {
-    return Number(this.size.totalLength) - Number(this.size.thicknessArmrest) * 2
+    return Number(this.width) - Number(this.size.thicknessArmrest) * 2
   }
 
   RIBS () {
@@ -73,6 +70,22 @@ class ClassStrBack {
     return Number(this.priceMaterials.fasteningTape)
   }
 
+  Q71 () {
+    return Number(this.priceMaterials.downSynthetic)
+  }
+
+  Q72 () {
+    return Number(this.priceMaterials.downNatural)
+  }
+
+  Q73 () {
+    return Number(this.priceMaterials.calico)
+  }
+
+  Q74 () {
+    return Number(this.priceMaterials.zipper)
+  }
+
   Q46 () {
     return Number(this.priceMaterials.foam_rubber_40_65_10)
   }
@@ -81,10 +94,16 @@ class ClassStrBack {
     return Number(this.priceMaterials.foam_rubber_40_65_20)
   }
 
+  // Металлокаркас, м
+  calcMetalFrame () {
+    return ((this.C14() + this.C5()) * 2 + (this.C5() / 700 * this.C14())) / 1000 * this.Q69()
+  }
+
   // фанера спинка боковые части
   calcAllSide () {
     return ((this.C14() * this.C15() * 2 + this.C14() * this.C15() * this.RIBS() + this.C5() * this.C15() * 2) / 1000000) * this.Q43()
   }
+
   // Оргалит зад спинка
 
   calcBackHardboard () {
@@ -133,11 +152,6 @@ class ClassStrBack {
     return this.lengthBackFabric() * Number(this.priceFabric)
   }
 
-  // Металлокаркас, м
-  calcMetalFrame () {
-    return ((this.C14() + this.C5()) * 2 + (this.C5() / 700 * this.C14())) / 1000 * this.Q69()
-  }
-
   // Брусок
   sizeBar () {
     return this.C5() * 2 / 1000
@@ -150,26 +164,49 @@ class ClassStrBack {
   // Лента
   // Креплений ленты
   calcTape () {
-    let a = ((+this.C5() / 100) * +this.C17()) / 1000
+    let a = ((+this.C5() / 100)) / 1000
     a = a * +this.Q60()
     let fixed = (this.C5() / 100) * 2 - 2
     fixed = fixed * +this.Q70()
     return a + fixed
   }
 
+  // натуральный пух
+  calcDownNatural () {
+    return +this.C5() / 1000 * 5 * +this.Q72() + +this.C5() * 2 / 1000 * +this.Q73()
+  }
+
+  // пух синтетический
+  calcDownSynthetic () {
+    return this.C5() / 1000 * 2 * this.Q71()
+  }
+
   calcStrBack () {
     let result = 0
-    if (this.slug === 'magnum2') {
-      result = result + this.calcBackHardboard()
-    } else {
-      result = result + this.calcBackPlywood()
-    }
-    if (this.bar) {
-      result = result + this.calcBar()
-    } else {
+    const resultMetal = this.options.find(item => item === 'metal_in_back')
+    if (resultMetal) {
+      // alert('metal_in_back --- ' + this.calcMetalFrame())
       result = result + this.calcMetalFrame()
     }
-    return result + this.calcTape() + this.calcAllSide() + this.calcFabric() + this.calcBackTechnicalFabric() +
+    const resultBar = this.options.find(item => item === 'bar_in_back')
+    if (resultBar) {
+      // alert('bar_in_back --- ' + this.calcBar())
+      result = result + this.calcBar()
+    }
+    const resultTape = this.options.find(item => item === 'tape_back')
+    if (resultTape) {
+      // alert('tape_back --- ' + this.calcTape())
+      result = result + this.calcTape()
+    }
+    const resultDown = this.options.find(item => item === 'down_natural')
+    if (resultDown) {
+      // alert('down_natural --- ' + this.calcDownNatural())
+      result = result + +this.calcDownNatural()
+    } else {
+      // alert('downSynthetic --- ' + this.calcDownSynthetic())
+      result = result + this.calcDownSynthetic()
+    }
+    return result + +this.calcBackPlywood() + +this.calcAllSide() + this.calcFabric() + this.calcBackTechnicalFabric() +
       this.calcFrontFoam() + this.calcBackFoam() + this.calcTopFoam() + this.calcFrontPlywood()
   }
 }

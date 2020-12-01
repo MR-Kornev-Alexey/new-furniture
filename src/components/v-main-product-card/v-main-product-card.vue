@@ -20,18 +20,8 @@
             <div class="number"></div>
             Выберите конфигурацию
           </div>
-          <div class="d-flex justify-center text-center alles-switch">
-            <div v-for="item in  choiceSwitch" :key="`conf_` + item.id">
-              <v-switch
-                v-model="item.selected"
-                :label="item.name"
-                color="accent"
-                @change="choiceConfig(item.id)"
-                :disabled="item.selected"
-              ></v-switch>
-            </div>
-         </div>
-          <div v-if="choiceSwitch[0].selected">
+
+          <div v-if="configSofa() === 'straight'">
             <div class="v-m-card__two__block d-flex justify-center ">
               <v-icon-sofa-left class="align-self-center" />
               <div class="text align-self-center">Прямой диван</div>
@@ -44,19 +34,19 @@
               <div class="text-center d-flex justify-center">
                 <v-select
                   :items="steps"
-                  @change="inputLengthStraight(stepLengthStraight)"
+                  @change="stepLengthSampleFun(stepLengthSampleIn)"
                   class="my-select-choice text-center"
                   color="primary"
                   label="выберите шаг"
                   solo
-                  v-model="stepLengthSample"
+                  v-model="stepLengthSampleIn"
                 ></v-select>
               </div>
 
             </div>
 
           </div>
-         <div v-if="choiceSwitch[1].selected">
+         <div v-if="configSofa() === 'angle'">
            <div class="v-m-card__two__block d-flex justify-center ">
              <v-icon-sofa-left class="align-self-center" :flagSelectLeft="flagSelectLeft" @sendSelectLeft="getSelectLeft"/>
              <div class="text align-self-center">Левосторонний диван</div>
@@ -67,7 +57,7 @@
            </div>
 
          </div>
-          <div v-if="choiceSwitch[2].selected">
+          <div v-if="configSofa() === 'ottoman'">
             <div class="v-m-card__two__block d-flex justify-center ">
               <v-icon-sofa-left class="align-self-center" :flagSelectLeft="flagSelectLeft" @sendSelectLeft="getSelectLeft"/>
               <div class="text align-self-center">Диван с левой оттоманкой  </div>
@@ -79,8 +69,8 @@
           </div>
 
         </div>
-        <div class="v-m-card__two__size" :class="{'height-126':  choiceSwitch[0].selected}">
-          <div v-if="choiceSwitch[1].selected || choiceSwitch[2].selected  ">
+        <div class="v-m-card__two__size" :class="{'height-126':  configSofa() === 'straight'}">
+          <div v-if="configSofa() === 'ottoman' || configSofa() === 'angle'  ">
 
            <div class="d-flex">
             <div class="number"></div>
@@ -121,20 +111,21 @@
             </div>
           </div>
           </div>
-          <div v-if="choiceSwitch[2].selected" class="input-ottomans">
+          <div v-if="configSofa() === 'ottoman'" class="input-ottomans">
             <div class="d-flex">
               <div class="number"></div>
               Выберите размер оттоманки (боковая длина)
             </div>
             <div class="d-flex justify-center">
               <v-select
-                :items="stepsOttoman"
-                @change="inputLengthStraight(stepLengthStraight)"
+                :items="stepsOttomanNew"
+                @change="inputLengthOttoman(stepLengthOttoman)"
                 class="my-select-choice"
                 color="primary"
                 label="выберите шаг"
                 solo
                 v-model="stepLengthOttoman"
+                :disabled="blockOttoman"
               ></v-select>
             </div>
 
@@ -157,9 +148,9 @@
     </div>
     <div class="d-flex justify-center">
       <div class="v-main-product-card__third "
-     :class="{'margin-top-12':  choiceSwitch[0].selected,
-      'margin-top-48':  choiceSwitch[1].selected,
-      'margin-top-96':  choiceSwitch[2].selected
+     :class="{'margin-top-12': configSofa() === 'straight',
+      'margin-top-48':  configSofa() === 'angle',
+      'margin-top-96':  configSofa() === 'ottoman'
       }">
         <div class="d-flex">
          <div class="margin-right-bottom under-image"
@@ -245,7 +236,7 @@
             </div>
           </div>
          </div>
-        <div class="v-machine">
+        <div class="v-machine" v-if="ONE_SOFA.mechanism">
           <div class="d-flex">
             <div class="number"></div>
             Механизм
@@ -301,6 +292,7 @@ import ClassBase from '../v-classes/classBase'
 import ClassStrBack from '../v-classes/classStrBack'
 import ClassCommon from '../v-classes/classCommon'
 import ClassWorks from '../v-classes/classWorks'
+import ClassWorksBoth from '../v-classes/classWorksBoth'
 
 export default {
   name: 'v-main-product-card',
@@ -314,6 +306,7 @@ export default {
   mounted () {
     this.GET_JSON_FROM_API()
     this.GET_DATA_FROM_API()
+    this.GET_WORKS_FROM_API()
   },
   computed: {
     ...mapGetters([
@@ -323,11 +316,13 @@ export default {
       'PRICE_FABRIC',
       'BASIC_SIZES_BACK',
       'BASIC_SIZES_BASE',
+      'BASIC_SIZES_COMMON',
       'SOFTNESS',
       'SOLID_WOOD_DRAWER',
       'COMMON_MATERIALS',
       'COMMON_WORKS',
-      'ALL_SOFAS'
+      'ALL_SOFAS',
+      'ONE_SOFA'
     ])
   },
   methods: {
@@ -336,32 +331,34 @@ export default {
       'GET_DATA_FROM_API',
       'SET_STRAIGHT_TO_STORE',
       'SET_SOFTNESS_TO_STORE',
-      'SEND_DATA_TO_API'
+      'SEND_DATA_TO_API',
+      'GET_WORKS_FROM_API'
     ]),
+    outStepsOttoman (data) {
+      for (let i = 0; i < this.stepsOttoman.length; i++) {
+        let dataM = this.stepsOttoman[i].slice(0, -2)
+        dataM = Number(dataM)
+        if (+dataM <= +data - 950) {
+          this.stepsOttomanNew.push(this.stepsOttoman[i])
+        }
+      }
+    },
+    configSofa () {
+      return this.ONE_SOFA.config
+    },
     choicePillow (id) {
       for (let i = 0; i < this.choiceSwitchPillow.length; i++) {
         if (this.choiceSwitchPillow[i].id === id) {
           this.choiceSwitchPillow[i].selected = true
+          this.pillow = this.choiceSwitchPillow[i].name
+          this.pillowPrice = this.choiceSwitchPillow[i].price
         } else {
           this.choiceSwitchPillow[i].selected = false
         }
       }
     },
-    choiceConfig (id) {
-      for (let i = 0; i < this.choiceSwitch.length; i++) {
-        if (this.choiceSwitch[i].id === id) {
-          this.choiceSwitch[i].selected = true
-        } else {
-          this.choiceSwitch[i].selected = false
-        }
-      }
-    },
-    getDataOneSofa (slug) {
-      for (let i = 0; i < this.ALL_SOFAS.length; i++) {
-        if (this.ALL_SOFAS[i].slug === slug) {
-          this.dataOneSofa = this.ALL_SOFAS[i]
-        }
-      }
+    getDataOneSofa () {
+      this.dataOneSofa = this.ONE_SOFA
     },
     sendToBasket () {
       let flagPosition = ''
@@ -378,6 +375,8 @@ export default {
         name: this.dataOneSofa.name,
         image: this.dataOneSofa.image,
         config: this.dataOneSofa.config,
+        pillowPrice: this.pillowPrice,
+        pillowName: this.pillow,
         position: flagPosition,
         width: this.resultWidth,
         length: this.resultLength,
@@ -388,34 +387,177 @@ export default {
         softness: this.choiceIdSoftness,
         price: this.resultPrice
       }
-      // rawData = JSON.stringify(rawData)
-      // alert(rawData)
       this.SEND_DATA_TO_API(rawData)
+    },
+    stepLengthSampleFun (data) {
+      const clearData = data.slice(0, -2)
+      this.resultWidthSample = Number(clearData)
+      this.resultWidth = Number(clearData)
+      this.SET_STRAIGHT_TO_STORE(clearData)
+      this.totalCalc()
     },
     inputLengthStraight (data) {
       const clearData = data.slice(0, -2)
-      this.resultWidth = Number(clearData)
-      this.SET_STRAIGHT_TO_STORE(this.resultWidth)
-      this.totalCalc()
+      this.resultAngleWidth = Number(clearData)
+      // alert(clearData)
+      // this.SET_STRAIGHT_TO_STORE(clearData)
+      if (this.ONE_SOFA.config === 'angle') {
+        if (this.resultAngleLength > 0) {
+          this.calcAngleSofa()
+        }
+      } else {
+        if (this.resultAngleLength > 0 && this.resultOttoman > 0) {
+          this.calcSofaWithOttoman()
+        }
+      }
+    },
+    inputLengthSide (data) {
+      const clear = data.slice(0, -2)
+      // alert(clear)
+      this.blockOttoman = false
+      this.resultAngleLength = Number(clear)
+      this.outStepsOttoman(this.resultAngleLength)
+      if (this.ONE_SOFA.config === 'angle') {
+        if (this.resultAngleWidth > 0) {
+          this.calcAngleSofa()
+        }
+      } else {
+        if (this.resultAngleWidth > 0 && this.resultOttoman > 0) {
+          this.calcSofaWithOttoman()
+        }
+      }
+    },
+    inputLengthOttoman (data) {
+      const clearOttoman = data.slice(0, -2)
+      // alert(clearOttoman)
+      this.resultOttoman = Number(clearOttoman)
+      if (this.resultAngleWidth > 0 && this.resultAngleLength > 0) {
+        this.calcSofaWithOttoman()
+      }
+    },
+    calcSofaWithOttoman () {
+      this.priceOther = this.resultPrice = null
+      this.disabledBasket = true
+      let calcLeftArmrest = 0
+      let calcRightArmrest = 0
+      let calcBack = 0
+      let calcLeftBase = 0
+      let calcRightBase = 0
+      let calcOttoman = 0
+      let calcRigthCommon = 0
+      let calcLeftCommon = 0
+      let calcWorksBoth = 0
+
+      const sideOttoman = this.resultAngleWidth - this.resultOttoman
+      const dLeft = new ClassStrBack(this.resultAngleLength, this.ONE_SOFA.slug, this.BASIC_SIZES_BACK, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+      calcBack = dLeft.calcStrBack() // прямая длина
+      if (this.ONE_SOFA.options.find(item => item === 'left_armrest')) {
+        const aL = new ClassArmrest(this.ONE_SOFA.slug, this.BASIC_SIZES_ARMREST, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+        calcLeftArmrest = aL.calcArmrest()
+      }
+      if (this.ONE_SOFA.options.find(item => item === 'right_armrest')) {
+        const aR = new ClassArmrest(this.ONE_SOFA.slug, this.BASIC_SIZES_ARMREST, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+        calcRightArmrest = aR.calcArmrest()
+      }
+      const cLeft = new ClassBase(this.resultAngleLength, this.ONE_SOFA.slug, this.BASIC_SIZES_BASE, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
+      calcLeftBase = cLeft.calcBaseNew() // прямая длина
+      const cRight = new ClassBase(sideOttoman, this.ONE_SOFA.slug, this.BASIC_SIZES_BASE, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
+      calcRightBase = cRight.calcBaseNew() // боковая длина
+      const cOtt = new ClassBase(this.resultOttoman, this.ONE_SOFA.slug, this.BASIC_SIZES_BASE, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
+      calcOttoman = cOtt.calcBaseNew() // оттоманка
+
+      const bLeft = new ClassCommon(this.resultAngleLength, this.BASIC_SIZES_COMMON, this.ONE_SOFA.options, this.COMMON_MATERIALS)
+      calcLeftCommon = bLeft.calcOther()
+      const bRight = new ClassCommon(this.resultAngleWidth, this.BASIC_SIZES_COMMON, this.ONE_SOFA.options, this.COMMON_MATERIALS)
+      calcRigthCommon = bRight.calcOther()
+      const e = new ClassWorksBoth(this.COMMON_WORKS, this.resultAngleLength, this.resultAngleLength, this.ONE_SOFA.options)
+      calcWorksBoth = e.calcAllSpending()
+      this.resultPrice = calcOttoman + calcBack + calcRightArmrest + calcLeftArmrest + +calcLeftBase + +calcRightBase + +calcLeftCommon + +calcRigthCommon
+      this.resultPrice = this.resultPrice + this.resultPrice * +this.ONE_SOFA.profit / 100 + calcWorksBoth
+      this.resultPrice = this.resultPrice.toFixed(2)
+      if (this.resultPrice > 0) {
+        this.disabledBasket = false
+      }
+    },
+    calcAngleSofa () {
+      this.priceOther = this.resultPrice = null
+      this.disabledBasket = true
+      let calcLeftArmrest = 0
+      let calcRightArmrest = 0
+      let calcLeftBack = 0
+      let calcRightBack = 0
+      let calcLeftBase = 0
+      let calcRightBase = 0
+      let calcRigthCommon = 0
+      let calcLeftCommon = 0
+      let calcWorksBoth = 0
+
+      const dLeft = new ClassStrBack(this.resultAngleLength, this.ONE_SOFA.slug, this.BASIC_SIZES_BACK, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+      calcLeftBack = dLeft.calcStrBack() // прямая длина
+      const dRight = new ClassStrBack(this.resultAngleWidth, this.ONE_SOFA.slug, this.BASIC_SIZES_BACK, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+      calcRightBack = dRight.calcStrBack() // боковая длина
+
+      if (this.ONE_SOFA.options.find(item => item === 'left_armrest')) {
+        const aL = new ClassArmrest(this.ONE_SOFA.slug, this.BASIC_SIZES_ARMREST, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+        calcLeftArmrest = aL.calcArmrest()
+      }
+      if (this.ONE_SOFA.options.find(item => item === 'right_armrest')) {
+        const aR = new ClassArmrest(this.ONE_SOFA.slug, this.BASIC_SIZES_ARMREST, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+        calcRightArmrest = aR.calcArmrest()
+      }
+
+      const cLeft = new ClassBase(this.resultAngleLength, this.ONE_SOFA.slug, this.BASIC_SIZES_BASE, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
+      calcLeftBase = cLeft.calcBaseNew() // прямая длина
+      const cRight = new ClassBase(this.resultAngleWidth, this.ONE_SOFA.slug, this.BASIC_SIZES_BASE, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
+      calcRightBase = cRight.calcBaseNew() // боковая длина
+
+      const bLeft = new ClassCommon(this.resultAngleLength, this.BASIC_SIZES_COMMON, this.ONE_SOFA.options, this.COMMON_MATERIALS)
+      calcLeftCommon = bLeft.calcOther()
+      const bRight = new ClassCommon(this.resultAngleWidth, this.BASIC_SIZES_COMMON, this.ONE_SOFA.options, this.COMMON_MATERIALS)
+      calcRigthCommon = bRight.calcOther()
+
+      const e = new ClassWorksBoth(this.COMMON_WORKS, this.resultAngleLength, this.resultAngleLength, this.ONE_SOFA.options)
+      calcWorksBoth = e.calcAllSpending()
+
+      this.resultPrice = calcLeftBack + calcRightBack + calcRightArmrest + calcLeftArmrest + +calcLeftBase + +calcRightBase + +calcLeftCommon + +calcRigthCommon
+      this.resultPrice = this.resultPrice + this.resultPrice * +this.ONE_SOFA.profit / 100 + calcWorksBoth
+      this.resultPrice = this.resultPrice.toFixed(2)
+      if (this.resultPrice > 0) {
+        this.disabledBasket = false
+      }
     },
     totalCalc () {
       this.priceOther = this.resultPrice = null
       this.disabledBasket = true
-      const d = new ClassStrBack(this.SLUG_SOFA, this.BASIC_SIZES_BACK, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
-      const calcStrBack = d.calcStrBack()
+      let calcLeftArmrest = 0
+      let calcRightArmrest = 0
+      let calcStrBack = 0
+      let calcBase = 0
+      let calcCommon = 0
+      let calcWorks = 0
+      const d = new ClassStrBack(this.resultWidth, this.ONE_SOFA.slug, this.BASIC_SIZES_BACK, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+      calcStrBack = d.calcStrBack()
 
-      const c = new ClassBase(this.SLUG_SOFA, this.BASIC_SIZES_BASE, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
-      const calcBase = c.calcBase()
+      const c = new ClassBase(this.resultWidth, this.ONE_SOFA.slug, this.BASIC_SIZES_BASE, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL, this.SOFTNESS, this.SOLID_WOOD_DRAWER)
+      calcBase = c.calcBaseNew()
 
-      const a = new ClassArmrest(this.SLUG_SOFA, this.BASIC_SIZES_ARMREST, false, true, true, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
-      const calcOneArmrest = a.calcArmrest()
+      if (this.ONE_SOFA.options.find(item => item === 'left_armrest')) {
+        const aL = new ClassArmrest(this.ONE_SOFA.slug, this.BASIC_SIZES_ARMREST, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+        calcLeftArmrest = aL.calcArmrest()
+      }
 
-      const b = new ClassCommon(this.COMMON_MATERIALS)
-      const calcCommon = b.calcOther()
+      if (this.ONE_SOFA.options.find(item => item === 'right_armrest')) {
+        const aR = new ClassArmrest(this.ONE_SOFA.slug, this.BASIC_SIZES_ARMREST, this.ONE_SOFA.options, this.PRICE_FABRIC, this.PRICE_FOR_ALL)
+        calcRightArmrest = aR.calcArmrest()
+      }
 
-      const e = new ClassWorks(this.COMMON_WORKS, this.resultWidth)
-      const calcWorks = e.calcAllSpending()
-      this.resultPrice = calcOneArmrest * 2 + calcStrBack + calcBase + calcCommon + calcWorks
+      const b = new ClassCommon(this.resultWidth, this.BASIC_SIZES_COMMON, this.ONE_SOFA.options, this.COMMON_MATERIALS)
+      calcCommon = b.calcOther()
+
+      const e = new ClassWorks(this.COMMON_WORKS, this.resultWidth, this.ONE_SOFA.options)
+      calcWorks = e.calcAllSpending()
+      this.resultPrice = calcRightArmrest + calcLeftArmrest + calcStrBack + calcBase + calcCommon
+      this.resultPrice = this.resultPrice + this.resultPrice * +this.ONE_SOFA.profit / 100 + calcWorks
       this.resultPrice = this.resultPrice.toFixed(2)
       if (this.resultPrice > 0) {
         this.disabledBasket = false
@@ -487,14 +629,19 @@ export default {
     getSelectRight () {
       this.clearAllSelect()
       this.flagSelectRight = true
-    },
-
-    inputLengthSide (data) {
-      const clear = data.slice(0, -2)
-      this.resultLength = Number(clear)
     }
+
   },
   data: () => ({
+    resultAngleWidth: 0,
+    resultAngleLength: 0,
+    stepLengthSampleIn: 0,
+    resultWidthSample: 0,
+    resultOttoman: 0,
+    choiceConfig: '',
+    localSoftness: '',
+    pillowPrice: 0,
+    pillow: '',
     stepLengthSample: '',
     stepLengthOttoman: '',
     dataOneSofa: [],
@@ -524,14 +671,16 @@ export default {
     withMachineItemSelected: false,
     choiceIdLegs: '',
     choiceIdSoftness: 'soft',
+    blockOttoman: true,
     steps: [
       '1400мм', '1600мм', '1800мм',
       '2000мм', '2200мм', '2400мм', '2600мм', '2800мм',
       '3000мм', '3200мм', '3400мм', '3600мм', '3800мм', '4000мм'
     ],
+    stepsOttomanNew: [],
     stepsOttoman: [
       '600мм', '800мм', '1000мм',
-      '12000мм', '1400мм', '1600мм', '1800мм', '2000мм'
+      '1200мм', '1400мм', '1600мм', '1800мм', '2000мм'
     ],
     choiceSwitch: [
       {

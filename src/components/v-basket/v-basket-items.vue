@@ -9,11 +9,13 @@
           <div class="d-block">
             <div class="d-flex">
             <div class="main-cards__tittle">{{GET_ITEMS_TO_BASKET[i].name }} <span class="main-cards__price">{{GET_ITEMS_TO_BASKET[i].price}}</span> &#8381;</div>
-            <div class="d-flex basket-discount"><div><img src="../../assets/img/svg/basket-discount.svg" alt="discount"> </div><div style="height: 17px"></div>Купить в рассрочку </div>
+            <div class="d-flex basket-discount"><div><img src="../../assets/img/svg/basket-discount.svg" alt="discount"> </div><div style="height: 17px; margin-left: 6px"></div>Купить в рассрочку </div>
              </div>
             <div class="d-flex main-cards__row "><div class="main-cards__config">Конфигурация</div><div>{{GET_CONFIG(GET_ITEMS_TO_BASKET[i])}} </div> </div>
             <div class="d-flex main-cards__row "><div class="main-cards__config">Размеры</div><div>{{GET_SIZE(GET_ITEMS_TO_BASKET[i])}} </div> </div>
             <div class="d-flex main-cards__row "><div class="main-cards__config">Механизм</div><div>{{GET_MECHANISM(GET_ITEMS_TO_BASKET[i])}} </div> </div>
+            <div class="d-flex main-cards__row "><div class="main-cards__config">Мягкость дивана</div><div>{{GET_SOFTNESS(GET_ITEMS_TO_BASKET[i])}} </div> </div>
+            <div  v-if="SHOW_PILLOW(GET_ITEMS_TO_BASKET[i])" class="d-flex main-cards__row "><div class="main-cards__config">Декоративные подушки</div><div>{{GET_PILLOW(GET_ITEMS_TO_BASKET[i])}} </div> </div>
             <div class="d-flex main-cards__row "><div class="main-cards__config">Материал</div><div>{{GET_FABRIC}} </div> </div>
 
           <div>
@@ -53,7 +55,7 @@
             Итого
           </div>
           <div class="total-price">
-            {{TOTAL_PRICE}} &#8381;
+            {{TOTAL_PRICE(GET_ITEMS_TO_BASKET[i])}} &#8381;
           </div>
 
       </div>
@@ -83,6 +85,15 @@ export default {
     ]
   }),
   methods: {
+    SHOW_PILLOW (data) {
+      return data.pillowPrice > 0
+    },
+    GET_PILLOW (data) {
+      return 'размер ' + data.pillowName + ' см'
+    },
+    TOTAL_PRICE (data) {
+      return data.price
+    },
     GET_MECHANISM (data) {
       if (!data.mechanism) {
         return 'Без механизма'
@@ -94,6 +105,15 @@ export default {
       let str2 = data.width + ' X '
       str2 = str2 + data.length
       return str2
+    },
+    GET_SOFTNESS (data) {
+      if (data.softness === 'ultra') {
+        return 'UltraSoft '
+      } else if (data.softness === 'middle') {
+        return 'Средняя мягкость'
+      } else {
+        return 'Нормальная мягкость'
+      }
     },
     GET_CONFIG (data) {
       if (data.config === 'ottoman') {
@@ -123,9 +143,6 @@ export default {
     ]),
     GET_FABRIC () {
       return 'Шинил'
-    },
-    TOTAL_PRICE () {
-      return 110000
     },
     GET_PRICE_DELIVERY () {
       return 1000
@@ -162,7 +179,9 @@ export default {
 
       }
       .basket-discount{
-        margin-left: 80px;
+        position: absolute;
+        top: 8px;
+        right: 14px;
       }
       .main-cards__row{
         margin: 12px 0 0 0;
@@ -171,7 +190,7 @@ export default {
       .main-cards__config{
         font-weight: 300;
         font-size: 13px;
-        width: 100px;
+        width: 110px;
         /* identical to box height, or 18px */
         color: #8E8E8E;
         margin: 0 18px 0 20px;

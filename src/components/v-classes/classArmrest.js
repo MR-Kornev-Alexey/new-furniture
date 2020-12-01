@@ -1,10 +1,8 @@
 class ClassArmrest {
-  constructor (slug, size, metalFrame, bar, tape, priceFabric, priceMaterials) {
+  constructor (slug, size, options, priceFabric, priceMaterials) {
     this.slug = slug
     this.size = size
-    this.metalFrame = metalFrame
-    this.bar = bar
-    this.tape = tape
+    this.options = options
     this.priceFabric = priceFabric
     this.priceMaterials = priceMaterials
   }
@@ -214,18 +212,23 @@ class ClassArmrest {
   // общий расчет
   // общий расчет
   calcArmrest () {
-    let result = 0
-    if (this.slug === 'magnum2') {
-      result = result + this.calcHardboard()
-    } else {
-      result = result + this.calcArmrestInnerPlywood()
+    let resultArmrest = 0
+    if (this.options.find(item => item === 'metal_in_armrest')) {
+      // alert('metal_in_armrest --- ' + this.calcMetalFrame())
+      resultArmrest = resultArmrest + this.calcMetalFrame()
     }
-    if (this.bar) {
-      result = result + this.calcBar()
-    } else {
-      result = result + this.calcMetalFrame()
+
+    if (this.options.find(item => item === 'bar_in_armrest')) {
+      // alert('bar_in_armrest --- ' + this.calcBar())
+      resultArmrest = resultArmrest + this.calcBar()
     }
-    return result + this.calcPlywood() + this.calcFoam() + this.calcFabric() + this.calcTape() + this.calcTechnicalFabric()
+    const resultTape = this.options.find(item => item === 'tape_armrest')
+    if (resultTape) {
+      // alert('tape_armrest --- ' + this.calcTape())
+      resultArmrest = resultArmrest + this.calcTape()
+    }
+
+    return resultArmrest + this.calcPlywood() + this.calcFoam() + this.calcFabric() + this.calcTape() + this.calcTechnicalFabric()
   }
 }
 module.exports = ClassArmrest

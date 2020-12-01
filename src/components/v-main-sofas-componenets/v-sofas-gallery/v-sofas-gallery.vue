@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="v-sofas-gallery">
+    <v-row class="v-sofas-gallery" :key="renderSofa">
       <div class="v-sofas-gallery-card"
            :key="i"
            v-for="(item, i) in  getSofas"
@@ -68,17 +68,19 @@ export default {
     ...mapGetters([
       'ALL_SOFAS',
       'SET_FIRST_PAGE',
-      'SET_ALL_SOFAS'
+      'SET_ALL_SOFAS',
+      'NUMBER_SOFAS'
     ]),
     getSofas () {
       return this.arraySofas
     },
     pages () {
-      const num = Math.ceil(parseInt(this.allPages) / 9)
+      const num = Math.ceil(parseInt(this.NUMBER_SOFAS) / 9)
       return num > 0 ? num : 1
     }
   },
   data: () => ({
+    renderSofa: 0,
     arraySofas: [],
     firstPages: 1,
     step: 9,
@@ -99,24 +101,22 @@ export default {
     },
     newClick (data) {
       this.pageNumber = data
-      this.arraySofas = []
-      this.calcSofas(data)
+      this.GET_ALL_SOFAS_FROM_API(data).then(
+        (res) => {
+          this.calcSofas(res.meta.current_page)
+          this.renderSofa++
+        }
+      ).catch((error) => {
+        alert(error)
+        return error
+      })
     },
     calcSofas (page) {
-      let i = (page - 1) * 9
-      const rest = this.SET_ALL_SOFAS.length
-      let last = i + 9
-      if (last > rest) {
-        last = rest
-        i = last - 9
-      }
-      for (i; i < last; i++) {
-        this.arraySofas.push(this.SET_ALL_SOFAS[i])
-      }
+      this.arraySofas = this.SET_ALL_SOFAS
     }
   },
   mounted () {
-    this.GET_ALL_SOFAS_FROM_API().then(
+    this.GET_ALL_SOFAS_FROM_API(1).then(
       (res) => {
         if (res) {
           this.calcSofas(1)

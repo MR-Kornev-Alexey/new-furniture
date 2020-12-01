@@ -78,9 +78,9 @@ export default {
   },
   data: () => ({
     showProduct: true
-  })
-  // mounted () {
-  //   this.CLEAR()
-  // }
+  }),
+  mounted () {
+    this.CLEAR()
+  }
 }
 </script>

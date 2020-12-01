@@ -1,10 +1,9 @@
 class ClassBase {
-  constructor (slug, size, metalFrame, bar, tape, priceFabric, priceMaterials, softness, solidWoodDrawer) {
+  constructor (width, slug, size, options, priceFabric, priceMaterials, softness, solidWoodDrawer) {
+    this.width = width
     this.slug = slug
     this.size = size
-    this.metalFrame = metalFrame
-    this.bar = bar
-    this.tape = tape
+    this.options = options
     this.priceFabric = priceFabric
     this.priceMaterials = priceMaterials
     this.softness = softness
@@ -20,11 +19,15 @@ class ClassBase {
   }
 
   C5 () {
-    return Number(this.size.totalLength) - Number(this.size.thicknessArmrest) * 2 // длина
+    return Number(this.width) - Number(this.size.thicknessArmrest) * 2 // длина
+  }
+
+  C7 () {
+    return Number(this.size.depth) - Number(this.size.thicknessBack) // глубина сидушки
   }
 
   C8 () {
-    return Number(this.size.thicknessBack)
+    return Number(this.size.thicknessBack) // толщина спинки
   }
 
   C13 () {
@@ -65,6 +68,14 @@ class ClassBase {
 
   Q66 () {
     return Number(this.priceMaterials.foamRubberMemory_50_14_40)
+  }
+
+  Q72 () {
+    return Number(this.priceMaterials.downNatural)
+  }
+
+  Q73 () {
+    return Number(this.priceMaterials.calico)
   }
 
   // Металлокаркас, м
@@ -109,7 +120,7 @@ class ClassBase {
   }
 
   calcSoftness () {
-    let resultPrice = 0
+    let resultPrice
     const square = this.C5() * this.C13() / 1000000
     if (this.softness === 'soft') {
       resultPrice = this.Q64() * square * 2 + this.Q66() * square
@@ -121,14 +132,34 @@ class ClassBase {
     return resultPrice
   }
 
-  calcBase () {
-    let result = 0
-    if (this.bar) {
-      result = result + this.calcBar()
-    } else {
-      result = result + this.calcMetalFrame()
+  G52 () {
+    return this.C5() * this.C7() / 1000000
+  }
+
+  calcDownNaturalBase () {
+    return this.G52() * 2 * this.Q72() + this.C5() * 2 / 1000 * this.Q73()
+  }
+
+  calcBaseNew () {
+    let resultBase = 0
+    if (this.options.find(item => item === 'metal_in_base')) {
+      // alert('metal_in_base --- ' + this.calcMetalFrame())
+      resultBase = resultBase + this.calcMetalFrame()
     }
-    return result + this.calcTape() + this.calcBasePlywood() + this.calcFabric() + this.calcBaseTechnicalFabric() + this.calcSoftness()
+    if (this.options.find(item => item === 'bar_in_base')) {
+      // alert('bar_in_base --- ' + this.calcBar())
+      resultBase = resultBase + this.calcBar()
+    }
+    if (this.options.find(item => item === 'tape_base')) {
+      // alert('tape_base --- ' + this.calcTape())
+      resultBase = resultBase + this.calcTape()
+    }
+    if (this.options.find(item => item === 'down_natural')) {
+      // alert('BASE -- down_natural --- ' + this.calcDownNaturalBase())
+      resultBase = resultBase + +this.calcDownNaturalBase()
+    }
+    return resultBase + this.calcBasePlywood() + this.calcFabric() + this.calcBaseTechnicalFabric() + this.calcSoftness()
   }
 }
+
 module.exports = ClassBase

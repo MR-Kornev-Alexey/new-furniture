@@ -1,13 +1,18 @@
-class ClassWorks {
-  constructor (spending, length, options) {
+class ClassWorksBoth {
+  constructor (spending, length, width, options) {
     this.spending = spending
     this.length = length
+    this.width = width
     this.options = options
+  }
+
+  totalLength () {
+    return Number(this.length) + Number(this.width)
   }
 
   // Каркасник
   calcWireframe () {
-    if (this.length < this.spending[0].wireframe.threshold) {
+    if (this.totalLength() < this.spending[0].wireframe.threshold) {
       return this.spending[0].wireframe.first
     } else {
       return this.spending[0].wireframe.second
@@ -18,20 +23,20 @@ class ClassWorks {
   calcWelder () {
     let resultWelder = 0
     if (this.options.find(item => item === 'metal_in_armrest')) {
-      resultWelder = resultWelder + 1500
+      resultWelder = resultWelder + 3000
     }
     if (this.options.find(item => item === 'metal_in_base')) {
-      resultWelder = resultWelder + 1500
+      resultWelder = resultWelder + 3000
     }
     if (this.options.find(item => item === 'metal_in_back')) {
-      resultWelder = resultWelder + 1500
+      resultWelder = resultWelder + 3000
     }
     return resultWelder
   }
 
   // Обивщик
   calcUpholsterer () {
-    if (this.length < this.spending[1].upholsterer.threshold) {
+    if (this.totalLength() < this.spending[1].upholsterer.threshold) {
       return this.spending[1].upholsterer.first
     } else {
       return this.spending[1].upholsterer.second
@@ -40,7 +45,7 @@ class ClassWorks {
 
   // Швея
   calcSeamstress () {
-    if (this.length < this.spending[4].seamstress.threshold) {
+    if (this.totalLength() < this.spending[4].seamstress.threshold) {
       return this.spending[4].seamstress.first
     } else {
       return this.spending[4].seamstress.second
@@ -49,7 +54,7 @@ class ClassWorks {
 
   // Аренда
   calcRent () {
-    if (this.length < this.spending[5].rent.threshold) {
+    if (this.totalLength() < this.spending[5].rent.threshold) {
       return this.spending[5].rent.first
     } else {
       return this.spending[5].rent.second
@@ -58,7 +63,7 @@ class ClassWorks {
 
   // Упаковка
   calcPackaging () {
-    if (this.length < this.spending[6].packaging.threshold) {
+    if (this.totalLength() < this.spending[6].packaging.threshold) {
       return this.spending[6].packaging.first
     } else {
       return this.spending[6].packaging.second
@@ -72,7 +77,7 @@ class ClassWorks {
   calcAllSpending () {
     return +this.calcWireframe() + +this.calcUpholsterer() +
       +this.calcSeamstress() + +this.calcRent() + +this.calcPackaging() +
-        +this.calcWelder()
+      +this.calcWelder()
   }
 }
-module.exports = ClassWorks
+module.exports = ClassWorksBoth

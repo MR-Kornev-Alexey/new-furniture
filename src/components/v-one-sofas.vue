@@ -54,7 +54,7 @@ export default {
   }),
   methods: {
     ...mapActions([
-      'GET_ALL_SOFAS_FROM_API'
+      'GET_ONE_SOFA_FROM_API'
     ])
   },
   computed: {
@@ -64,15 +64,10 @@ export default {
   },
   mounted () {
     const slugOfSofa = this.$route.query.sofa
-    this.GET_ALL_SOFAS_FROM_API().then(
+    this.GET_ONE_SOFA_FROM_API(slugOfSofa).then(
       (res) => {
         if (res) {
-          for (let item = 0; item < this.SET_ALL_SOFAS.length; item++) {
-            if (this.SET_ALL_SOFAS[item].slug === slugOfSofa) {
-              this.nameOfSofa = this.SET_ALL_SOFAS[item].name
-            }
-          }
-          this.$refs.childComponent.getDataOneSofa(slugOfSofa)
+          this.$refs.childComponent.getDataOneSofa()
         }
       }
     ).catch((error) => {
