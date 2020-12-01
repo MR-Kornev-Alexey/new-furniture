@@ -101,7 +101,6 @@ export default new Vuex.Store({
           })
       })
     },
-
     GET_ONE_SOFA_FROM_API ({ commit }, data) {
       const url = 'http://sdelay.online/api/products/sofa/' + data
       return axios.get(url)
